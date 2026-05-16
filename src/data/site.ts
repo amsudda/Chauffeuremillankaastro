@@ -1,5 +1,5 @@
 export const SITE = {
-  name:        'ChauffeurEmilLankaTour',
+  name:        'Chauffeur Emil Lanka Tours',
   tagline:     'Sri Lanka Through The Eyes of Emil',
   description: 'Private chauffeur-guided Sri Lanka tours with Emil Jayasekara — wildlife safaris, cultural journeys, beach escapes & custom itineraries crafted for discerning travellers.',
   url:         'https://www.chauffeuremillankatour.com',
@@ -17,7 +17,7 @@ export const SITE = {
   social: {
     instagram: 'https://instagram.com/chauffeuremillankatour',
     facebook:  'https://facebook.com/chauffeuremillankatour',
-    tripadvisor: '#',
+    tripadvisor: 'https://www.tripadvisor.com/Attraction_Review-g1500185-d15242639-Reviews-Chauffeur_Emil_Lanka_Tours-Katunayake_Negombo_Western_Province.html',
   },
   trustBadges: [
     { icon: '⭐', label: '5-Star Rated', sub: '300+ Reviews' },
