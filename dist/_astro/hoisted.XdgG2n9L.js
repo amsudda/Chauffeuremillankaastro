@@ -1,0 +1,1 @@
+import"./hoisted.BtLLDo98.js";const t=document.getElementById("hero-img");t&&window.addEventListener("scroll",()=>{const e=window.scrollY;e<window.innerHeight&&(t.style.transform=`scale(1.05) translateY(${e*.25}px)`)},{passive:!0});

@@ -1,0 +1,132 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppButton from '../components/ui/WhatsAppButton.astro';
+import { SITE } from '../data/site';
+
+interface Props {
+  title?:       string;
+  description?: string;
+  image?:       string;
+  type?:        string;
+  canonical?:   string;
+  noindex?:     boolean;
+}
+
+const {
+  title       = SITE.name,
+  description = SITE.description,
+  image       = '/images/og-default.jpg',
+  type        = 'website',
+  canonical   = Astro.url.href,
+  noindex     = false,
+} = Astro.props;
+
+const fullTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
+const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary Meta -->
+  <title>{fullTitle}</title>
+  <meta name="description"     content={description} />
+  <meta name="author"          content="Emil Jayasekara — Chauffeur Emillan Katour" />
+  <meta name="robots"          content={noindex ? 'noindex,nofollow' : 'index,follow'} />
+  <link rel="canonical"        href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content={type} />
+  <meta property="og:url"         content={canonical} />
+  <meta property="og:title"       content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image"       content={ogImage} />
+  <meta property="og:site_name"   content={SITE.name} />
+  <meta property="og:locale"      content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image"       content={ogImage} />
+
+  <!-- Geo & Business -->
+  <meta name="geo.region"   content="LK" />
+  <meta name="geo.country"  content="Sri Lanka" />
+  <meta name="keywords"     content="Sri Lanka private tour, chauffeur guide, safari, cultural tour, Emil Jayasekara, luxury travel, Yala, Sigiriya, Ella" />
+
+  <!-- Schema.org — Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TourOperator",
+    "name": "Chauffeur Emillan Katour",
+    "description": "Private chauffeur-guided Sri Lanka tours with Emil Jayasekara",
+    "url": "https://www.chauffeuremillankatour.com",
+    "telephone": "+94771234567",
+    "email": "emil@chauffeuremillankatour.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "LK",
+      "addressRegion": "Western Province"
+    },
+    "sameAs": [
+      "https://instagram.com/chauffeuremillankatour",
+      "https://facebook.com/chauffeuremillankatour"
+    ],
+    "priceRange": "$$",
+    "image": "https://www.chauffeuremillankatour.com/images/og-default.jpg",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "312"
+    }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon"             type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon"             type="image/x-icon"  href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest"         href="/site.webmanifest" />
+  <meta name="theme-color"     content="#1B3A2D" />
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <Header />
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <Footer />
+  <WhatsAppButton />
+
+  <!-- Scroll reveal script -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

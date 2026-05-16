@@ -1,0 +1,10 @@
+{
+  "name": "Chauffeur Emillan Katour",
+  "short_name": "Emillan Katour",
+  "description": "Private chauffeur-guided Sri Lanka tours with Emil Jayasekara",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F3EC",
+  "theme_color": "#1B3A2D",
+  "icons": []
+}

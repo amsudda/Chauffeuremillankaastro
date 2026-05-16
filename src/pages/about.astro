@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+import { SITE } from '../data/site';
+import { img } from '../data/imageUrls';
+
+const galleryItems = [
+  { src: img('Emil images himself/emil 5.webp'),    alt: 'Emil on safari jeep with guests, elephant herd at Minneriya behind them',     caption: 'The Gathering — Minneriya' },
+  { src: img('Emil images himself/emil group.webp'), alt: 'Emil welcoming guests at Colombo airport with traditional flower garlands',   caption: 'Airport welcome, Colombo' },
+  { src: img('Emil images himself/emil 4.webp'),    alt: 'Emil with guests at Mihintale at sunset',                                      caption: 'Mihintale sunset climb' },
+  { src: img('emil 1.webp'),                         alt: 'Emil carrying a young guest on his shoulders on a jungle trail',               caption: 'Little adventurers welcome' },
+  { src: img('sigiriya.jpg'),                        alt: 'Sigiriya Rock Fortress rising above the jungle',                              caption: 'Sigiriya Rock Fortress' },
+  { src: img('Emil images himself/emil 6.webp'),    alt: 'Emil with a couple at Ravana Falls',                                           caption: 'Ravana Falls, Ella' },
+  { src: img('Emil images himself/emil 7.webp'),    alt: 'Emil on a Madu River mangrove boat safari',                                    caption: 'Madu River mangroves' },
+  { src: img('ella scenic train ride.jpg'),          alt: 'Scenic hill train winding through Sri Lanka tea country',                     caption: 'The iconic hill train' },
+  { src: img('Emil images himself/emil 9.webp'),    alt: 'Emil and guests sheltering under a blue umbrella in the highlands',            caption: 'Rain or shine — we explore' },
+  { src: img('destinations/Ella/ella 1 nine arch.webp'), alt: 'Nine Arches Bridge Ella with train passing through',                     caption: 'Nine Arches Bridge, Ella' },
+  { src: img('Emil images himself/emil 12.webp'),   alt: 'Emil with guests at the Welcome to Sri Lanka airport sign',                    caption: 'Welcome to Sri Lanka!' },
+  { src: img('yala-safari.jpg'),                     alt: 'Yala National Park open jeep safari',                                         caption: 'Yala National Park safari' },
+  { src: img('Emil images himself/emil 11.webp'),   alt: 'Emil selfie with guests at Wilpattu National Park',                            caption: 'Wilpattu safari day' },
+  { src: img('Emil images himself/emil 3.webp'),    alt: 'Emil with family guests beside the tour vehicle',                              caption: 'Ready for adventure' },
+  { src: img('Emil images himself/emil 10.webp'),   alt: 'Emil with guests in front of the tour car',                                    caption: 'Every journey starts here' },
+  { src: img('Emil images himself/emil 8.webp'),    alt: 'Emil standing at the Ella Gap mountain viewpoint',                             caption: 'Emil at the Ella Gap' },
+];
+---
+
+<BaseLayout
+  title="About Emil Jayasekara | Chauffeur Emillan Katour Sri Lanka"
+  description="Meet Emil Jayasekara — Sri Lanka's most trusted private chauffeur guide with 14+ years experience. SLTDA certified, 300+ five-star reviews, fully insured private tours."
+>
+  <!-- Page hero -->
+  <section class="relative min-h-screen-60 flex items-end pb-16 overflow-hidden" aria-label="About hero">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1606847934977-a0d4618a2fd3?w=1400&q=80&fit=crop"
+        alt="Sri Lanka tea country landscape"
+        class="w-full h-full object-cover"
+        loading="eager"
+        width="1400" height="900"
+      />
+      <div class="absolute inset-0 bg-hero-overlay"></div>
+    </div>
+    <div class="relative z-10 section-wrap">
+      <p class="section-eyebrow">Our Story</p>
+      <h1 class="font-display text-5xl sm:text-6xl text-ivory mb-4 leading-tight">
+        About Emil &<br/>Emillan Katour
+      </h1>
+      <p class="text-white/70 text-lg max-w-xl">
+        One guide. Fourteen years. Thousands of unforgettable journeys across the Pearl of the Indian Ocean.
+      </p>
+    </div>
+  </section>
+
+  <!-- Emil's story section -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap">
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="reveal">
+          <p class="section-eyebrow">The Guide Behind the Journey</p>
+          <h2 class="section-title mb-6">Emil Jayasekara</h2>
+          <p class="text-warmgray leading-relaxed text-lg mb-5">
+            Born and raised in Anuradhapura — Sri Lanka's ancient sacred capital — Emil Jayasekara
+            grew up surrounded by 2,000-year-old dagobas, sacred bo trees, and a deep sense of the
+            island's history. That connection to the land shaped everything. Long before he ever guided
+            his first visitor, Sri Lanka was simply home. At 22, he traded a desk job for the open
+            road and never looked back.
+          </p>
+          <p class="text-warmgray leading-relaxed mb-5">
+            Over 14 years, Emil has guided over 3,000 visitors from more than 40 countries —
+            families, honeymooners, wildlife photographers, solo adventurers, and everyone in between.
+            His unique philosophy is simple: <em class="not-italic text-forest-700 font-medium">every person deserves to see Sri Lanka the way locals see it.</em>
+          </p>
+          <p class="text-warmgray leading-relaxed mb-8">
+            Today, Emil personally leads every single tour. No subcontractors, no third-party guides.
+            When you book with Chauffeur Emillan Katour, you travel with Emil — the man who answered
+            your first message, designed your itinerary, and genuinely cares that you leave with a
+            full heart.
+          </p>
+
+          <!-- Credentials grid -->
+          <div class="grid grid-cols-2 gap-3">
+            {[
+              { label: 'SLTDA Certified', icon: '🏅' },
+              { label: 'Wildlife Tracker', icon: '🐆' },
+              { label: 'Fluent English', icon: '🗣️' },
+              { label: '14+ Years Experience', icon: '⭐' },
+              { label: 'Eco Guide Certified', icon: '🌿' },
+              { label: 'First Aid Trained', icon: '🩺' },
+            ].map(c => (
+              <div class="flex items-center gap-2.5 bg-white border border-stone rounded-xl p-3 shadow-card">
+                <span class="text-xl" aria-hidden="true">{c.icon}</span>
+                <span class="text-forest-700 font-medium text-sm">{c.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal relative">
+          <div class="rounded-3xl overflow-hidden shadow-card-hover">
+            <img
+              src={img('Emil images himself/emil 8.webp')}
+              alt="Emil Jayasekara — Sri Lanka private chauffeur guide at the Ella Gap viewpoint"
+              loading="lazy"
+              width="700"
+              height="850"
+              class="w-full h-[550px] object-cover object-center"
+            />
+          </div>
+          <!-- Stats floating card -->
+          <div class="absolute -bottom-6 left-6 right-6 bg-forest-gradient rounded-2xl p-5 shadow-glass text-white">
+            <div class="grid grid-cols-3 gap-4 text-center">
+              {[
+                { value: '14+', label: 'Years Guiding' },
+                { value: '3,000+', label: 'Happy Guests' },
+                { value: '40+', label: 'Countries Served' },
+              ].map(s => (
+                <div>
+                  <p class="font-display font-bold text-2xl text-gold-300">{s.value}</p>
+                  <p class="text-white/60 text-xs">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emil's philosophy -->
+      <div class="mt-16 bg-white rounded-3xl border border-stone shadow-card p-8 sm:p-12 reveal">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="text-5xl mb-6 block" aria-hidden="true">✦</span>
+          <blockquote class="font-accent text-2xl sm:text-3xl text-forest-700 italic leading-relaxed mb-6">
+            "Sri Lanka is not just a destination — it is a feeling. My job is to make sure
+            every person I guide carries that feeling home with them forever."
+          </blockquote>
+          <cite class="text-warmgray text-sm not-italic">— Emil Jayasekara, Founder & Chief Guide</cite>
+        </div>
+      </div>
+
+      <!-- What makes us different -->
+      <div class="mt-20">
+        <h2 class="section-title text-center mb-12 reveal">The Emillan Katour Difference</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { icon: '👤', title: 'Emil. Always Emil.', body: 'No pool guides. No reassignments. The guide who designs your tour is the guide who leads it. Every time.' },
+            { icon: '🏎️', title: 'Premium Private Vehicles', body: 'Air-conditioned Toyota KDH or Land Cruiser for comfort across all road conditions. USB charging, refreshment cooler included.' },
+            { icon: '🌍', title: 'Truly International Experience', body: 'Emil has guided guests from over 40 countries and understands how to serve different cultural preferences and travel styles.' },
+            { icon: '📱', title: 'Always Reachable', body: 'Emil provides his direct WhatsApp for the duration of your trip. Any question, any time — he\'s there.' },
+            { icon: '🎯', title: 'Zero Compromise on Quality', body: 'Every hotel, every restaurant, every experience is personally vetted. If Emil wouldn\'t send his own family there, he won\'t send you.' },
+            { icon: '💚', title: 'Ethical & Sustainable', body: 'Community-supporting stops, responsible wildlife viewing standards, zero-plastic safari policy, and support for local artisans on every tour.' },
+          ].map((item, i) => (
+            <div class="bg-white rounded-2xl p-6 border border-stone shadow-card hover:shadow-card-hover
+                        transition-shadow duration-300 reveal" style={`animation-delay:${i * 80}ms`}>
+              <div class="text-3xl mb-4" aria-hidden="true">{item.icon}</div>
+              <h3 class="font-display text-forest-700 text-lg mb-2">{item.title}</h3>
+              <p class="text-warmgray text-sm leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pinterest gallery -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Life on Tour</p>
+        <h2 class="section-title mb-3">Emil in the Field</h2>
+        <p class="text-warmgray max-w-xl mx-auto text-sm leading-relaxed">
+          Real moments, real places, real people — captured across Sri Lanka's most beautiful corners.
+          Every photo tells the story of a journey shared.
+        </p>
+      </div>
+
+      <!-- Masonry grid -->
+      <div class="columns-2 sm:columns-3 lg:columns-4 gap-3 sm:gap-4">
+        {galleryItems.map((item, i) => (
+          <div
+            class="break-inside-avoid mb-3 sm:mb-4 rounded-2xl overflow-hidden group relative cursor-pointer reveal"
+            style={`animation-delay:${i * 40}ms`}
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 block"
+            />
+            <!-- Caption overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-700/80 via-forest-700/10 to-transparent
+                        opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+              <p class="text-white text-xs font-medium px-3 pb-3 leading-snug">{item.caption}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact strip -->
+  <section class="py-12 bg-stone/30 border-y border-stone">
+    <div class="section-wrap">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <p class="font-display text-forest-700 text-xl mb-1">Ready to travel with Emil?</p>
+          <p class="text-warmgray text-sm">Send a message and receive a personalised itinerary within 24 hours.</p>
+        </div>
+        <div class="flex gap-3 flex-shrink-0">
+          <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+             class="flex items-center gap-2 bg-[#25D366] text-white font-semibold px-5 py-2.5 rounded-full text-sm">
+            WhatsApp Emil
+          </a>
+          <a href="/contact" class="btn-outline-forest py-2.5 px-5 text-sm">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>

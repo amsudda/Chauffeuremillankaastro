@@ -1,0 +1,126 @@
+import { useState } from 'react';
+
+const FAQS = [
+  {
+    q: 'What is included in a private chauffeur tour with Emil?',
+    a: 'All tours include Emil as your personal chauffeur guide, a private air-conditioned vehicle, accommodation as specified, daily breakfast, all entrance fees (monuments, parks, safaris), airport transfers, and all applicable taxes. There are no hidden fees.',
+  },
+  {
+    q: 'Can I customise any of the tour itineraries?',
+    a: 'Absolutely — every itinerary is a starting point, not a fixed script. Tell Emil your interests, preferred pace, accommodation budget, and must-see experiences, and he\'ll redesign the route around you. Customisation is free and unlimited.',
+  },
+  {
+    q: 'How do I book a tour and what is the payment process?',
+    a: 'Contact Emil directly via WhatsApp, the inquiry form, or email. He\'ll confirm availability, answer your questions, and send a formal quote within 24 hours. A 30% deposit secures your dates, with the balance due 14 days before your tour starts.',
+  },
+  {
+    q: 'What is the best time of year to visit Sri Lanka?',
+    a: 'Sri Lanka has two monsoon seasons affecting different coasts. The south and west (Colombo, Galle, Mirissa) are best from December to March. The east coast (Trincomalee, Arugam Bay) is perfect June to September. The Cultural Triangle and Hill Country are accessible year-round with occasional showers. Emil will advise the best dates for your specific route.',
+  },
+  {
+    q: 'Is Sri Lanka safe for tourists?',
+    a: 'Sri Lanka is a very safe and welcoming country for tourists. Emil monitors all security and travel advisories and maintains full insurance coverage. He\'s been guiding international visitors for 14 years without incident and your safety is his highest priority.',
+  },
+  {
+    q: 'How many people can join a private tour?',
+    a: 'Emil operates exclusively private tours — no shared groups ever. The standard vehicle comfortably seats 2–4 guests. For families or groups of 5+, Emil arranges a larger vehicle or coordinates a second guide. Tours remain 100% private regardless of group size.',
+  },
+  {
+    q: 'What types of accommodation do you use?',
+    a: 'Emil works with a curated network of boutique hotels, luxury eco-lodges, colonial bungalows, and jungle camps — all personally vetted. Your accommodation can be adjusted to any budget from comfortable guesthouse to full luxury. He\'ll show you options at every tier before you confirm.',
+  },
+  {
+    q: 'What is your cancellation policy?',
+    a: 'Cancellations made 30+ days before departure receive a full refund of the deposit. 15–29 days: 50% refund. Under 14 days: no refund. Emil strongly recommends travel insurance, which can cover unforeseen cancellations on your end. All cancellations are handled with full transparency and fairness.',
+  },
+];
+
+export default function FAQ() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  return (
+    <section className="py-20 sm:py-28 bg-ivory" aria-labelledby="faq-heading">
+      <div className="section-wrap">
+        <div className="max-w-3xl mx-auto">
+
+          {/* Header */}
+          <div className="text-center mb-12">
+            <p className="section-eyebrow">Got Questions?</p>
+            <h2 id="faq-heading" className="section-title mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-warmgray">
+              Everything you need to know before booking. Can't find your answer?{' '}
+              <a href="/contact" className="text-forest-600 font-medium underline underline-offset-2 hover:text-sunset-400">
+                Ask Emil directly.
+              </a>
+            </p>
+          </div>
+
+          {/* Accordion */}
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <div
+                key={i}
+                className={`day-card transition-all duration-200 ${open === i ? 'accordion-open' : ''}`}
+              >
+                <button
+                  onClick={() => setOpen(open === i ? null : i)}
+                  className="w-full flex items-start gap-4 p-5 sm:p-6 text-left"
+                  aria-expanded={open === i}
+                  aria-controls={`faq-panel-${i}`}
+                >
+                  <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm
+                                   font-bold transition-colors duration-300 mt-0.5
+                                   ${open === i
+                                     ? 'bg-forest-600 text-white'
+                                     : 'bg-forest-600/10 text-forest-600'}`}>
+                    {open === i ? '−' : '+'}
+                  </span>
+                  <span className={`font-semibold leading-snug transition-colors duration-200
+                                   ${open === i ? 'text-forest-700' : 'text-warmbrown'}`}
+                        style={{ fontFamily: "'Playfair Display',serif" }}>
+                    {faq.q}
+                  </span>
+                </button>
+                <div
+                  id={`faq-panel-${i}`}
+                  role="region"
+                  className={`overflow-hidden transition-all duration-400 ease-in-out
+                              ${open === i ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}
+                >
+                  <p className="px-5 sm:px-6 pb-5 sm:pb-6 pl-16 sm:pl-[4.25rem] text-warmgray
+                                leading-relaxed text-sm sm:text-base">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-10 bg-forest-600/8 border border-forest-200 rounded-2xl p-6 text-center">
+            <p className="text-forest-700 font-semibold mb-1">Still have questions?</p>
+            <p className="text-warmgray text-sm mb-4">Emil typically responds within 2 hours via WhatsApp.</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href={`https://wa.me/94771234567?text=Hello%20Emil%2C%20I%20have%20a%20question%20about%20your%20tours`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary py-2.5 px-6 text-sm"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp Emil
+              </a>
+              <a href="/contact" className="btn-outline-forest py-2.5 px-6 text-sm">
+                Send a Message
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

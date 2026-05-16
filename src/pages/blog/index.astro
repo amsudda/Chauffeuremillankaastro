@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllPosts } from '../../lib/contentful';
+
+const posts = await getAllPosts();
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
+
+// Normalise language so undefined → 'English'
+const normalisedPosts = posts.map(p => ({
+  ...p,
+  lang: (p.category === 'German' || p.category === 'Deutsch') ? 'German' : 'English',
+}));
+
+// Embed post data as JSON for the client-side filter script
+const postsJson = JSON.stringify(normalisedPosts);
+---
+
+<BaseLayout
+  title="Sri Lanka Travel Blog | Tips, Itineraries & Guides | ChauffeurEmilLankaTour"
+  description="Expert Sri Lanka travel tips, destination guides, and itinerary ideas from Emil Jayasekara — your private chauffeur guide with 14+ years on the island."
+>
+  <!-- Hero -->
+  <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=20&fit=crop); background-size: cover;">
+    </div>
+    <div class="relative z-10 section-wrap text-center">
+      <p class="section-eyebrow">From Emil's Notebook</p>
+      <h1 class="font-display text-4xl sm:text-5xl text-ivory mb-4">Sri Lanka Travel Blog</h1>
+      <p class="text-white/70 text-lg max-w-lg mx-auto">
+        Destination guides, hidden gems, safari tips, and travel inspiration — written by Emil from the road.
+      </p>
+    </div>
+  </section>
+
+  <!-- Posts grid -->
+  <section class="py-16 sm:py-24 bg-ivory">
+    <div class="section-wrap">
+
+      {posts.length === 0 ? (
+        <div class="text-center py-24">
+          <p class="text-warmgray text-lg">No posts yet — check back soon!</p>
+          <a href="/" class="mt-6 inline-block btn-primary py-3 px-6 text-sm">Back to Home</a>
+        </div>
+      ) : (
+        <>
+          <!-- Language filter -->
+          <div class="flex items-center gap-3 mb-10 flex-wrap">
+            <span class="text-xs font-semibold text-warmgray uppercase tracking-wider mr-1">Read in:</span>
+            {['All', 'English', 'German'].map(lang => (
+              <button
+                data-lang={lang}
+                class="lang-btn px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200
+                       border-stone text-warmgray hover:border-forest-600 hover:text-forest-700"
+              >
+                {lang === 'All'     ? '🌍 All'     :
+                 lang === 'English' ? '🇬🇧 English' :
+                                     '🇩🇪 Deutsch'}
+              </button>
+            ))}
+            <span id="post-count" class="ml-auto text-xs text-warmgray"></span>
+          </div>
+
+          <!-- Featured post (shown only when filter = All or matches lang) -->
+          <div id="featured-wrap" class="mb-14">
+            {normalisedPosts[0] && (
+              <a
+                href={`/blog/${normalisedPosts[0].slug}`}
+                data-lang={normalisedPosts[0].lang}
+                class="featured-post group block bg-white rounded-3xl shadow-card hover:shadow-card-hover
+                       transition-all duration-300 overflow-hidden"
+              >
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                  {normalisedPosts[0].coverImage && (
+                    <div class="relative h-64 lg:h-auto overflow-hidden">
+                      <img
+                        src={normalisedPosts[0].coverImage}
+                        alt={normalisedPosts[0].title}
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="eager"
+                      />
+                      <span class="absolute top-4 left-4 bg-gold-400 text-forest-700 text-xs font-bold
+                                   px-3 py-1 rounded-full uppercase tracking-wide">
+                        ⭐ Featured
+                      </span>
+                      <span class={`absolute top-4 right-4 text-xs font-semibold px-2.5 py-1 rounded-full
+                                   ${normalisedPosts[0].lang === 'German'
+                                     ? 'bg-black/60 text-white'
+                                     : 'bg-blue-600/80 text-white'}`}>
+                        {normalisedPosts[0].lang === 'German' ? '🇩🇪 Deutsch' : '🇬🇧 English'}
+                      </span>
+                    </div>
+                  )}
+                  <div class="p-8 lg:p-12 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-4">
+                      <span class="text-xs font-semibold text-gold-600 uppercase tracking-wider">
+                        {normalisedPosts[0].lang}
+                      </span>
+                      <span class="text-stone">·</span>
+                      <span class="text-xs text-warmgray">{normalisedPosts[0].readTime}</span>
+                    </div>
+                    <h2 class="font-display text-2xl sm:text-3xl text-forest-700 mb-3
+                               group-hover:text-sunset-400 transition-colors leading-tight">
+                      {normalisedPosts[0].title}
+                    </h2>
+                    <p class="text-warmgray leading-relaxed mb-6 line-clamp-3">{normalisedPosts[0].excerpt}</p>
+                    <div class="flex items-center gap-3">
+                      <div class="w-8 h-8 rounded-full bg-forest-600 flex items-center justify-center text-white text-xs font-bold">
+                        E
+                      </div>
+                      <div>
+                        <p class="text-xs font-semibold text-forest-700">Emil Jayasekara</p>
+                        <p class="text-xs text-warmgray">{formatDate(normalisedPosts[0].publishedAt)}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            )}
+          </div>
+
+          <!-- Posts grid -->
+          <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {normalisedPosts.slice(1).map(post => (
+              <a
+                href={`/blog/${post.slug}`}
+                data-lang={post.lang}
+                class="post-card group bg-white rounded-2xl shadow-card hover:shadow-card-hover
+                       transition-all duration-300 overflow-hidden flex flex-col"
+              >
+                {post.coverImage && (
+                  <div class="relative h-52 overflow-hidden flex-shrink-0">
+                    <img
+                      src={post.coverImage}
+                      alt={post.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <span class="absolute top-3 left-3 bg-forest-700/80 backdrop-blur-sm
+                                 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">
+                      {post.lang === 'German' ? '🇩🇪 Deutsch' : '🇬🇧 English'}
+                    </span>
+                  </div>
+                )}
+                <div class="p-6 flex flex-col flex-1">
+                  <h3 class="font-display text-lg text-forest-700 mb-2 leading-snug
+                             group-hover:text-sunset-400 transition-colors line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <p class="text-warmgray text-sm leading-relaxed line-clamp-3 flex-1">
+                    {post.excerpt}
+                  </p>
+                  <div class="flex items-center justify-between mt-4 pt-4 border-t border-stone">
+                    <span class="text-xs text-warmgray">{formatDate(post.publishedAt)}</span>
+                    <span class="text-xs text-warmgray">{post.readTime}</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <!-- Empty state for filter -->
+          <div id="no-results" class="hidden text-center py-16">
+            <p class="text-warmgray text-lg">No posts in this language yet — check back soon!</p>
+          </div>
+        </>
+      )}
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-forest-gradient text-center">
+    <div class="section-wrap max-w-xl mx-auto">
+      <h2 class="font-display text-3xl text-ivory mb-3">Ready to Experience Sri Lanka?</h2>
+      <p class="text-white/70 mb-8">
+        Turn inspiration into a real journey — Emil will craft a private tour tailored to your dates and interests.
+      </p>
+      <a href="/tailor-made" class="btn-primary inline-flex">Plan My Tour with Emil</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const buttons      = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
+  const cards        = document.querySelectorAll<HTMLElement>('.post-card');
+  const featuredWrap = document.getElementById('featured-wrap');
+  const featuredPost = document.querySelector<HTMLElement>('.featured-post');
+  const noResults    = document.getElementById('no-results');
+  const countEl      = document.getElementById('post-count');
+
+  function applyFilter(selected: string) {
+    // Update button active styles
+    buttons.forEach(btn => {
+      const active = btn.dataset.lang === selected;
+      btn.classList.toggle('bg-forest-600',   active);
+      btn.classList.toggle('text-white',       active);
+      btn.classList.toggle('border-forest-600', active);
+      btn.classList.toggle('text-warmgray',    !active);
+      btn.classList.toggle('border-stone',     !active);
+    });
+
+    // Filter featured post
+    if (featuredPost && featuredWrap) {
+      const lang = featuredPost.dataset.lang ?? 'English';
+      const show = selected === 'All' || lang === selected;
+      featuredWrap.style.display = show ? '' : 'none';
+    }
+
+    // Filter grid cards
+    let visible = 0;
+    cards.forEach(card => {
+      const lang = card.dataset.lang ?? 'English';
+      const show = selected === 'All' || lang === selected;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    // Count includes featured if visible
+    const featuredVisible = featuredWrap?.style.display !== 'none' ? 1 : 0;
+    const total = visible + featuredVisible;
+    if (countEl) countEl.textContent = `${total} post${total !== 1 ? 's' : ''}`;
+
+    // No-results state
+    if (noResults) noResults.classList.toggle('hidden', total > 0);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.lang ?? 'All'));
+  });
+
+  // Default: show all
+  applyFilter('All');
+</script>

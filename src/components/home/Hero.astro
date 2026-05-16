@@ -1,0 +1,124 @@
+---
+import { SITE } from '../../data/site';
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-end pb-16 sm:pb-24 lg:pb-32 overflow-hidden"
+  aria-label="Hero section"
+>
+  <!-- Background image with parallax effect -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1800&q=85&fit=crop"
+      alt="Sigiriya Rock Fortress, Sri Lanka"
+      class="w-full h-full object-cover object-center scale-105"
+      loading="eager"
+      fetchpriority="high"
+      width="1800"
+      height="1200"
+      id="hero-img"
+    />
+    <!-- Cinematic overlay -->
+    <div class="absolute inset-0 bg-hero-overlay"></div>
+    <!-- Side vignette -->
+    <div class="absolute inset-0"
+         style="background: radial-gradient(ellipse at 50% 100%, transparent 40%, rgba(7,21,16,0.5) 100%)">
+    </div>
+  </div>
+
+  <!-- Floating scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden sm:flex flex-col items-center gap-2 animate-float">
+    <span class="text-white/50 text-[10px] tracking-[0.25em] uppercase">Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-white/50 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 section-wrap w-full">
+    <div class="max-w-3xl">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-3 mb-6 animate-fade-in" style="animation-delay:0.2s;animation-fill-mode:both">
+        <div class="w-8 h-px bg-gold-400"></div>
+        <span class="text-gold-400 text-xs font-semibold tracking-[0.25em] uppercase"
+              style="font-family:'Inter',sans-serif">
+          Private Chauffeur Tours · Sri Lanka
+        </span>
+      </div>
+
+      <!-- Main headline -->
+      <h1
+        class="font-display text-hero text-white mb-6 text-balance animate-slide-up"
+        style="animation-delay:0.35s;animation-fill-mode:both"
+      >
+        Discover Sri Lanka<br/>
+        <em class="not-italic text-gold-300">Through Emil's Eyes</em>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p
+        class="text-white/75 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl animate-slide-up"
+        style="animation-delay:0.5s;animation-fill-mode:both"
+      >
+        Private chauffeur journeys through ancient kingdoms, misty tea mountains,
+        wild leopard territory, and turquoise shores — curated by Emil Jayasekara,
+        {SITE.guide.experience} on the road.
+      </p>
+
+      <!-- CTA Row -->
+      <div
+        class="flex flex-wrap gap-4 mb-12 animate-slide-up"
+        style="animation-delay:0.65s;animation-fill-mode:both"
+      >
+        <a href="/tours" class="btn-primary text-base px-8 py-4">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+          Explore All Tours
+        </a>
+        <a href="/tailor-made" class="btn-secondary text-base px-8 py-4">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          </svg>
+          Customise My Trip
+        </a>
+      </div>
+
+      <!-- Trust micro-bar -->
+      <div
+        class="flex flex-wrap items-center gap-5 sm:gap-7 animate-fade-in"
+        style="animation-delay:0.8s;animation-fill-mode:both"
+      >
+        <div class="flex items-center gap-2">
+          <div class="flex -space-x-1">
+            {[1,2,3,4,5].map(_ => (
+              <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <span class="text-white/70 text-sm">5.0 · 312 reviews</span>
+        </div>
+        <div class="w-px h-4 bg-white/20 hidden sm:block"></div>
+        <span class="text-white/60 text-sm">SLTDA Certified</span>
+        <div class="w-px h-4 bg-white/20 hidden sm:block"></div>
+        <span class="text-white/60 text-sm">100% Private</span>
+        <div class="w-px h-4 bg-white/20 hidden sm:block"></div>
+        <span class="text-white/60 text-sm">Free Customisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Subtle parallax on scroll
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroImg.style.transform = `scale(1.05) translateY(${y * 0.25}px)`;
+      }
+    }, { passive: true });
+  }
+</script>

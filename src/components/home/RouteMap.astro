@@ -1,0 +1,69 @@
+---
+import DestinationMap from './DestinationMap';
+
+const destinations = [
+  { name: 'Sigiriya',     icon: '🏰', desc: 'Rock Fortress' },
+  { name: 'Kandy',        icon: '🛕', desc: 'Temple of Tooth' },
+  { name: 'Nuwara Eliya', icon: '🌿', desc: 'Tea Country' },
+  { name: 'Ella',         icon: '⛰️', desc: 'Scenic Highlands' },
+  { name: 'Yala',         icon: '🐆', desc: 'Safari Park' },
+  { name: 'Mirissa',      icon: '🐋', desc: 'Whale Watching' },
+  { name: 'Galle',        icon: '🏯', desc: 'Dutch Fort' },
+  { name: 'Colombo',      icon: '🏙️', desc: 'Capital City' },
+  { name: 'Anuradhapura', icon: '🌸', desc: 'Ancient City' },
+  { name: 'Polonnaruwa',  icon: '🗿', desc: 'Medieval Kingdom' },
+  { name: 'Trincomalee',  icon: '🌊', desc: 'East Coast' },
+  { name: 'Dambulla',     icon: '🪨', desc: 'Cave Temple' },
+  { name: 'Udawalawe',    icon: '🐘', desc: 'Elephant Safari' },
+  { name: 'Wilpattu',     icon: '🐅', desc: 'Leopard Country' },
+  { name: 'Sinharaja',    icon: '🌳', desc: 'UNESCO Rainforest' },
+  { name: 'Negombo',      icon: '✈️', desc: 'Gateway & Beach' },
+  { name: 'Bentota',      icon: '🏖️', desc: 'Beach & River' },
+  { name: 'Mihintale',    icon: '☸️', desc: 'Buddhist Sacred Site' },
+];
+---
+
+<section id="map" class="py-20 sm:py-28 bg-stone/30" aria-labelledby="map-heading">
+  <div class="section-wrap">
+
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <p class="section-eyebrow">The Island Awaits</p>
+      <h2 id="map-heading" class="section-title mb-4">
+        Sri Lanka's Iconic Destinations
+      </h2>
+      <p class="text-warmgray max-w-md mx-auto">
+        Every dot on this map is a story Emil knows by heart.
+        Your itinerary connects them in the most beautiful way possible.
+      </p>
+    </div>
+
+    <!-- Map container -->
+    <div class="reveal max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-card border border-forest-200">
+      <DestinationMap client:only="react" />
+    </div>
+    <p class="text-center text-warmgray/60 text-xs mt-3">Click any pin to learn more · Scroll with Ctrl to zoom</p>
+
+    <!-- Destination quick list -->
+    <div class="mt-10 flex flex-wrap justify-center gap-3 reveal">
+      {destinations.map(d => (
+        <span class="flex items-center gap-2 bg-white border border-stone rounded-full
+                     px-4 py-2 text-sm text-forest-700 font-medium shadow-card hover:shadow-card-hover
+                     hover:border-gold-300 transition-all duration-200 cursor-default">
+          <span aria-hidden="true">{d.icon}</span>
+          {d.name}
+        </span>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-10 text-center reveal">
+      <a href="/contact" class="btn-primary">
+        Plan My Route with Emil
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

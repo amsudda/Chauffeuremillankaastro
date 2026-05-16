@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import TrustBar from '../components/home/TrustBar.astro';
+import TourCategories from '../components/home/TourCategories.astro';
+import FeaturedTours from '../components/home/FeaturedTours.astro';
+import WhyUs from '../components/home/WhyUs.astro';
+import Testimonials from '../components/home/Testimonials';
+import RouteMap from '../components/home/RouteMap.astro';
+import FAQ from '../components/home/FAQ';
+import CTABanner from '../components/home/CTABanner.astro';
+import { SITE } from '../data/site';
+---
+
+<BaseLayout
+  title={`${SITE.name} | Private Chauffeur Tours Sri Lanka`}
+  description={SITE.description}
+>
+  <!-- 1. Cinematic Hero -->
+  <Hero />
+
+  <!-- 2. Trust indicators bar -->
+  <TrustBar />
+
+  <!-- 3. Tour category cards -->
+  <TourCategories />
+
+  <!-- 4. Featured tours -->
+  <FeaturedTours />
+
+  <!-- 5. Why travel with Emil -->
+  <WhyUs />
+
+  <!-- 6. Testimonials slider -->
+  <Testimonials client:visible />
+
+  <!-- 7. Interactive route map -->
+  <RouteMap />
+
+  <!-- 8. FAQ accordion -->
+  <FAQ client:visible />
+
+  <!-- 9. Final CTA banner -->
+  <CTABanner />
+</BaseLayout>

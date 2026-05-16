@@ -1,0 +1,19 @@
+---
+import { SITE } from '../../data/site';
+---
+
+<section class="bg-forest-700 py-6 sm:py-8" aria-label="Trust indicators">
+  <div class="section-wrap">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
+      {SITE.trustBadges.map((badge) => (
+        <div class="flex items-center gap-3 lg:px-8 first:pl-0 last:pr-0">
+          <span class="text-3xl flex-shrink-0" aria-hidden="true">{badge.icon}</span>
+          <div>
+            <div class="text-white font-semibold text-sm leading-tight">{badge.label}</div>
+            <div class="text-gold-300 text-xs mt-0.5">{badge.sub}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

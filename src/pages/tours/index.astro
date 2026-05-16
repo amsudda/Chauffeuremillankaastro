@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TourCard from '../../components/tours/TourCard.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import { TOURS, TOUR_CATEGORIES } from '../../data/tours';
+
+const categories = ['All', 'Wildlife Safari', 'Cultural Tour', 'Hill Country', 'Beach Holiday', 'Custom Itinerary'];
+---
+
+<BaseLayout
+  title="Sri Lanka Private Tours | Chauffeur Emillan Katour"
+  description="Browse all private chauffeur tours in Sri Lanka — wildlife safaris, cultural journeys, hill country escapes, beach holidays, and custom itineraries with Emil Jayasekara."
+>
+  <!-- Page hero -->
+  <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
+    <!-- Subtle texture overlay -->
+    <div class="absolute inset-0 opacity-10"
+         style="background-image: url(https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1200&q=30&fit=crop); background-size: cover; background-position: center">
+    </div>
+    <div class="absolute inset-0 bg-forest-gradient opacity-90"></div>
+
+    <div class="relative z-10 section-wrap text-center">
+      <p class="section-eyebrow">All Journeys</p>
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-ivory mb-5 leading-tight">
+        Sri Lanka Tours
+      </h1>
+      <p class="text-white/70 text-lg max-w-xl mx-auto leading-relaxed mb-8">
+        Every tour is private, every route designed by Emil, every experience unforgettable.
+        Choose from our curated selection or request a custom itinerary.
+      </p>
+      <a href="/contact?type=custom"
+         class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30
+                text-white font-semibold px-6 py-3 rounded-full text-sm hover:bg-white hover:text-forest-700
+                transition-all duration-300">
+        ✨ Design a Custom Tour
+      </a>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <div class="sticky top-16 lg:top-20 z-30 bg-ivory/95 backdrop-blur-md border-b border-stone shadow-sm">
+    <div class="section-wrap">
+      <div class="flex gap-2 py-3 overflow-x-auto scrollbar-hidden -mx-1 px-1">
+        {categories.map(cat => (
+          <button
+            data-filter={cat}
+            class={`filter-btn flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium
+                   transition-all duration-200 border
+                   ${cat === 'All'
+                     ? 'bg-forest-600 text-white border-forest-600'
+                     : 'bg-white text-warmgray border-stone hover:border-forest-300 hover:text-forest-700'}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Tours grid -->
+  <section class="py-14 sm:py-20 bg-stone/20" aria-label="Tour listing">
+    <div class="section-wrap">
+
+      <!-- Result count -->
+      <p class="text-warmgray text-sm mb-8" id="result-count">
+        Showing <strong class="text-forest-700">{TOURS.length}</strong> private tours
+      </p>
+
+      <div id="tours-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+        {TOURS.map((tour, i) => (
+          <div
+            class="reveal tour-item"
+            data-category={tour.category}
+            style={`animation-delay:${i * 80}ms`}
+          >
+            <TourCard tour={tour} />
+          </div>
+        ))}
+      </div>
+
+      <!-- No results -->
+      <div id="no-results" class="hidden text-center py-16">
+        <p class="text-warmgray text-lg mb-4">No tours found in this category.</p>
+        <a href="/contact?type=custom" class="btn-primary">
+          Request a Custom Tour
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom tour section -->
+  <section class="py-16 sm:py-20 bg-ivory">
+    <div class="section-wrap">
+      <div class="bg-forest-gradient rounded-3xl p-8 sm:p-12 text-center text-white">
+        <p class="text-gold-300 text-xs font-semibold tracking-[0.2em] uppercase mb-3">Can't Find What You're Looking For?</p>
+        <h2 class="font-display text-3xl sm:text-4xl mb-4">Design Your Dream Itinerary</h2>
+        <p class="text-white/70 max-w-lg mx-auto mb-8 leading-relaxed">
+          Tell Emil your dates, interests, and ideal pace. He'll craft a completely
+          personalised private tour within 24 hours — free, with no obligation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact?type=custom" class="btn-primary">
+            Start Planning My Tour
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/94771234567" target="_blank" rel="noopener noreferrer"
+             class="btn-secondary">
+            WhatsApp Emil Directly
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const tourItems  = document.querySelectorAll<HTMLElement>('.tour-item');
+  const noResults  = document.getElementById('no-results')!;
+  const countEl    = document.getElementById('result-count')!;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter ?? 'All';
+
+      filterBtns.forEach(b => {
+        b.classList.toggle('bg-forest-600', b === btn);
+        b.classList.toggle('text-white',    b === btn);
+        b.classList.toggle('border-forest-600', b === btn);
+        b.classList.toggle('bg-white',      b !== btn);
+        b.classList.toggle('text-warmgray', b !== btn);
+        b.classList.toggle('border-stone',  b !== btn);
+      });
+
+      let visible = 0;
+      tourItems.forEach(item => {
+        const show = filter === 'All' || item.dataset.category === filter;
+        item.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      noResults.classList.toggle('hidden', visible > 0);
+      countEl.innerHTML = `Showing <strong class="text-forest-700">${visible}</strong> private tours`;
+    });
+  });
+</script>
