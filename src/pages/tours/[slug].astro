@@ -21,7 +21,6 @@ const related = TOURS.filter(t => t.slug !== tour.slug && t.category === tour.ca
 const heroImages = [tour.heroImage, ...tour.galleryImages].filter(Boolean).slice(0, 6);
 
 const heroChips = [
-  { icon: '💰', label: tour.price },
   { icon: '🕐', label: tour.duration },
   { icon: '📍', label: `${tour.mapRoute.length} destinations` },
   { icon: '👥', label: tour.bestFor[0] ?? '100% Private' },
@@ -52,12 +51,10 @@ const paceColors: Record<string, string> = {
     client:load
   />
 
-  <!-- ② Sticky price bar -->
+  <!-- ② Sticky bar -->
   <div class="sticky top-16 lg:top-20 z-30 bg-white/95 backdrop-blur-md border-b border-stone shadow-sm">
     <div class="section-wrap py-2.5 flex items-center justify-between gap-4">
       <div class="flex items-center gap-4 overflow-x-auto scrollbar-hidden">
-        <span class="text-forest-700 font-bold text-lg whitespace-nowrap flex-shrink-0">{tour.price}</span>
-        <span class="text-warmgray text-xs whitespace-nowrap flex-shrink-0 hidden sm:block">{tour.priceNote}</span>
         <span class={`hidden sm:inline-flex text-xs font-medium px-2.5 py-1 rounded-full ${paceColors[tour.pace]}`}>
           {tour.pace} pace
         </span>
@@ -87,7 +84,6 @@ const paceColors: Record<string, string> = {
             <BookingForm
               tourTitle={tour.title}
               destinations={tour.mapRoute}
-              priceNote={tour.priceNote}
               whatsapp={SITE.whatsapp}
               client:load
             />
