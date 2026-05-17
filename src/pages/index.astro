@@ -13,8 +13,9 @@ import { SITE } from '../data/site';
 ---
 
 <BaseLayout
-  title={`${SITE.name} | Private Chauffeur Tours Sri Lanka`}
-  description={SITE.description}
+  title="Private Chauffeur Tours Sri Lanka | Chauffeur Emil Lanka Tours"
+  description="Book a private chauffeur tour in Sri Lanka with Emil Jayasekara — 14 years experience, 5-star rated, SLTDA certified. Safaris, cultural tours, beach trips & custom itineraries. WhatsApp Emil today."
+  canonical="https://www.chauffeuremillankatour.com/"
 >
   <!-- 1. Cinematic Hero -->
   <Hero />
@@ -42,4 +43,64 @@ import { SITE } from '../data/site';
 
   <!-- 9. Final CTA banner -->
   <CTABanner />
+
+  <!-- Homepage structured data -->
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.chauffeuremillankatour.com/",
+        "url": "https://www.chauffeuremillankatour.com/",
+        "name": "Private Chauffeur Tours Sri Lanka | Chauffeur Emil Lanka Tours",
+        "description": "Book a private chauffeur tour in Sri Lanka with Emil Jayasekara — 14 years experience, 5-star rated, SLTDA certified. Safaris, cultural tours, beach trips & custom itineraries.",
+        "inLanguage": "en",
+        "isPartOf": { "@id": "https://www.chauffeuremillankatour.com/#website" },
+        "about": { "@id": "https://www.chauffeuremillankatour.com/#business" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.chauffeuremillankatour.com/" }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is included in a private chauffeur tour with Emil?",
+            "acceptedAnswer": { "@type": "Answer", "text": "All tours include Emil as your personal chauffeur guide, a private air-conditioned vehicle, accommodation as specified, daily breakfast, all entrance fees (monuments, parks, safaris), airport transfers, and all applicable taxes. There are no hidden fees." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customise any of the tour itineraries?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely — every itinerary is a starting point, not a fixed script. Tell Emil your interests, preferred pace, accommodation budget, and must-see experiences, and he will redesign the route around you. Customisation is free and unlimited." }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book a tour and what is the payment process?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Contact Emil directly via WhatsApp, the inquiry form, or email. He will confirm availability, answer your questions, and send a formal quote within 24 hours. A 30% deposit secures your dates, with the balance due 14 days before your tour starts." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best time of year to visit Sri Lanka?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sri Lanka has two monsoon seasons. The south and west (Colombo, Galle, Mirissa) are best from December to March. The east coast (Trincomalee, Arugam Bay) is perfect June to September. The Cultural Triangle and Hill Country are accessible year-round." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Sri Lanka safe for tourists?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sri Lanka is a very safe and welcoming country for tourists. Emil monitors all security and travel advisories and maintains full insurance coverage. He has been guiding international visitors for 14 years and your safety is his highest priority." }
+          },
+          {
+            "@type": "Question",
+            "name": "How many people can join a private tour?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Emil operates exclusively private tours — no shared groups ever. The standard vehicle comfortably seats 2–4 guests. For families or groups of 5+, Emil arranges a larger vehicle. Tours remain 100% private regardless of group size." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </BaseLayout>

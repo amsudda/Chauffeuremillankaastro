@@ -18,7 +18,7 @@ interface Props {
 const {
   title       = SITE.name,
   description = SITE.description,
-  image       = '/images/og-default.jpg',
+  image       = '/chauffeuremillanka.png',
   type        = 'website',
   canonical   = Astro.url.href,
   noindex     = false,
@@ -60,6 +60,9 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <!-- TripAdvisor -->
   <meta name="tripadvisor-verification" content="chauffeur-emil-lanka-tours" />
   <link rel="me" href="https://www.tripadvisor.com/Attraction_Review-g1500185-d15242639-Reviews-Chauffeur_Emil_Lanka_Tours-Katunayake_Negombo_Western_Province.html" />
+
+  <!-- Google Search Console Verification — replace content value with your code from GSC -->
+  <!-- <meta name="google-site-verification" content="PASTE_YOUR_GSC_CODE_HERE" /> -->
 
   <!-- Geo & Business -->
   <meta name="geo.region"   content="LK" />
@@ -111,6 +114,9 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- Per-page structured data injected here -->
+  <slot name="head" />
 </head>
 
 <body class="min-h-screen flex flex-col">
