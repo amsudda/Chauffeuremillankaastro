@@ -2381,7 +2381,7 @@ export const TOUR_CATEGORIES = [
     title:    'Wildlife Safaris',
     subtitle: 'Leopards, Elephants & Beyond',
     icon:     '',
-    image:    img('yala-safari.jpg'),
+    image:    img('destinations/Minneriya/minneriya.webp'),
     description: 'Track leopards in Yala, witness the Elephant Gathering at Minneriya, and explore Wilpattu\'s ancient wilderness.',
     tourCount: 4,
     slug:     '/tours?category=wildlife',
