@@ -9,6 +9,7 @@ import Testimonials from '../components/home/Testimonials';
 import RouteMap from '../components/home/RouteMap.astro';
 import FAQ from '../components/home/FAQ';
 import CTABanner from '../components/home/CTABanner.astro';
+import ScrollEffects from '../components/home/ScrollEffects.astro';
 import { SITE } from '../data/site';
 ---
 
@@ -17,20 +18,64 @@ import { SITE } from '../data/site';
   description="Book a private chauffeur tour in Sri Lanka with Emil Jayasekara — 14 years experience, 5-star rated, SLTDA certified. Safaris, cultural tours, beach trips & custom itineraries. WhatsApp Emil today."
   canonical="https://www.chauffeuremillankatour.com/"
 >
+  <!-- Scroll effects: plane, parallax, section breakers -->
+  <ScrollEffects />
+
   <!-- 1. Cinematic Hero -->
   <Hero />
 
   <!-- 2. Trust indicators bar -->
   <TrustBar />
 
+  <!-- Birds breaker -->
+  <div data-breaker="birds" class="breaker-birds section-breaker" aria-hidden="true">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%">
+      <g class="bird b1" transform="translate(180,28)"><path d="M0,0 Q-10,-8 -20,0 Q-10,-2 0,0Z" fill="#1B3A2D" opacity="0.18"/><path d="M0,0 Q10,-8 20,0 Q10,-2 0,0Z" fill="#1B3A2D" opacity="0.18"/></g>
+      <g class="bird b2" transform="translate(320,18)"><path d="M0,0 Q-8,-6 -16,0 Q-8,-2 0,0Z" fill="#1B3A2D" opacity="0.14"/><path d="M0,0 Q8,-6 16,0 Q8,-2 0,0Z" fill="#1B3A2D" opacity="0.14"/></g>
+      <g class="bird b3" transform="translate(500,35)"><path d="M0,0 Q-12,-9 -22,0 Q-12,-2 0,0Z" fill="#C9A84C" opacity="0.2"/><path d="M0,0 Q12,-9 22,0 Q12,-2 0,0Z" fill="#C9A84C" opacity="0.2"/></g>
+      <g class="bird b4" transform="translate(740,22)"><path d="M0,0 Q-9,-7 -18,0 Q-9,-2 0,0Z" fill="#1B3A2D" opacity="0.13"/><path d="M0,0 Q9,-7 18,0 Q9,-2 0,0Z" fill="#1B3A2D" opacity="0.13"/></g>
+      <g class="bird b5" transform="translate(950,30)"><path d="M0,0 Q-11,-8 -20,0 Q-11,-2 0,0Z" fill="#1B3A2D" opacity="0.15"/><path d="M0,0 Q11,-8 20,0 Q11,-2 0,0Z" fill="#1B3A2D" opacity="0.15"/></g>
+    </svg>
+  </div>
+
   <!-- 3. Tour category cards -->
   <TourCategories />
+
+  <!-- Wave + palm breaker -->
+  <div class="section-breaker breaker-wave" aria-hidden="true">
+    <svg viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%">
+      <path d="M0,40 C200,10 400,60 600,35 C800,10 1000,55 1200,30 L1200,70 L0,70 Z" fill="#1B3A2D" opacity="0.05"/>
+      <path d="M0,50 C300,20 600,65 900,40 C1050,28 1150,48 1200,42 L1200,70 L0,70 Z" fill="#C9A84C" opacity="0.06"/>
+      <g transform="translate(60,5)" opacity="0.12"><line x1="0" y1="55" x2="0" y2="20" stroke="#1B3A2D" stroke-width="3"/><path d="M0,20 Q-25,-5 -40,5 Q-20,8 0,20Z" fill="#1B3A2D"/><path d="M0,20 Q25,-5 40,5 Q20,8 0,20Z" fill="#1B3A2D"/><path d="M0,20 Q-10,-15 5,-25 Q5,-5 0,20Z" fill="#1B3A2D"/></g>
+      <g transform="translate(1145,5)" opacity="0.10"><line x1="0" y1="55" x2="0" y2="20" stroke="#1B3A2D" stroke-width="3"/><path d="M0,20 Q-22,-4 -36,5 Q-18,8 0,20Z" fill="#1B3A2D"/><path d="M0,20 Q22,-4 36,5 Q18,8 0,20Z" fill="#1B3A2D"/><path d="M0,20 Q-8,-12 4,-22 Q4,-4 0,20Z" fill="#1B3A2D"/></g>
+    </svg>
+  </div>
 
   <!-- 4. Featured tours -->
   <FeaturedTours />
 
+  <!-- Road / compass breaker -->
+  <div class="section-breaker breaker-road" aria-hidden="true">
+    <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%">
+      <path class="road-path" d="M0,25 Q300,10 600,25 Q900,40 1200,25" fill="none" stroke="#1B3A2D" stroke-width="1.5" stroke-dasharray="12 10" opacity="0.15"/>
+      <g transform="translate(600,25)" opacity="0.2"><circle r="10" fill="none" stroke="#C9A84C" stroke-width="1.2"/><line x1="0" y1="-10" x2="0" y2="10" stroke="#C9A84C" stroke-width="1"/><line x1="-10" y1="0" x2="10" y2="0" stroke="#C9A84C" stroke-width="1"/><polygon points="0,-10 -3,-5 3,-5" fill="#C9A84C"/></g>
+    </svg>
+  </div>
+
   <!-- 5. Why travel with Emil -->
   <WhyUs />
+
+  <!-- Leaf breaker -->
+  <div class="section-breaker breaker-leaves" aria-hidden="true">
+    <svg viewBox="0 0 1200 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%">
+      <g class="leaf l1" transform="translate(100,28) rotate(-20)"><path d="M0,0 Q8,-18 0,-30 Q-8,-18 0,0Z" fill="#1B3A2D" opacity="0.12"/><line x1="0" y1="0" x2="0" y2="-28" stroke="#1B3A2D" stroke-width="0.8" opacity="0.1"/></g>
+      <g class="leaf l2" transform="translate(280,20) rotate(15)"><path d="M0,0 Q10,-15 0,-25 Q-10,-15 0,0Z" fill="#C9A84C" opacity="0.13"/></g>
+      <g class="leaf l3" transform="translate(490,32) rotate(-35)"><path d="M0,0 Q9,-16 0,-28 Q-9,-16 0,0Z" fill="#1B3A2D" opacity="0.10"/></g>
+      <g class="leaf l4" transform="translate(700,18) rotate(10)"><path d="M0,0 Q7,-14 0,-22 Q-7,-14 0,0Z" fill="#C9A84C" opacity="0.11"/></g>
+      <g class="leaf l5" transform="translate(900,30) rotate(-25)"><path d="M0,0 Q10,-17 0,-29 Q-10,-17 0,0Z" fill="#1B3A2D" opacity="0.12"/></g>
+      <g class="leaf l6" transform="translate(1100,22) rotate(30)"><path d="M0,0 Q8,-13 0,-23 Q-8,-13 0,0Z" fill="#1B3A2D" opacity="0.09"/></g>
+    </svg>
+  </div>
 
   <!-- 6. Testimonials slider -->
   <Testimonials client:visible />
