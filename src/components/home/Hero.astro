@@ -1,5 +1,6 @@
 ---
 import { SITE } from '../../data/site';
+import heroImg from '../../images/destinations/Ella/ella 1 nine arch.webp';
 ---
 
 <section
@@ -10,13 +11,13 @@ import { SITE } from '../../data/site';
   <!-- Background image with parallax effect -->
   <div class="absolute inset-0 z-0">
     <img
-      src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1800&q=85&fit=crop"
-      alt="Sigiriya Rock Fortress, Sri Lanka"
+      src={heroImg.src}
+      alt="Nine Arch Bridge, Ella, Sri Lanka"
       class="w-full h-full object-cover object-center scale-105"
       loading="eager"
       fetchpriority="high"
-      width="1800"
-      height="1200"
+      width={heroImg.width}
+      height={heroImg.height}
       id="hero-img"
     />
     <!-- Cinematic overlay -->
