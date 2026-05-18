@@ -180,9 +180,34 @@
     to { stroke-dashoffset: 0; }
   }
 
+  /* ── Word reveal ───────────────────────────────────────── */
+  [data-reveal="words"] {
+    overflow: visible;
+  }
+  [data-reveal="words"] .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(8px);
+    transition:
+      opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      filter    0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    /* keep words from collapsing into each other */
+    white-space: pre;
+  }
+  [data-reveal="words"].words-visible .word {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
   /* ── Reduce motion ─────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
     .bird, .leaf, .road-path, #scroll-plane { animation: none !important; }
+    [data-reveal="words"] .word {
+      opacity: 1; transform: none; filter: none; transition: none;
+    }
   }
 </style>
 
@@ -261,4 +286,51 @@
     }, { threshold: 0.5 });
     counterEls.forEach(el => co.observe(el));
   }
+
+  // ── Word-by-word text reveal ──────────────────────────────────────────────
+  document.querySelectorAll<HTMLElement>('[data-reveal="words"]').forEach(el => {
+    // Split text nodes into individual word spans, preserving <br> elements
+    const splitNode = (node: ChildNode): (HTMLElement | ChildNode)[] => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent ?? '';
+        return text.split(/(\s+)/).filter(Boolean).map(part => {
+          if (/^\s+$/.test(part)) {
+            // preserve whitespace as a space
+            return document.createTextNode(' ');
+          }
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.textContent = part;
+          return span;
+        });
+      }
+      if ((node as Element).tagName === 'BR') return [node];
+      // For nested elements (em, strong) wrap the whole element as one word
+      const wrap = document.createElement('span');
+      wrap.className = 'word';
+      wrap.appendChild(node.cloneNode(true));
+      return [wrap];
+    };
+
+    const nodes = Array.from(el.childNodes);
+    el.innerHTML = '';
+    nodes.flatMap(splitNode).forEach(n => el.appendChild(n));
+
+    // Stagger delays per word
+    const words = el.querySelectorAll<HTMLElement>('.word');
+    words.forEach((w, i) => {
+      w.style.transitionDelay = `${i * 55}ms`;
+    });
+
+    // Trigger on intersection
+    const wo = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          el.classList.add('words-visible');
+          wo.unobserve(el);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+    wo.observe(el);
+  });
 </script>
