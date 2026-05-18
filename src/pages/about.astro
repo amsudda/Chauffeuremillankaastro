@@ -25,9 +25,93 @@ const galleryItems = [
 ---
 
 <BaseLayout
-  title="About Emil Jayasekara | Chauffeur Emillan Katour Sri Lanka"
-  description="Meet Emil Jayasekara — Sri Lanka's most trusted private chauffeur guide with 14+ years experience. SLTDA certified, 300+ five-star reviews, fully insured private tours."
+  title="Emil Jayasekara | Private Tour Driver & Chauffeur Guide Sri Lanka"
+  description="Meet Emil Jayasekara — Sri Lanka's trusted private chauffeur guide & tour driver with 14+ years, SLTDA certified, 300+ five-star reviews. Bespoke private tours island-wide."
 >
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.chauffeuremillankatour.com/about#emil",
+        "name": "Emil Jayasekara",
+        "jobTitle": "Private Chauffeur Guide Sri Lanka",
+        "description": "SLTDA-certified private tour driver and chauffeur guide in Sri Lanka with 14+ years experience leading bespoke private tours for international travellers.",
+        "url": "https://www.chauffeuremillankatour.com/about",
+        "image": "https://www.chauffeuremillankatour.com/images/Emil%20images%20himself/emil%208.webp",
+        "worksFor": { "@type": "TourOperator", "@id": "https://www.chauffeuremillankatour.com/#business" },
+        "knowsLanguage": "en",
+        "nationality": { "@type": "Country", "name": "Sri Lanka" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.chauffeuremillankatour.com/#business",
+        "name": "Chauffeur Emil Lanka Tours",
+        "description": "Sri Lanka private chauffeur guide and tour driver service. Bespoke private tours, wildlife safaris, and cultural journeys led personally by Emil Jayasekara.",
+        "url": "https://www.chauffeuremillankatour.com",
+        "telephone": "+94761917039",
+        "areaServed": { "@type": "Country", "name": "Sri Lanka" },
+        "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Private Chauffeur Tours Sri Lanka" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a chauffeur guide in Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A chauffeur guide in Sri Lanka is a licensed professional who both drives and guides you throughout your trip. Unlike a taxi driver, a chauffeur guide holds a government tourism certification (SLTDA), speaks fluent English, designs your itinerary, and provides expert commentary on history, wildlife, and culture at every stop. Emil Jayasekara is an SLTDA-certified chauffeur guide with 14+ years of experience."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a private tour driver and a chauffeur guide in Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A private tour driver transports you between destinations, while a chauffeur guide combines driving with professional guiding. Emil Jayasekara is both — he drives a private air-conditioned vehicle and personally guides every experience, from Sigiriya Rock Fortress to Yala National Park safaris, with no third-party guides involved."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Emil Jayasekara SLTDA certified?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Emil Jayasekara holds a Sri Lanka Tourism Development Authority (SLTDA) certification, is Eco Guide certified, Wildlife Tracker trained, and First Aid certified. He has guided over 3,000 guests from 40+ countries across 14+ years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a private chauffeur guide in Sri Lanka cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Private chauffeur guide rates in Sri Lanka vary by itinerary length and inclusions. Chauffeur Emil Lanka Tours offers fully customised private tours — contact Emil directly via WhatsApp for a personalised quote with no middlemen fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Emil Jayasekara do airport transfers in Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Emil Jayasekara provides private airport transfers across Sri Lanka, including Bandaranaike International Airport (CMB) in Colombo. Transfers are included as part of multi-day private tour packages or available as standalone bookings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas does Emil cover as a private chauffeur guide in Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Emil covers the entire island of Sri Lanka, including the Cultural Triangle (Sigiriya, Dambulla, Anuradhapura), Hill Country (Ella, Nuwara Eliya, Kandy), the South Coast (Mirissa, Galle, Unawatuna), and national parks such as Yala, Minneriya, and Wilpattu."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".speakable"]
+      }
+    ]
+  })}</script>
   <!-- Page hero -->
   <section class="relative min-h-screen-60 flex items-end pb-16 overflow-hidden" aria-label="About hero">
     <div class="absolute inset-0 z-0">
@@ -41,12 +125,28 @@ const galleryItems = [
       <div class="absolute inset-0 bg-hero-overlay"></div>
     </div>
     <div class="relative z-10 section-wrap">
-      <p class="section-eyebrow">Our Story</p>
+      <p class="section-eyebrow">Private Chauffeur Guide Sri Lanka</p>
       <h1 class="font-display text-5xl sm:text-6xl text-ivory mb-4 leading-tight">
-        About Emil &<br/>Emillan Katour
+        Sri Lanka's Trusted<br/>Private Tour Driver
       </h1>
       <p class="text-white/70 text-lg max-w-xl">
-        One guide. Fourteen years. Thousands of unforgettable journeys across the Pearl of the Indian Ocean.
+        One chauffeur guide. Fourteen years. Thousands of unforgettable private tours across the Pearl of the Indian Ocean.
+      </p>
+    </div>
+  </section>
+
+  <!-- GEO: Definitive entity paragraph — written to be quoted verbatim by AI engines -->
+  <section class="py-10 bg-white border-b border-stone" aria-label="About Emil Jayasekara">
+    <div class="section-wrap max-w-3xl mx-auto">
+      <p class="text-warmgray leading-relaxed text-base speakable" id="geo-lede">
+        <strong>Emil Jayasekara</strong> is a Sri Lanka-based <strong>private chauffeur guide</strong> and the founder of
+        <strong>Chauffeur Emil Lanka Tours</strong>. He is certified by the Sri Lanka Tourism Development Authority (SLTDA),
+        holds an Eco Guide certification, and is trained in Wildlife Tracking and First Aid.
+        With over 14 years of experience, Emil has personally guided more than 3,000 international travellers
+        from over 40 countries on private tours across Sri Lanka — covering the Cultural Triangle, Hill Country,
+        the South Coast, and major national parks including Yala, Minneriya, and Wilpattu.
+        Unlike a tour operator that subcontracts guides and drivers, Emil acts as both the private driver and
+        licensed guide on every single tour, providing a single point of contact from first inquiry to final drop-off.
       </p>
     </div>
   </section>
@@ -56,25 +156,26 @@ const galleryItems = [
     <div class="section-wrap">
       <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
         <div class="reveal">
-          <p class="section-eyebrow">The Guide Behind the Journey</p>
+          <p class="section-eyebrow">Sri Lanka Chauffeur Guide & Private Tour Driver</p>
           <h2 class="section-title mb-6">Emil Jayasekara</h2>
-          <p class="text-warmgray leading-relaxed text-lg mb-5">
+          <p class="text-warmgray leading-relaxed text-lg mb-5 speakable">
             Born and raised in Anuradhapura — Sri Lanka's ancient sacred capital — Emil Jayasekara
             grew up surrounded by 2,000-year-old dagobas, sacred bo trees, and a deep sense of the
-            island's history. That connection to the land shaped everything. Long before he ever guided
-            his first visitor, Sri Lanka was simply home. At 22, he traded a desk job for the open
-            road and never looked back.
+            island's history. That connection to the land shaped everything. Long before he became a
+            <strong>private chauffeur guide in Sri Lanka</strong>, the island was simply home. At 22, he traded a
+            desk job for the open road and never looked back.
           </p>
           <p class="text-warmgray leading-relaxed mb-5">
-            Over 14 years, Emil has guided over 3,000 visitors from more than 40 countries —
-            families, honeymooners, wildlife photographers, solo adventurers, and everyone in between.
-            His unique philosophy is simple: <em class="not-italic text-forest-700 font-medium">every person deserves to see Sri Lanka the way locals see it.</em>
+            Over 14 years as a <strong>chauffeur guide</strong>, Emil has led <strong>private tours</strong> for over 3,000 visitors
+            from more than 40 countries — families, honeymooners, wildlife photographers, solo
+            adventurers, and everyone in between. His philosophy is simple:
+            <em class="not-italic text-forest-700 font-medium">every person deserves to see Sri Lanka the way locals see it.</em>
           </p>
           <p class="text-warmgray leading-relaxed mb-8">
-            Today, Emil personally leads every single tour. No subcontractors, no third-party guides.
-            When you book with Chauffeur Emillan Katour, you travel with Emil — the man who answered
-            your first message, designed your itinerary, and genuinely cares that you leave with a
-            full heart.
+            Today, Emil personally drives and guides every single tour. No subcontractors, no pool
+            drivers. When you book a private tour with Chauffeur Emil Lanka Tours, you travel with
+            Emil — the <strong>private tour driver</strong> who answered your first message, designed your itinerary,
+            and genuinely cares that you leave with a full heart.
           </p>
 
           <!-- Credentials grid -->
@@ -138,15 +239,15 @@ const galleryItems = [
 
       <!-- What makes us different -->
       <div class="mt-20">
-        <h2 class="section-title text-center mb-12 reveal">The Emillan Katour Difference</h2>
+        <h2 class="section-title text-center mb-12 reveal">The Emil Lanka Tour Difference</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { icon: '👤', title: 'Emil. Always Emil.', body: 'No pool guides. No reassignments. The guide who designs your tour is the guide who leads it. Every time.' },
-            { icon: '🏎️', title: 'Premium Private Vehicles', body: 'Air-conditioned Toyota KDH or Land Cruiser for comfort across all road conditions. USB charging, refreshment cooler included.' },
-            { icon: '🌍', title: 'Truly International Experience', body: 'Emil has guided guests from over 40 countries and understands how to serve different cultural preferences and travel styles.' },
-            { icon: '📱', title: 'Always Reachable', body: 'Emil provides his direct WhatsApp for the duration of your trip. Any question, any time — he\'s there.' },
-            { icon: '🎯', title: 'Zero Compromise on Quality', body: 'Every hotel, every restaurant, every experience is personally vetted. If Emil wouldn\'t send his own family there, he won\'t send you.' },
-            { icon: '💚', title: 'Ethical & Sustainable', body: 'Community-supporting stops, responsible wildlife viewing standards, zero-plastic safari policy, and support for local artisans on every tour.' },
+            { icon: '👤', title: 'Your Driver. Your Guide. Always Emil.', body: 'No pool drivers. No reassignments. Your private tour driver and chauffeur guide is the same person from day one to the last drop-off.' },
+            { icon: '🏎️', title: 'Premium Private Chauffeur Vehicle', body: 'Air-conditioned Toyota KDH or Land Cruiser — the right vehicle for every road in Sri Lanka. USB charging and a refreshment cooler included.' },
+            { icon: '🌍', title: 'Truly International Experience', body: 'As a chauffeur guide in Sri Lanka, Emil has served guests from 40+ countries and knows how to tailor every private tour to different travel styles.' },
+            { icon: '📱', title: 'Direct Access — Always Reachable', body: 'Emil shares his personal WhatsApp for the full duration of your private tour. Any question, any time — your chauffeur guide is there.' },
+            { icon: '🎯', title: 'Zero Compromise on Quality', body: 'Every hotel, restaurant, and experience on your private Sri Lanka tour is personally vetted. If Emil wouldn\'t send family there, he won\'t send you.' },
+            { icon: '💚', title: 'Ethical & Sustainable Travel', body: 'Community-supporting stops, responsible wildlife viewing, zero-plastic safari policy, and local artisan support built into every private tour.' },
           ].map((item, i) => (
             <div class="bg-white rounded-2xl p-6 border border-stone shadow-card hover:shadow-card-hover
                         transition-shadow duration-300 reveal" style={`animation-delay:${i * 80}ms`}>
@@ -155,6 +256,76 @@ const galleryItems = [
               <p class="text-warmgray text-sm leading-relaxed">{item.body}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      <!-- GEO: Quick Facts — structured data AI engines extract -->
+      <div class="mt-20 reveal">
+        <h2 class="section-title text-center mb-10">Emil Jayasekara — Quick Facts</h2>
+        <div class="bg-white border border-stone rounded-3xl overflow-hidden shadow-card">
+          <table class="w-full text-sm" aria-label="Emil Jayasekara quick facts">
+            <tbody>
+              {[
+                { label: 'Full name',            value: 'Emil Jayasekara' },
+                { label: 'Role',                 value: 'Private Chauffeur Guide & Tour Driver, Sri Lanka' },
+                { label: 'Company',              value: 'Chauffeur Emil Lanka Tours' },
+                { label: 'Based in',             value: 'Sri Lanka (operates island-wide)' },
+                { label: 'Experience',           value: '14+ years as a licensed chauffeur guide' },
+                { label: 'Guests guided',        value: '3,000+ international travellers' },
+                { label: 'Countries served',     value: '40+ nationalities' },
+                { label: 'Certifications',       value: 'SLTDA Certified · Eco Guide · Wildlife Tracker · First Aid' },
+                { label: 'Languages',            value: 'English (fluent), Sinhala (native)' },
+                { label: 'Vehicle',              value: 'Private air-conditioned Toyota KDH / Land Cruiser' },
+                { label: 'Areas covered',        value: 'Cultural Triangle, Hill Country, South Coast, East Coast, all national parks' },
+                { label: 'National parks',       value: 'Yala, Minneriya, Wilpattu, Udawalawe, Bundala, Kumana' },
+                { label: 'Contact',              value: 'WhatsApp / email — direct, no middlemen' },
+              ].map((row, i) => (
+                <tr class={i % 2 === 0 ? 'bg-ivory' : 'bg-white'}>
+                  <td class="px-5 py-3 font-medium text-forest-700 w-40 align-top">{row.label}</td>
+                  <td class="px-5 py-3 text-warmgray speakable">{row.value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- GEO: Comparison — chauffeur guide vs alternatives -->
+      <div class="mt-20 reveal">
+        <h2 class="section-title text-center mb-4">Chauffeur Guide vs Tour Operator vs Taxi — What's the Difference?</h2>
+        <p class="text-warmgray text-center text-sm max-w-2xl mx-auto mb-10 speakable">
+          Understanding how a private chauffeur guide in Sri Lanka differs from other travel options helps you choose the right experience for your trip.
+        </p>
+        <div class="overflow-x-auto rounded-3xl border border-stone shadow-card">
+          <table class="w-full text-sm min-w-[600px]" aria-label="Comparison: chauffeur guide vs tour operator vs taxi">
+            <thead>
+              <tr class="bg-forest-gradient text-white">
+                <th class="px-5 py-4 text-left font-semibold">Feature</th>
+                <th class="px-5 py-4 text-left font-semibold">Private Chauffeur Guide (Emil)</th>
+                <th class="px-5 py-4 text-left font-semibold">Tour Operator</th>
+                <th class="px-5 py-4 text-left font-semibold">Taxi / Tuk-tuk</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Drives you personally',       '✅ Always Emil',       '❌ Subcontracted driver',  '✅ Yes'],
+                ['Licensed tour guide',         '✅ SLTDA certified',   '⚠️ Varies by booking',    '❌ No'],
+                ['Custom itinerary',            '✅ Fully tailored',    '⚠️ Semi-flexible',         '❌ No'],
+                ['Single point of contact',     '✅ Direct with Emil',  '❌ Agency middleman',      '✅ Yes'],
+                ['Air-conditioned vehicle',     '✅ Toyota KDH / LC',   '⚠️ Varies',                '❌ Rarely'],
+                ['Expert local knowledge',      '✅ 14+ years, 40+ countries', '⚠️ Depends on guide', '❌ No'],
+                ['Wildlife & cultural commentary', '✅ Included',       '⚠️ Extra cost',            '❌ No'],
+                ['Price transparency',          '✅ Direct quote',      '⚠️ Commission layers',     '✅ Metered/agreed'],
+              ].map(([feature, emil, operator, taxi], i) => (
+                <tr class={i % 2 === 0 ? 'bg-ivory' : 'bg-white'}>
+                  <td class="px-5 py-3 font-medium text-forest-700">{feature}</td>
+                  <td class="px-5 py-3 text-forest-600 font-medium">{emil}</td>
+                  <td class="px-5 py-3 text-warmgray">{operator}</td>
+                  <td class="px-5 py-3 text-warmgray">{taxi}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -196,13 +367,70 @@ const galleryItems = [
     </div>
   </section>
 
+  <!-- FAQ section — AIO/AEO -->
+  <section class="py-20 sm:py-28 bg-white" aria-label="Frequently asked questions">
+    <div class="section-wrap max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Common Questions</p>
+        <h2 class="section-title mb-3">About Emil &amp; Private Chauffeur Tours in Sri Lanka</h2>
+        <p class="text-warmgray text-sm speakable">
+          Everything you need to know about booking a private chauffeur guide in Sri Lanka.
+        </p>
+      </div>
+      <dl class="space-y-4">
+        {[
+          {
+            q: 'What is a chauffeur guide in Sri Lanka?',
+            a: 'A chauffeur guide in Sri Lanka is a licensed professional who both drives and guides you throughout your trip. Unlike a taxi driver, a chauffeur guide holds a government tourism certification (SLTDA), speaks fluent English, designs your itinerary, and provides expert commentary on history, wildlife, and culture at every stop. Emil Jayasekara is an SLTDA-certified chauffeur guide with 14+ years of experience.',
+          },
+          {
+            q: 'What is the difference between a private tour driver and a chauffeur guide?',
+            a: 'A private tour driver transports you between destinations, while a chauffeur guide combines driving with professional guiding. Emil is both — he drives a private air-conditioned vehicle and personally guides every experience, from Sigiriya Rock Fortress to Yala National Park safaris, with no third-party guides involved.',
+          },
+          {
+            q: 'Is Emil Jayasekara SLTDA certified?',
+            a: 'Yes. Emil holds a Sri Lanka Tourism Development Authority (SLTDA) certification, is Eco Guide certified, Wildlife Tracker trained, and First Aid certified. He has guided over 3,000 guests from 40+ countries across 14+ years.',
+          },
+          {
+            q: 'How much does a private chauffeur guide in Sri Lanka cost?',
+            a: 'Private chauffeur guide rates vary by itinerary length and inclusions. Chauffeur Emil Lanka Tours offers fully customised private tours — contact Emil directly via WhatsApp for a personalised quote with no middlemen fees.',
+          },
+          {
+            q: 'Does Emil provide airport transfers in Sri Lanka?',
+            a: 'Yes. Emil provides private airport transfers across Sri Lanka, including Bandaranaike International Airport (CMB). Transfers are available as part of multi-day private tour packages or as standalone bookings.',
+          },
+          {
+            q: 'What areas does Emil cover as a private chauffeur guide?',
+            a: 'Emil covers the entire island — the Cultural Triangle (Sigiriya, Dambulla, Anuradhapura), Hill Country (Ella, Nuwara Eliya, Kandy), the South Coast (Mirissa, Galle, Unawatuna), and national parks including Yala, Minneriya, and Wilpattu.',
+          },
+        ].map((item, i) => (
+          <div class="bg-ivory border border-stone rounded-2xl overflow-hidden reveal" style={`animation-delay:${i * 60}ms`}>
+            <dt>
+              <button
+                class="w-full text-left px-6 py-5 font-display text-forest-700 font-semibold text-base flex items-center justify-between gap-4 cursor-pointer"
+                aria-expanded="false"
+                onclick="const p=this.nextElementSibling;const open=p.style.maxHeight&&p.style.maxHeight!=='0px';p.style.maxHeight=open?'0px':p.scrollHeight+'px';this.setAttribute('aria-expanded',String(!open));this.querySelector('span').textContent=open?'+':'−';"
+              >
+                {item.q}
+                <span class="text-xl text-gold-500 flex-shrink-0" aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd class="overflow-hidden transition-all duration-300" style="max-height:0px">
+              <p class="px-6 pb-5 text-warmgray text-sm leading-relaxed speakable">{item.a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
   <!-- Contact strip -->
   <section class="py-12 bg-stone/30 border-y border-stone">
     <div class="section-wrap">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
         <div>
-          <p class="font-display text-forest-700 text-xl mb-1">Ready to travel with Emil?</p>
-          <p class="text-warmgray text-sm">Send a message and receive a personalised itinerary within 24 hours.</p>
+          <p class="font-display text-forest-700 text-xl mb-1">Ready for a private tour in Sri Lanka?</p>
+          <p class="text-warmgray text-sm">Message your chauffeur guide directly and receive a personalised itinerary within 24 hours.</p>
         </div>
         <div class="flex gap-3 flex-shrink-0">
           <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"

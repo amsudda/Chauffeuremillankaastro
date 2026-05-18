@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    { "source": "/de",                                              "destination": "/",            "permanent": true },
+    { "source": "/de/tours",                                        "destination": "/tours",       "permanent": true },
+    { "source": "/de/about",                                        "destination": "/about",       "permanent": true },
+    { "source": "/de/contact",                                      "destination": "/contact",     "permanent": true },
+    { "source": "/de/tailor-made",                                  "destination": "/tailor-made", "permanent": true },
+    { "source": "/de/blog",                                         "destination": "/blog",        "permanent": true },
+    { "source": "/de/tours/wildlife-safari-7-days",                 "destination": "/tours/wildlife-safari-7-days",                 "permanent": true },
+    { "source": "/de/tours/cultural-triangle-5-days",               "destination": "/tours/cultural-triangle-5-days",               "permanent": true },
+    { "source": "/de/tours/hill-country-4-days",                    "destination": "/tours/hill-country-4-days",                    "permanent": true },
+    { "source": "/de/tours/beach-paradise-8-days",                  "destination": "/tours/beach-paradise-8-days",                  "permanent": true },
+    { "source": "/de/tours/complete-sri-lanka-14-days",             "destination": "/tours/complete-sri-lanka-14-days",             "permanent": true },
+    { "source": "/de/tours/signature-experience-circuit",           "destination": "/tours/signature-experience-circuit",           "permanent": true },
+    { "source": "/de/tours/southern-sun-cultural-odyssey-20-days",  "destination": "/tours/southern-sun-cultural-odyssey-20-days",  "permanent": true },
+    { "source": "/de/tours/highlands-eastern-16",                   "destination": "/tours",                                        "permanent": true }
+  ]
+}
