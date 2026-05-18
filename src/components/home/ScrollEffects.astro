@@ -8,22 +8,19 @@
   aria-hidden="true"
   style="position:fixed;top:18%;left:-120px;z-index:40;pointer-events:none;will-change:transform;opacity:0;transition:opacity 0.6s;"
 >
-  <svg width="90" height="36" viewBox="0 0 90 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Fuselage -->
-    <ellipse cx="45" cy="18" rx="38" ry="8" fill="#1B3A2D" opacity="0.85"/>
-    <!-- Nose -->
-    <ellipse cx="80" cy="18" rx="10" ry="5" fill="#2D5A42" opacity="0.9"/>
-    <!-- Tail fin -->
-    <polygon points="8,18 2,6 18,18" fill="#1B3A2D" opacity="0.85"/>
-    <!-- Main wing -->
-    <ellipse cx="42" cy="18" rx="14" ry="5" fill="#C9A84C" opacity="0.9" transform="rotate(-8 42 18)"/>
-    <polygon points="30,16 56,14 58,22 28,22" fill="#C9A84C" opacity="0.85"/>
-    <!-- Tail wing -->
-    <polygon points="10,17 20,17 20,21 10,21" fill="#C9A84C" opacity="0.8"/>
-    <!-- Window strip -->
-    <ellipse cx="55" cy="15" rx="10" ry="3" fill="white" opacity="0.25"/>
-    <!-- Contrail -->
-    <line x1="7" y1="18" x2="-80" y2="18" stroke="white" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.3"/>
+  <!-- Matches the provided airplane icon: solid silhouette, nose upper-right at 45° -->
+  <svg width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+       style="filter:drop-shadow(1px 2px 4px rgba(0,0,0,0.18))">
+    <g transform="rotate(45 12 12)">
+      <!-- Material Design 'flight' path — top-down plane, rotated 45° to match icon -->
+      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+            fill="#1B3A2D" opacity="0.85"/>
+    </g>
+  </svg>
+  <!-- Contrail trail -->
+  <svg width="60" height="6" viewBox="0 0 60 6"
+       style="position:absolute;top:50%;right:100%;transform:translateY(-50%);margin-right:2px">
+    <line x1="0" y1="3" x2="60" y2="3" stroke="#1B3A2D" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.18"/>
   </svg>
 </div>
 
