@@ -22,7 +22,44 @@ function formatDate(iso: string) {
 <BaseLayout
   title={`${post.title} | ChauffeurEmilLankaTour Blog`}
   description={post.excerpt}
+  image={post.coverImage || '/chauffeuremillanka.png'}
+  type="article"
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.coverImage || `${Astro.site}chauffeuremillanka.png`,
+    "datePublished": post.publishedAt,
+    "dateModified": post.publishedAt,
+    "author": {
+      "@type": "Person",
+      "name": "Emil Jayasekara",
+      "url": "https://www.chauffeuremillankatour.com/about",
+      "jobTitle": "Private Chauffeur Guide",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Chauffeur Emil Lanka Tours"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Chauffeur Emil Lanka Tours",
+      "url": "https://www.chauffeuremillankatour.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.chauffeuremillankatour.com/favicon.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": Astro.url.href
+    },
+    "keywords": post.tags.join(', '),
+    "inLanguage": "en-GB",
+    "url": Astro.url.href
+  })} />
   <!-- Hero -->
   <section class="relative pt-20 overflow-hidden bg-forest-700">
     {post.coverImage ? (
