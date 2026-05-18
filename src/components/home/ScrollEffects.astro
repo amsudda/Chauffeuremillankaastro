@@ -2,124 +2,41 @@
 // Scroll-driven interactive effects for the homepage
 ---
 
+<!-- ─── Cinematic Contrail Canvas ─────────────────────────────────────────── -->
+<canvas
+  id="contrail-canvas"
+  aria-hidden="true"
+  style="position:fixed;inset:0;z-index:38;pointer-events:none;opacity:0;transition:opacity 0.5s ease;"
+></canvas>
+
 <!-- ─── Flying Plane ──────────────────────────────────────────────────────── -->
 <div
   id="scroll-plane"
   aria-hidden="true"
-  style="position:fixed;top:18%;left:-120px;z-index:40;pointer-events:none;will-change:transform;opacity:0;transition:opacity 0.6s;"
+  style="position:fixed;z-index:39;pointer-events:none;will-change:transform;opacity:0;
+         transition:opacity 0.5s ease;transform-origin:center center;top:0;left:0;"
 >
-  <!-- Matches the provided airplane icon: solid silhouette, nose upper-right at 45° -->
-  <svg width="72" height="72" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-       style="filter:drop-shadow(1px 2px 4px rgba(0,0,0,0.18))">
-    <g transform="rotate(45 12 12)">
-      <!-- Material Design 'flight' path — top-down plane, rotated 45° to match icon -->
-      <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
-            fill="#1B3A2D" opacity="0.85"/>
+  <!-- Airplane icon matching provided reference: top-down commercial aircraft, nose upper-right -->
+  <svg width="76" height="76" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+       style="filter:drop-shadow(0 4px 12px rgba(27,58,45,0.35)) drop-shadow(0 1px 3px rgba(0,0,0,0.2));">
+    <g transform="rotate(45 50 50)" fill="#1B3A2D">
+      <!-- Fuselage -->
+      <rect x="43" y="10" width="14" height="70" rx="7"/>
+      <!-- Nose cap -->
+      <circle cx="50" cy="10" r="8"/>
+      <!-- Main wings -->
+      <polygon points="50,28 1,50 50,46 99,50"/>
+      <!-- Tail horizontal stabilisers -->
+      <polygon points="50,70 26,82 50,76 74,82"/>
+      <!-- Tail fin (vertical) -->
+      <polygon points="50,65 44,55 56,55"/>
     </g>
   </svg>
-  <!-- Contrail trail -->
-  <svg width="60" height="6" viewBox="0 0 60 6"
-       style="position:absolute;top:50%;right:100%;transform:translateY(-50%);margin-right:2px">
-    <line x1="0" y1="3" x2="60" y2="3" stroke="#1B3A2D" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.18"/>
-  </svg>
+  <!-- Engine glow dots -->
+  <div id="plane-glow" style="position:absolute;inset:0;pointer-events:none;"></div>
 </div>
 
-<!-- ─── Section Breaker: After TrustBar (Birds) ──────────────────────────── -->
-<div class="section-breaker breaker-birds" aria-hidden="true">
-  <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Bird 1 -->
-    <g class="bird b1" transform="translate(180,28)">
-      <path d="M0,0 Q-10,-8 -20,0 Q-10,-2 0,0Z" fill="#1B3A2D" opacity="0.18"/>
-      <path d="M0,0 Q10,-8 20,0 Q10,-2 0,0Z"  fill="#1B3A2D" opacity="0.18"/>
-    </g>
-    <!-- Bird 2 -->
-    <g class="bird b2" transform="translate(320,18)">
-      <path d="M0,0 Q-8,-6 -16,0 Q-8,-2 0,0Z"  fill="#1B3A2D" opacity="0.14"/>
-      <path d="M0,0 Q8,-6 16,0 Q8,-2 0,0Z"   fill="#1B3A2D" opacity="0.14"/>
-    </g>
-    <!-- Bird 3 -->
-    <g class="bird b3" transform="translate(500,35)">
-      <path d="M0,0 Q-12,-9 -22,0 Q-12,-2 0,0Z" fill="#C9A84C" opacity="0.2"/>
-      <path d="M0,0 Q12,-9 22,0 Q12,-2 0,0Z"  fill="#C9A84C" opacity="0.2"/>
-    </g>
-    <!-- Bird 4 -->
-    <g class="bird b4" transform="translate(740,22)">
-      <path d="M0,0 Q-9,-7 -18,0 Q-9,-2 0,0Z"  fill="#1B3A2D" opacity="0.13"/>
-      <path d="M0,0 Q9,-7 18,0 Q9,-2 0,0Z"   fill="#1B3A2D" opacity="0.13"/>
-    </g>
-    <!-- Bird 5 -->
-    <g class="bird b5" transform="translate(950,30)">
-      <path d="M0,0 Q-11,-8 -20,0 Q-11,-2 0,0Z" fill="#1B3A2D" opacity="0.15"/>
-      <path d="M0,0 Q11,-8 20,0 Q11,-2 0,0Z"  fill="#1B3A2D" opacity="0.15"/>
-    </g>
-  </svg>
-</div>
-
-<!-- ─── Section Breaker: After TourCategories (Wave + Palm) ──────────────── -->
-<div class="section-breaker breaker-wave" aria-hidden="true">
-  <svg viewBox="0 0 1200 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="wave-path" d="M0,40 C200,10 400,60 600,35 C800,10 1000,55 1200,30 L1200,70 L0,70 Z"
-          fill="#1B3A2D" opacity="0.05"/>
-    <path class="wave-path-2" d="M0,50 C300,20 600,65 900,40 C1050,28 1150,48 1200,42 L1200,70 L0,70 Z"
-          fill="#C9A84C" opacity="0.06"/>
-    <!-- Palm silhouette left -->
-    <g transform="translate(60,5)" opacity="0.12">
-      <line x1="0" y1="55" x2="0" y2="20" stroke="#1B3A2D" stroke-width="3"/>
-      <path d="M0,20 Q-25,-5 -40,5 Q-20,8 0,20Z"  fill="#1B3A2D"/>
-      <path d="M0,20 Q25,-5 40,5 Q20,8 0,20Z"   fill="#1B3A2D"/>
-      <path d="M0,20 Q-10,-15 5,-25 Q5,-5 0,20Z"  fill="#1B3A2D"/>
-    </g>
-    <!-- Palm silhouette right -->
-    <g transform="translate(1145,5)" opacity="0.10">
-      <line x1="0" y1="55" x2="0" y2="20" stroke="#1B3A2D" stroke-width="3"/>
-      <path d="M0,20 Q-22,-4 -36,5 Q-18,8 0,20Z" fill="#1B3A2D"/>
-      <path d="M0,20 Q22,-4 36,5 Q18,8 0,20Z"  fill="#1B3A2D"/>
-      <path d="M0,20 Q-8,-12 4,-22 Q4,-4 0,20Z"  fill="#1B3A2D"/>
-    </g>
-  </svg>
-</div>
-
-<!-- ─── Section Breaker: After FeaturedTours (Dotted Road) ───────────────── -->
-<div class="section-breaker breaker-road" aria-hidden="true">
-  <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,25 Q300,10 600,25 Q900,40 1200,25"
-          fill="none" stroke="#1B3A2D" stroke-width="1.5" stroke-dasharray="12 10" opacity="0.15"
-          class="road-path"/>
-    <!-- Compass rose centre -->
-    <g transform="translate(600,25)" opacity="0.2">
-      <circle r="10" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
-      <line x1="0" y1="-10" x2="0" y2="10" stroke="#C9A84C" stroke-width="1"/>
-      <line x1="-10" y1="0" x2="10" y2="0" stroke="#C9A84C" stroke-width="1"/>
-      <polygon points="0,-10 -3,-5 3,-5" fill="#C9A84C"/>
-      <text x="0" y="-13" text-anchor="middle" font-size="6" fill="#C9A84C" font-family="Inter,sans-serif">N</text>
-    </g>
-  </svg>
-</div>
-
-<!-- ─── Section Breaker: After WhyUs (Leaf scatter) ─────────────────────── -->
-<div class="section-breaker breaker-leaves" aria-hidden="true">
-  <svg viewBox="0 0 1200 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <g class="leaf l1" transform="translate(100,28) rotate(-20)">
-      <path d="M0,0 Q8,-18 0,-30 Q-8,-18 0,0Z" fill="#1B3A2D" opacity="0.12"/>
-      <line x1="0" y1="0" x2="0" y2="-28" stroke="#1B3A2D" stroke-width="0.8" opacity="0.1"/>
-    </g>
-    <g class="leaf l2" transform="translate(280,20) rotate(15)">
-      <path d="M0,0 Q10,-15 0,-25 Q-10,-15 0,0Z" fill="#C9A84C" opacity="0.13"/>
-    </g>
-    <g class="leaf l3" transform="translate(490,32) rotate(-35)">
-      <path d="M0,0 Q9,-16 0,-28 Q-9,-16 0,0Z" fill="#1B3A2D" opacity="0.10"/>
-    </g>
-    <g class="leaf l4" transform="translate(700,18) rotate(10)">
-      <path d="M0,0 Q7,-14 0,-22 Q-7,-14 0,0Z" fill="#C9A84C" opacity="0.11"/>
-    </g>
-    <g class="leaf l5" transform="translate(900,30) rotate(-25)">
-      <path d="M0,0 Q10,-17 0,-29 Q-10,-17 0,0Z" fill="#1B3A2D" opacity="0.12"/>
-    </g>
-    <g class="leaf l6" transform="translate(1100,22) rotate(30)">
-      <path d="M0,0 Q8,-13 0,-23 Q-8,-13 0,0Z" fill="#1B3A2D" opacity="0.09"/>
-    </g>
-  </svg>
-</div>
+<!-- Section breakers live in index.astro at correct positions between sections -->
 
 <style>
   /* ── Section breakers ──────────────────────────────────── */
@@ -212,29 +129,127 @@
 </style>
 
 <script>
-  // ── Plane scroll effect ────────────────────────────────────────────────────
-  const plane = document.getElementById('scroll-plane') as HTMLElement | null;
-  if (plane) {
-    let ticking = false;
-    const docH  = () => document.documentElement.scrollHeight - window.innerHeight;
+  // ── Cinematic plane on bezier path ───────────────────────────────────────
+  const plane    = document.getElementById('scroll-plane') as HTMLElement | null;
+  const cvs      = document.getElementById('contrail-canvas') as HTMLCanvasElement | null;
+
+  if (plane && cvs) {
+    const ctx = cvs.getContext('2d')!;
+    const HALF = 38; // half plane size for centering
+
+    // Resize canvas to fill viewport
+    const resize = () => { cvs.width = window.innerWidth; cvs.height = window.innerHeight; };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // Cubic bezier helpers
+    const bez  = (t: number, a: number, b: number, c: number, d: number) => {
+      const u = 1 - t;
+      return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*d;
+    };
+    const bezD = (t: number, a: number, b: number, c: number, d: number) => {
+      const u = 1 - t;
+      return 3*u*u*(b-a) + 6*u*t*(c-b) + 3*t*t*(d-c);
+    };
+
+    // Path: plane enters bottom-left, sweeps diagonally to top-right
+    // Control points as fractions of viewport
+    const PX = [-0.12, 0.18, 0.82, 1.12]; // x fractions
+    const PY = [ 1.08, 0.68, 0.32, -0.08]; // y fractions
+
+    // Trail positions ring-buffer
+    const TRAIL_LEN = 48;
+    const trailX = new Float32Array(TRAIL_LEN);
+    const trailY = new Float32Array(TRAIL_LEN);
+    let trailHead = 0, trailCount = 0;
+    let prevX = -999, prevY = -999;
+
+    let lastT = -1;
+    let rafId = 0;
+
+    const drawTrail = () => {
+      ctx.clearRect(0, 0, cvs.width, cvs.height);
+      if (trailCount < 2) return;
+
+      // Draw from oldest to newest with increasing opacity/width
+      for (let i = 0; i < trailCount - 1; i++) {
+        const idxA = (trailHead - trailCount + i + TRAIL_LEN) % TRAIL_LEN;
+        const idxB = (idxA + 1) % TRAIL_LEN;
+        const frac = i / (trailCount - 1);
+
+        // Main dark trail
+        ctx.beginPath();
+        ctx.moveTo(trailX[idxA], trailY[idxA]);
+        ctx.lineTo(trailX[idxB], trailY[idxB]);
+        ctx.strokeStyle = `rgba(27,58,45,${frac * 0.28})`;
+        ctx.lineWidth   = frac * 3.5;
+        ctx.lineCap     = 'round';
+        ctx.stroke();
+
+        // White highlight (recent portion only)
+        if (frac > 0.55) {
+          const hf = (frac - 0.55) / 0.45;
+          ctx.beginPath();
+          ctx.moveTo(trailX[idxA], trailY[idxA]);
+          ctx.lineTo(trailX[idxB], trailY[idxB]);
+          ctx.strokeStyle = `rgba(255,255,255,${hf * 0.18})`;
+          ctx.lineWidth   = hf * 1.5;
+          ctx.stroke();
+        }
+      }
+    };
 
     const updatePlane = () => {
-      const progress = Math.min(window.scrollY / docH(), 1);
-      const vw       = window.innerWidth;
+      const scrolled = window.scrollY;
+      const docH     = document.documentElement.scrollHeight - window.innerHeight;
+      const t        = Math.min(Math.max(scrolled / (docH || 1), 0), 1);
 
-      // Fly from -120px to vw+120px across the full scroll range
-      const x = -120 + progress * (vw + 240);
-      // Gentle sine wave vertical drift
-      const y = Math.sin(progress * Math.PI * 3) * 40;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
-      plane.style.transform  = `translate(${x}px, ${y}px)`;
-      plane.style.opacity    = progress > 0.02 && progress < 0.98 ? '1' : '0';
-      ticking = false;
+      const x  = bez(t,  PX[0]*vw, PX[1]*vw, PX[2]*vw, PX[3]*vw);
+      const y  = bez(t,  PY[0]*vh, PY[1]*vh, PY[2]*vh, PY[3]*vh);
+      const dx = bezD(t, PX[0]*vw, PX[1]*vw, PX[2]*vw, PX[3]*vw);
+      const dy = bezD(t, PY[0]*vh, PY[1]*vh, PY[2]*vh, PY[3]*vh);
+
+      // Angle the plane to follow the bezier tangent
+      // SVG icon points upper-right (45°), so subtract 45 to normalise
+      const angleDeg = Math.atan2(dy, dx) * 180 / Math.PI - 45;
+
+      // Scale: peak at midpoint (t≈0.5) for cinematic depth feel
+      const scale = 0.85 + 0.35 * Math.sin(t * Math.PI);
+
+      // Cinematic bank: slight horizontal scale based on curve direction
+      const bank = 1 - Math.abs(dx / (Math.abs(dx) + Math.abs(dy) + 1)) * 0.12;
+
+      const visible = t > 0.025 && t < 0.975;
+      plane.style.opacity = visible ? '1' : '0';
+      cvs.style.opacity   = visible ? '1'  : '0';
+
+      // Position so the plane centre sits on the bezier point
+      plane.style.transform = `translate(${x - HALF}px, ${y - HALF}px) rotate(${angleDeg}deg) scale(${scale}, ${scale * bank})`;
+
+      // Append to trail if position changed meaningfully
+      const dist = Math.hypot(x - prevX, y - prevY);
+      if (visible && dist > 4) {
+        trailX[trailHead] = x;
+        trailY[trailHead] = y;
+        trailHead = (trailHead + 1) % TRAIL_LEN;
+        if (trailCount < TRAIL_LEN) trailCount++;
+        prevX = x; prevY = y;
+      }
+
+      drawTrail();
+      lastT = t;
+      rafId = 0;
     };
 
     window.addEventListener('scroll', () => {
-      if (!ticking) { requestAnimationFrame(updatePlane); ticking = true; }
+      if (!rafId) rafId = requestAnimationFrame(updatePlane);
     }, { passive: true });
+
+    // Initial render
+    requestAnimationFrame(updatePlane);
   }
 
   // ── Hero parallax ─────────────────────────────────────────────────────────
