@@ -2,42 +2,6 @@
 // Scroll-driven interactive effects for the homepage
 ---
 
-<!-- ─── Cinematic Contrail Canvas ─────────────────────────────────────────── -->
-<canvas
-  id="contrail-canvas"
-  aria-hidden="true"
-  style="position:fixed;inset:0;z-index:38;pointer-events:none;opacity:0;transition:opacity 0.5s ease;"
-></canvas>
-
-<!-- ─── Flying Plane ──────────────────────────────────────────────────────── -->
-<div
-  id="scroll-plane"
-  aria-hidden="true"
-  style="position:fixed;z-index:39;pointer-events:none;will-change:transform;opacity:0;
-         transition:opacity 0.5s ease;transform-origin:center center;top:0;left:0;"
->
-  <!-- Top-down commercial aircraft pointing RIGHT, matching reference image -->
-  <svg width="88" height="56" viewBox="0 0 130 80" xmlns="http://www.w3.org/2000/svg"
-       style="filter:drop-shadow(0 3px 8px rgba(27,58,45,0.3));">
-    <g fill="#1B3A2D">
-      <!-- Fuselage body -->
-      <rect x="18" y="33" width="88" height="14" rx="7"/>
-      <!-- Nose (rounded right) -->
-      <ellipse cx="106" cy="40" rx="16" ry="9"/>
-      <!-- Tail left end -->
-      <ellipse cx="18" cy="40" rx="9" ry="6"/>
-      <!-- Main wings upper (swept back) -->
-      <polygon points="62,33 80,33 55,6 38,10"/>
-      <!-- Main wings lower (swept back) -->
-      <polygon points="62,47 80,47 55,74 38,70"/>
-      <!-- Tail stabiliser upper -->
-      <polygon points="20,33 32,33 26,20 16,22"/>
-      <!-- Tail stabiliser lower -->
-      <polygon points="20,47 32,47 26,60 16,58"/>
-    </g>
-  </svg>
-</div>
-
 <!-- Section breakers live in index.astro at correct positions between sections -->
 
 <style>
@@ -123,7 +87,7 @@
 
   /* ── Reduce motion ─────────────────────────────────────── */
   @media (prefers-reduced-motion: reduce) {
-    .bird, .leaf, .road-path, #scroll-plane { animation: none !important; }
+    .bird, .leaf, .road-path { animation: none !important; }
     [data-reveal="words"] .word {
       opacity: 1; transform: none; filter: none; transition: none;
     }
@@ -131,82 +95,6 @@
 </style>
 
 <script>
-  // ── Plane: flies left→right only during the "What We Offer" section ─────
-  const plane = document.getElementById('scroll-plane') as HTMLElement | null;
-  const cvs   = document.getElementById('contrail-canvas') as HTMLCanvasElement | null;
-  const catSection = document.getElementById('categories') as HTMLElement | null;
-
-  if (plane && cvs && catSection) {
-    const ctx = cvs.getContext('2d')!;
-    const PLANE_W = 88, PLANE_H = 56;
-
-    const resize = () => { cvs.width = window.innerWidth; cvs.height = window.innerHeight; };
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
-
-    // Trail ring-buffer
-    const TRAIL = 36;
-    const tx = new Float32Array(TRAIL), ty = new Float32Array(TRAIL);
-    let th = 0, tc = 0, px = -999, py = -999, raf = 0;
-
-    const drawTrail = () => {
-      ctx.clearRect(0, 0, cvs.width, cvs.height);
-      if (tc < 2) return;
-      for (let i = 1; i < tc; i++) {
-        const a = (th - tc + i - 1 + TRAIL) % TRAIL;
-        const b = (a + 1) % TRAIL;
-        const f = i / tc;
-        ctx.beginPath();
-        ctx.moveTo(tx[a], ty[a]);
-        ctx.lineTo(tx[b], ty[b]);
-        ctx.strokeStyle = `rgba(27,58,45,${f * 0.22})`;
-        ctx.lineWidth = f * 2.5;
-        ctx.lineCap = 'round';
-        ctx.stroke();
-      }
-    };
-
-    const update = () => {
-      const rect = catSection.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const vw = window.innerWidth;
-
-      // t=0 when section top hits viewport bottom, t=1 when section bottom hits viewport top
-      const t = Math.min(Math.max(
-        (-rect.top) / (catSection.offsetHeight - vh * 0.3), 0), 1);
-
-      const visible = rect.top < vh && rect.bottom > 0 && t > 0 && t < 1;
-
-      plane.style.opacity = visible ? '1' : '0';
-      cvs.style.opacity   = visible ? '1' : '0';
-
-      if (!visible) { ctx.clearRect(0, 0, cvs.width, cvs.height); raf = 0; return; }
-
-      // Fly left to right, gentle sine-wave vertical drift, fixed at 38% of viewport height
-      const x = -PLANE_W + t * (vw + PLANE_W * 2);
-      const y = vh * 0.38 + Math.sin(t * Math.PI) * 28;
-
-      plane.style.transform = `translate(${x}px, ${y}px)`;
-
-      // Update trail
-      if (Math.hypot(x - px, y - py) > 5) {
-        tx[th] = x + PLANE_W / 2; ty[th] = y + PLANE_H / 2;
-        th = (th + 1) % TRAIL;
-        if (tc < TRAIL) tc++;
-        px = x; py = y;
-      }
-
-      drawTrail();
-      raf = 0;
-    };
-
-    window.addEventListener('scroll', () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    }, { passive: true });
-
-    requestAnimationFrame(update);
-  }
-
   // ── Hero parallax ─────────────────────────────────────────────────────────
   const heroImg = document.getElementById('hero-img') as HTMLElement | null;
   if (heroImg) {
