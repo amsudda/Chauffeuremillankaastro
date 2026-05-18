@@ -1,5 +1,4 @@
 {
-  "nodeVersion": "20.x",
   "redirects": [
     { "source": "/de",                                              "destination": "/",            "permanent": true },
     { "source": "/de/tours",                                        "destination": "/tours",       "permanent": true },
