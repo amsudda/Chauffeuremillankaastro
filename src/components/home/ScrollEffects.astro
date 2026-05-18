@@ -16,24 +16,26 @@
   style="position:fixed;z-index:39;pointer-events:none;will-change:transform;opacity:0;
          transition:opacity 0.5s ease;transform-origin:center center;top:0;left:0;"
 >
-  <!-- Airplane icon matching provided reference: top-down commercial aircraft, nose upper-right -->
-  <svg width="76" height="76" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-       style="filter:drop-shadow(0 4px 12px rgba(27,58,45,0.35)) drop-shadow(0 1px 3px rgba(0,0,0,0.2));">
-    <g transform="rotate(45 50 50)" fill="#1B3A2D">
-      <!-- Fuselage -->
-      <rect x="43" y="10" width="14" height="70" rx="7"/>
-      <!-- Nose cap -->
-      <circle cx="50" cy="10" r="8"/>
-      <!-- Main wings -->
-      <polygon points="50,28 1,50 50,46 99,50"/>
-      <!-- Tail horizontal stabilisers -->
-      <polygon points="50,70 26,82 50,76 74,82"/>
-      <!-- Tail fin (vertical) -->
-      <polygon points="50,65 44,55 56,55"/>
+  <!-- Top-down commercial aircraft pointing RIGHT, matching reference image -->
+  <svg width="88" height="56" viewBox="0 0 130 80" xmlns="http://www.w3.org/2000/svg"
+       style="filter:drop-shadow(0 3px 8px rgba(27,58,45,0.3));">
+    <g fill="#1B3A2D">
+      <!-- Fuselage body -->
+      <rect x="18" y="33" width="88" height="14" rx="7"/>
+      <!-- Nose (rounded right) -->
+      <ellipse cx="106" cy="40" rx="16" ry="9"/>
+      <!-- Tail left end -->
+      <ellipse cx="18" cy="40" rx="9" ry="6"/>
+      <!-- Main wings upper (swept back) -->
+      <polygon points="62,33 80,33 55,6 38,10"/>
+      <!-- Main wings lower (swept back) -->
+      <polygon points="62,47 80,47 55,74 38,70"/>
+      <!-- Tail stabiliser upper -->
+      <polygon points="20,33 32,33 26,20 16,22"/>
+      <!-- Tail stabiliser lower -->
+      <polygon points="20,47 32,47 26,60 16,58"/>
     </g>
   </svg>
-  <!-- Engine glow dots -->
-  <div id="plane-glow" style="position:absolute;inset:0;pointer-events:none;"></div>
 </div>
 
 <!-- Section breakers live in index.astro at correct positions between sections -->
@@ -129,127 +131,80 @@
 </style>
 
 <script>
-  // ── Cinematic plane on bezier path ───────────────────────────────────────
-  const plane    = document.getElementById('scroll-plane') as HTMLElement | null;
-  const cvs      = document.getElementById('contrail-canvas') as HTMLCanvasElement | null;
+  // ── Plane: flies left→right only during the "What We Offer" section ─────
+  const plane = document.getElementById('scroll-plane') as HTMLElement | null;
+  const cvs   = document.getElementById('contrail-canvas') as HTMLCanvasElement | null;
+  const catSection = document.getElementById('categories') as HTMLElement | null;
 
-  if (plane && cvs) {
+  if (plane && cvs && catSection) {
     const ctx = cvs.getContext('2d')!;
-    const HALF = 38; // half plane size for centering
+    const PLANE_W = 88, PLANE_H = 56;
 
-    // Resize canvas to fill viewport
     const resize = () => { cvs.width = window.innerWidth; cvs.height = window.innerHeight; };
     resize();
     window.addEventListener('resize', resize, { passive: true });
 
-    // Cubic bezier helpers
-    const bez  = (t: number, a: number, b: number, c: number, d: number) => {
-      const u = 1 - t;
-      return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*d;
-    };
-    const bezD = (t: number, a: number, b: number, c: number, d: number) => {
-      const u = 1 - t;
-      return 3*u*u*(b-a) + 6*u*t*(c-b) + 3*t*t*(d-c);
-    };
-
-    // Path: plane enters bottom-left, sweeps diagonally to top-right
-    // Control points as fractions of viewport
-    const PX = [-0.12, 0.18, 0.82, 1.12]; // x fractions
-    const PY = [ 1.08, 0.68, 0.32, -0.08]; // y fractions
-
-    // Trail positions ring-buffer
-    const TRAIL_LEN = 48;
-    const trailX = new Float32Array(TRAIL_LEN);
-    const trailY = new Float32Array(TRAIL_LEN);
-    let trailHead = 0, trailCount = 0;
-    let prevX = -999, prevY = -999;
-
-    let lastT = -1;
-    let rafId = 0;
+    // Trail ring-buffer
+    const TRAIL = 36;
+    const tx = new Float32Array(TRAIL), ty = new Float32Array(TRAIL);
+    let th = 0, tc = 0, px = -999, py = -999, raf = 0;
 
     const drawTrail = () => {
       ctx.clearRect(0, 0, cvs.width, cvs.height);
-      if (trailCount < 2) return;
-
-      // Draw from oldest to newest with increasing opacity/width
-      for (let i = 0; i < trailCount - 1; i++) {
-        const idxA = (trailHead - trailCount + i + TRAIL_LEN) % TRAIL_LEN;
-        const idxB = (idxA + 1) % TRAIL_LEN;
-        const frac = i / (trailCount - 1);
-
-        // Main dark trail
+      if (tc < 2) return;
+      for (let i = 1; i < tc; i++) {
+        const a = (th - tc + i - 1 + TRAIL) % TRAIL;
+        const b = (a + 1) % TRAIL;
+        const f = i / tc;
         ctx.beginPath();
-        ctx.moveTo(trailX[idxA], trailY[idxA]);
-        ctx.lineTo(trailX[idxB], trailY[idxB]);
-        ctx.strokeStyle = `rgba(27,58,45,${frac * 0.28})`;
-        ctx.lineWidth   = frac * 3.5;
-        ctx.lineCap     = 'round';
+        ctx.moveTo(tx[a], ty[a]);
+        ctx.lineTo(tx[b], ty[b]);
+        ctx.strokeStyle = `rgba(27,58,45,${f * 0.22})`;
+        ctx.lineWidth = f * 2.5;
+        ctx.lineCap = 'round';
         ctx.stroke();
-
-        // White highlight (recent portion only)
-        if (frac > 0.55) {
-          const hf = (frac - 0.55) / 0.45;
-          ctx.beginPath();
-          ctx.moveTo(trailX[idxA], trailY[idxA]);
-          ctx.lineTo(trailX[idxB], trailY[idxB]);
-          ctx.strokeStyle = `rgba(255,255,255,${hf * 0.18})`;
-          ctx.lineWidth   = hf * 1.5;
-          ctx.stroke();
-        }
       }
     };
 
-    const updatePlane = () => {
-      const scrolled = window.scrollY;
-      const docH     = document.documentElement.scrollHeight - window.innerHeight;
-      const t        = Math.min(Math.max(scrolled / (docH || 1), 0), 1);
-
-      const vw = window.innerWidth;
+    const update = () => {
+      const rect = catSection.getBoundingClientRect();
       const vh = window.innerHeight;
+      const vw = window.innerWidth;
 
-      const x  = bez(t,  PX[0]*vw, PX[1]*vw, PX[2]*vw, PX[3]*vw);
-      const y  = bez(t,  PY[0]*vh, PY[1]*vh, PY[2]*vh, PY[3]*vh);
-      const dx = bezD(t, PX[0]*vw, PX[1]*vw, PX[2]*vw, PX[3]*vw);
-      const dy = bezD(t, PY[0]*vh, PY[1]*vh, PY[2]*vh, PY[3]*vh);
+      // t=0 when section top hits viewport bottom, t=1 when section bottom hits viewport top
+      const t = Math.min(Math.max(
+        (-rect.top) / (catSection.offsetHeight - vh * 0.3), 0), 1);
 
-      // Angle the plane to follow the bezier tangent
-      // SVG icon points upper-right (45°), so subtract 45 to normalise
-      const angleDeg = Math.atan2(dy, dx) * 180 / Math.PI - 45;
+      const visible = rect.top < vh && rect.bottom > 0 && t > 0 && t < 1;
 
-      // Scale: peak at midpoint (t≈0.5) for cinematic depth feel
-      const scale = 0.85 + 0.35 * Math.sin(t * Math.PI);
-
-      // Cinematic bank: slight horizontal scale based on curve direction
-      const bank = 1 - Math.abs(dx / (Math.abs(dx) + Math.abs(dy) + 1)) * 0.12;
-
-      const visible = t > 0.025 && t < 0.975;
       plane.style.opacity = visible ? '1' : '0';
-      cvs.style.opacity   = visible ? '1'  : '0';
+      cvs.style.opacity   = visible ? '1' : '0';
 
-      // Position so the plane centre sits on the bezier point
-      plane.style.transform = `translate(${x - HALF}px, ${y - HALF}px) rotate(${angleDeg}deg) scale(${scale}, ${scale * bank})`;
+      if (!visible) { ctx.clearRect(0, 0, cvs.width, cvs.height); raf = 0; return; }
 
-      // Append to trail if position changed meaningfully
-      const dist = Math.hypot(x - prevX, y - prevY);
-      if (visible && dist > 4) {
-        trailX[trailHead] = x;
-        trailY[trailHead] = y;
-        trailHead = (trailHead + 1) % TRAIL_LEN;
-        if (trailCount < TRAIL_LEN) trailCount++;
-        prevX = x; prevY = y;
+      // Fly left to right, gentle sine-wave vertical drift, fixed at 38% of viewport height
+      const x = -PLANE_W + t * (vw + PLANE_W * 2);
+      const y = vh * 0.38 + Math.sin(t * Math.PI) * 28;
+
+      plane.style.transform = `translate(${x}px, ${y}px)`;
+
+      // Update trail
+      if (Math.hypot(x - px, y - py) > 5) {
+        tx[th] = x + PLANE_W / 2; ty[th] = y + PLANE_H / 2;
+        th = (th + 1) % TRAIL;
+        if (tc < TRAIL) tc++;
+        px = x; py = y;
       }
 
       drawTrail();
-      lastT = t;
-      rafId = 0;
+      raf = 0;
     };
 
     window.addEventListener('scroll', () => {
-      if (!rafId) rafId = requestAnimationFrame(updatePlane);
+      if (!raf) raf = requestAnimationFrame(update);
     }, { passive: true });
 
-    // Initial render
-    requestAnimationFrame(updatePlane);
+    requestAnimationFrame(update);
   }
 
   // ── Hero parallax ─────────────────────────────────────────────────────────
