@@ -1,12 +1,9 @@
 ---
+export const prerender = false;
+
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getAllPosts, getPostBySlug } from '../../lib/contentful';
-
-export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  return posts.filter(p => p.slug).map(p => ({ params: { slug: p.slug } }));
-}
+import { getPostBySlug } from '../../lib/contentful';
 
 const { slug } = Astro.params;
 const post = await getPostBySlug(slug!);
