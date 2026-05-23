@@ -43,16 +43,20 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <link rel="canonical"        href={canonical} />
 
   <!-- Open Graph -->
-  <meta property="og:type"        content={type} />
-  <meta property="og:url"         content={canonical} />
-  <meta property="og:title"       content={fullTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image"       content={ogImage} />
-  <meta property="og:site_name"   content={SITE.name} />
-  <meta property="og:locale"      content="en_US" />
+  <meta property="og:type"         content={type} />
+  <meta property="og:url"          content={canonical} />
+  <meta property="og:title"        content={fullTitle} />
+  <meta property="og:description"  content={description} />
+  <meta property="og:image"        content={ogImage} />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content={fullTitle} />
+  <meta property="og:site_name"    content={SITE.name} />
+  <meta property="og:locale"       content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@chauffeuremillankatour" />
   <meta name="twitter:title"       content={fullTitle} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image"       content={ogImage} />
@@ -67,7 +71,6 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <!-- Geo & Business -->
   <meta name="geo.region"   content="LK" />
   <meta name="geo.country"  content="Sri Lanka" />
-  <meta name="keywords"     content="Sri Lanka private tour, chauffeur guide, safari, cultural tour, Emil Jayasekara, luxury travel, Yala, Sigiriya, Ella" />
 
   <!-- Schema.org — Local Business -->
   <script type="application/ld+json">
