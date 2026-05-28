@@ -131,8 +131,11 @@ export default function TailorMadeForm({ whatsapp }: Props) {
   const [phone,         setPhone]         = useState('');
   const [arrivalDate,   setArrivalDate]   = useState('');
   const [departureDate, setDepartureDate] = useState('');
-  const [adults,        setAdults]        = useState('2');
-  const [children,      setChildren]      = useState('0');
+  const [infants,       setInfants]       = useState(0);
+  const [children,      setChildren]      = useState(0);
+  const [teens,         setTeens]         = useState(0);
+  const [youngAdults,   setYoungAdults]   = useState(0);
+  const [adults,        setAdults]        = useState(0);
   const [interests,     setInterests]     = useState<string[]>([]);
   const [travelStyle,   setTravelStyle]   = useState('mid-range');
   const [occasion,      setOccasion]      = useState('');
@@ -170,8 +173,12 @@ export default function TailorMadeForm({ whatsapp }: Props) {
       `*Trip Details*`,
       `Arrival: ${arrivalDate || 'Flexible / TBD'}`,
       `Departure: ${departureDate || 'Flexible / TBD'}`,
-      `Adults: ${adults}`,
-      ...(children !== '0' ? [`Children: ${children}`] : []),
+      `Total Travelers: ${infants + children + teens + youngAdults + adults}`,
+      ...(infants      > 0 ? [`Infants & Toddlers (0-5): ${infants}`]      : []),
+      ...(children     > 0 ? [`Children (6-12): ${children}`]              : []),
+      ...(teens        > 0 ? [`Teens (13-20): ${teens}`]                   : []),
+      ...(youngAdults  > 0 ? [`Young Adults (20-30): ${youngAdults}`]      : []),
+      ...(adults       > 0 ? [`Adults (30+): ${adults}`]                   : []),
       ``,
       `*Preferences*`,
       `Travel Style: ${styleLabel}`,
@@ -194,8 +201,12 @@ export default function TailorMadeForm({ whatsapp }: Props) {
         `TRIP DETAILS`,
         `Arrival Date: ${arrivalDate || 'Flexible / TBD'}`,
         `Departure Date: ${departureDate || 'Flexible / TBD'}`,
-        `Adults: ${adults}`,
-        `Children: ${children === '0' ? 'None' : children}`,
+        `Total Travelers: ${infants + children + teens + youngAdults + adults}`,
+        `  Infants & Toddlers (0-5): ${infants}`,
+        `  Children (6-12): ${children}`,
+        `  Teens (13-20): ${teens}`,
+        `  Young Adults (20-30): ${youngAdults}`,
+        `  Adults (30+): ${adults}`,
         ``,
         `PREFERENCES`,
         `Travel Style: ${styleLabel}`,
@@ -334,22 +345,39 @@ export default function TailorMadeForm({ whatsapp }: Props) {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className={lbl}>Adults</label>
-              <select value={adults} onChange={e => setAdults(e.target.value)} className={input}>
-                {['1','2','3','4','5','6','7','8+'].map(n => (
-                  <option key={n} value={n}>{n} adult{n !== '1' ? 's' : ''}</option>
-                ))}
-              </select>
+          <div>
+            <p className="text-xs text-warmgray mb-3">Please specify the number of travelers in each age group</p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-3">
+              {[
+                { label: 'Infants & Toddlers (0-5)', value: infants,      setter: setInfants },
+                { label: 'Children (6-12)',           value: children,     setter: setChildren },
+                { label: 'Teens (13-20)',             value: teens,        setter: setTeens },
+                { label: 'Young Adults (20-30)',      value: youngAdults,  setter: setYoungAdults },
+              ].map(({ label, value, setter }) => (
+                <div key={label}>
+                  <label className={lbl}>{label}</label>
+                  <input
+                    type="number" min={0} max={20} value={value}
+                    onChange={e => setter(Math.max(0, parseInt(e.target.value) || 0))}
+                    className={input}
+                  />
+                </div>
+              ))}
             </div>
-            <div>
-              <label className={lbl}>Children</label>
-              <select value={children} onChange={e => setChildren(e.target.value)} className={input}>
-                {['0','1','2','3','4','5+'].map(n => (
-                  <option key={n} value={n}>{n === '0' ? 'None' : `${n} child${n !== '1' ? 'ren' : ''}`}</option>
-                ))}
-              </select>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div>
+                <label className={lbl}>Adults (30+)</label>
+                <input
+                  type="number" min={0} max={20} value={adults}
+                  onChange={e => setAdults(Math.max(0, parseInt(e.target.value) || 0))}
+                  className={input}
+                />
+              </div>
+            </div>
+            <div className="mt-3 bg-forest-600/8 border border-forest-200 rounded-xl px-5 py-3 text-center">
+              <span className="text-sm font-semibold text-forest-700">
+                Total Travelers: {infants + children + teens + youngAdults + adults}
+              </span>
             </div>
           </div>
         </div>
