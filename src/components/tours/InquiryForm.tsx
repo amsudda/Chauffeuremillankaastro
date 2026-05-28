@@ -33,7 +33,14 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
           from_name: `${firstName} ${lastName}`,
           reply_to: email,
           cc: 'induwaraudula123@gmail.com',
-          message: `${tourName ? `Tour: ${tourName}\n\n` : ''}${message}`,
+          message: [
+            `Name:    ${firstName} ${lastName}`,
+            `Email:   ${email}`,
+            tourName ? `Tour:    ${tourName}` : '',
+            ``,
+            `Message:`,
+            message,
+          ].filter(Boolean).join('\n'),
         }),
       });
       const data = await res.json();
