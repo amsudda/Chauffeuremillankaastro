@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY as string;
+const WEB3FORMS_KEY    = import.meta.env.PUBLIC_WEB3FORMS_KEY as string;
+const WEB3FORMS_KEY_CC = 'b12fcffb-9333-475a-8405-9db715f880c7';
 
 interface Props {
   tourName?: string;
@@ -46,6 +47,30 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
       console.log('Web3Forms response:', data);
     } catch (err) {
       console.error('Web3Forms error:', err);
+    }
+
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY_CC,
+          botcheck: false,
+          subject: `Message from ${firstName} ${lastName} — Chauffeur Emil Lanka Tour`,
+          from_name: `${firstName} ${lastName}`,
+          reply_to: email,
+          message: [
+            `Name:    ${firstName} ${lastName}`,
+            `Email:   ${email}`,
+            tourName ? `Tour:    ${tourName}` : '',
+            ``,
+            `Message:`,
+            message,
+          ].filter(Boolean).join('\n'),
+        }),
+      });
+    } catch (err) {
+      console.error('Web3Forms CC error:', err);
     }
 
     setLoading(false);

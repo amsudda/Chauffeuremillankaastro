@@ -123,7 +123,8 @@ const TRAVEL_STYLES = [
 
 interface Props { whatsapp: string; }
 
-const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY as string;
+const WEB3FORMS_KEY    = import.meta.env.PUBLIC_WEB3FORMS_KEY as string;
+const WEB3FORMS_KEY_CC = 'b12fcffb-9333-475a-8405-9db715f880c7';
 
 export default function TailorMadeForm({ whatsapp }: Props) {
   const [name,          setName]          = useState('');
@@ -223,6 +224,23 @@ export default function TailorMadeForm({ whatsapp }: Props) {
         console.log('Web3Forms response:', data);
       } catch (err) {
         console.error('Web3Forms error:', err);
+      }
+
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY_CC,
+            botcheck: false,
+            subject: `New Tour Request from ${name} — Chauffeur Emil Lanka Tour`,
+            from_name: name,
+            reply_to: email,
+            message: emailBody,
+          }),
+        });
+      } catch (err) {
+        console.error('Web3Forms CC error:', err);
       }
     }
 
