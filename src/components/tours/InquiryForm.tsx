@@ -28,7 +28,7 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
-          subject: `Message from ${firstName} ${lastName} — Chauffeur Emillan Katour`,
+          subject: `Message from ${firstName} ${lastName} — Chauffeur Emil Lanka Tour`,
           from_name: `${firstName} ${lastName}`,
           reply_to: email,
           cc: 'induwaraudula123@gmail.com',
