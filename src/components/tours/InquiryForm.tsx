@@ -23,11 +23,12 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
     setLoading(true);
 
     try {
-      await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: WEB3FORMS_KEY,
+          botcheck: false,
           subject: `Message from ${firstName} ${lastName} — Chauffeur Emil Lanka Tour`,
           from_name: `${firstName} ${lastName}`,
           reply_to: email,
@@ -35,8 +36,10 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
           message: `${tourName ? `Tour: ${tourName}\n\n` : ''}${message}`,
         }),
       });
-    } catch {
-      // fail silently
+      const data = await res.json();
+      console.log('Web3Forms response:', data);
+    } catch (err) {
+      console.error('Web3Forms error:', err);
     }
 
     setLoading(false);
