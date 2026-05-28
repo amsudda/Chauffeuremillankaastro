@@ -31,6 +31,7 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
           subject: `Message from ${firstName} ${lastName} — Chauffeur Emillan Katour`,
           from_name: `${firstName} ${lastName}`,
           reply_to: email,
+          cc: 'induwaraudula123@gmail.com',
           message: `${tourName ? `Tour: ${tourName}\n\n` : ''}${message}`,
         }),
       });
