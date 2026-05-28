@@ -207,11 +207,12 @@ export default function TailorMadeForm({ whatsapp }: Props) {
       ].join('\n');
 
       try {
-        await fetch('https://api.web3forms.com/submit', {
+        const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify({
             access_key: WEB3FORMS_KEY,
+            botcheck: false,
             subject: `New Tour Request from ${name} — Chauffeur Emil Lanka Tour`,
             from_name: name,
             reply_to: email,
@@ -219,8 +220,10 @@ export default function TailorMadeForm({ whatsapp }: Props) {
             message: emailBody,
           }),
         });
-      } catch {
-        // Email silently fails — WhatsApp still goes through
+        const data = await res.json();
+        console.log('Web3Forms response:', data);
+      } catch (err) {
+        console.error('Web3Forms error:', err);
       }
     }
 
