@@ -216,7 +216,6 @@ export default function TailorMadeForm({ whatsapp }: Props) {
             subject: `New Tour Request from ${name} — Chauffeur Emil Lanka Tour`,
             from_name: name,
             reply_to: email,
-            cc: 'induwaraudula123@gmail.com',
             message: emailBody,
           }),
         });

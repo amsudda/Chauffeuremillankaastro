@@ -32,7 +32,6 @@ export default function InquiryForm({ tourName = '', sticky = false }: Props) {
           subject: `Message from ${firstName} ${lastName} — Chauffeur Emil Lanka Tour`,
           from_name: `${firstName} ${lastName}`,
           reply_to: email,
-          cc: 'induwaraudula123@gmail.com',
           message: [
             `Name:    ${firstName} ${lastName}`,
             `Email:   ${email}`,
