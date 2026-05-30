@@ -52,26 +52,39 @@ import heroImg from '../../images/destinations/Ella/ella 1 nine arch.webp';
 
         <!-- Main headline -->
         <h1
-          class="font-display text-hero text-white mb-6 text-balance animate-slide-up"
+          class="font-display text-hero text-white mb-4 text-balance animate-slide-up"
           style="animation-delay:0.35s;animation-fill-mode:both"
         >
           Discover Sri Lanka<br/>
           <em class="not-italic text-gold-300">Through Emil's Eyes</em>
         </h1>
 
+        <!-- Mobile-only trust badge: visible right under headline before fold -->
+        <div class="flex items-center gap-2.5 mb-5 sm:hidden animate-fade-in" style="animation-delay:0.45s;animation-fill-mode:both">
+          <div class="flex">
+            {[1,2,3,4,5].map(_ => (
+              <svg class="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <span class="text-white/80 text-sm font-medium">5.0 · 312 reviews on TripAdvisor</span>
+        </div>
+
         <!-- Sub-headline -->
         <p
-          class="text-white/75 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl animate-slide-up"
+          class="text-white/75 text-lg sm:text-xl leading-relaxed mb-7 sm:mb-10 max-w-xl animate-slide-up"
           style="animation-delay:0.5s;animation-fill-mode:both"
         >
-          Private chauffeur journeys through ancient kingdoms, misty tea mountains,
+          <span class="hidden sm:inline">Private chauffeur journeys through ancient kingdoms, misty tea mountains,
           wild leopard territory, and turquoise shores — curated by Emil Jayasekara,
-          {SITE.guide.experience} on the road.
+          {SITE.guide.experience} on the road.</span>
+          <span class="sm:hidden">Private Sri Lanka tours with Emil Jayasekara — {SITE.guide.experience} experience, 5-star rated, SLTDA certified.</span>
         </p>
 
         <!-- CTA Row -->
         <div
-          class="flex flex-wrap gap-4 mb-12 animate-slide-up"
+          class="flex flex-wrap gap-4 mb-8 sm:mb-12 animate-slide-up"
           style="animation-delay:0.65s;animation-fill-mode:both"
         >
           <a href="/tours" class="btn-primary text-base px-8 py-4">
