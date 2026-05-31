@@ -76,12 +76,8 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TourOperator",
+    "@type": ["LocalBusiness", "TourOperator"],
     "name": "Chauffeur Emil Lanka Tours",
-    "brand": {
-      "@type": "Brand",
-      "name": "Chauffeur Emil Lanka Tours"
-    },
     "description": "Private chauffeur-guided Sri Lanka tours with Emil Jayasekara",
     "url": "https://www.chauffeuremillankatour.com",
     "telephone": "+94761917039",
@@ -100,8 +96,8 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
     "image": "https://www.chauffeuremillankatour.com/images/og-default.jpg",
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "312"
+      "ratingValue": 5.0,
+      "reviewCount": 312
     }
   }
   </script>
