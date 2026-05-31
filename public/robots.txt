@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Block non-content paths
+Disallow: /404
+Disallow: /privacy
+Disallow: /terms
+
 Sitemap: https://www.chauffeuremillankatour.com/sitemap.xml
