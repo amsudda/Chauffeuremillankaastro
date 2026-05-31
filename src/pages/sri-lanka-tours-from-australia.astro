@@ -1,0 +1,527 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+import { SITE } from '../data/site';
+import { img } from '../data/imageUrls';
+---
+
+<BaseLayout
+  title="Sri Lanka Tours from Australia 2026 | Private Chauffeur Guide Emil"
+  description="Planning a Sri Lanka holiday from Australia? Emil Jayasekara is a private SLTDA-certified chauffeur guide with 14+ years experience. Visa info, best time to visit, flights from Melbourne & Sydney, and why private beats Intrepid."
+  canonical="https://www.chauffeuremillankatour.com/sri-lanka-tours-from-australia"
+>
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "TourOperator"],
+        "@id": "https://www.chauffeuremillankatour.com/#business",
+        "name": "Chauffeur Emil Lanka Tours",
+        "description": "Private chauffeur guide and tour driver in Sri Lanka for Australian travellers.",
+        "url": "https://www.chauffeuremillankatour.com",
+        "telephone": "+94761917039",
+        "areaServed": [
+          { "@type": "Country", "name": "Sri Lanka" },
+          { "@type": "Country", "name": "Australia" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5.0,
+          "reviewCount": 312
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do Australians need a visa for Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Australian passport holders need an Electronic Travel Authorization (ETA) before arriving in Sri Lanka. It costs approximately USD 20–35, is applied for online at eta.gov.lk, and allows a 30-day stay. As of 2024, Sri Lanka has also introduced free ETA periods — check the official site for current status before you travel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Sri Lanka safe for Australian tourists in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Sri Lanka is safe for Australian tourists in 2026. The country has fully stabilised after the 2022 economic crisis and tourism has returned strongly. The Australian Government Smartraveller advice currently rates Sri Lanka as 'Exercise normal safety precautions'. Emil has guided hundreds of Australian guests without incident."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best time for Australians to visit Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "December to March is the dry season for the west and south coasts — perfect for beaches and cultural sites. July to September is ideal for the Cultural Triangle, east coast, and the Kandy Esala Perahera festival in August. Australian school holidays in January and July align well with both peak seasons."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long are flights from Australia to Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Flights from Melbourne (MEL) to Colombo (CMB) take approximately 11–14 hours with one stopover, typically via Singapore, Kuala Lumpur, or Dubai. Direct flight times vary by airline. SriLankan Airlines, Singapore Airlines, Malaysia Airlines, and Emirates all fly this route regularly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the Kandy Esala Perahera and when is it in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Kandy Esala Perahera is Sri Lanka's most spectacular Buddhist festival — 10 nights of candlelit processions featuring over 100 decorated elephants, traditional Kandyan drummers, dancers, and fire performers through the streets of Kandy. In 2026 it runs in August. Emil organises front-row viewing spots and builds full itineraries around the festival dates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a private chauffeur guide different from Intrepid Travel Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Intrepid Travel uses group tours with fixed itineraries and shared transport. A private chauffeur guide like Emil gives you a fully custom itinerary, private air-conditioned vehicle, and 1-on-1 guiding every day. You leave when you want, stop where you want, and have direct WhatsApp access to Emil throughout. No group schedules, no strangers on your bus."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need travel insurance for Sri Lanka from Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Travel insurance is strongly recommended for Sri Lanka. Australian insurers including Cover-More, Allianz, and 1Cover all offer Sri Lanka coverage. Emil recommends ensuring your policy covers medical evacuation, adventure activities (if doing safaris or hiking), and trip cancellation. Sri Lanka has good private hospitals in Colombo but medical costs can add up without insurance."
+            }
+          }
+        ]
+      }
+    ]
+  })}</script>
+
+  <!-- Hero -->
+  <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image:radial-gradient(circle at 80% 30%, #C9A84C 0%, transparent 50%)">
+    </div>
+    <div class="relative z-10 section-wrap max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-gold-400/15 border border-gold-400/30 rounded-full
+                  px-4 py-2 mb-6">
+        <span class="text-lg">🇦🇺</span>
+        <span class="text-gold-300 text-xs font-semibold tracking-widest uppercase">For Australian Travellers</span>
+      </div>
+      <h1 class="font-display text-5xl sm:text-6xl text-white leading-tight mb-6">
+        Sri Lanka Tours<br/>
+        <em class="not-italic text-gold-300">from Australia</em>
+      </h1>
+      <p class="text-white/75 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+        Skip the group bus. Travel Sri Lanka privately with Emil Jayasekara —
+        SLTDA-certified chauffeur guide, 14+ years experience, 312 five-star reviews.
+        Your itinerary, your pace, your guide.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-10">
+        <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1fb959] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Emil
+        </a>
+        <a href="/tailor-made"
+           class="border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors">
+          Plan My Sri Lanka Trip
+        </a>
+      </div>
+      <!-- Trust row -->
+      <div class="flex flex-wrap justify-center gap-6 text-white/60 text-xs">
+        {['⭐ 5.0 · 312 TripAdvisor Reviews', '🏅 SLTDA Certified', '🇦🇺 100+ Australian Guests', '💬 Replies within 2 hours'].map(t => (
+          <span>{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick info strip -->
+  <section class="bg-white border-b border-stone py-8">
+    <div class="section-wrap">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {[
+          { icon: '✈️', label: 'Flight Time', value: '~11–14 hrs', sub: 'MEL/SYD via stopover' },
+          { icon: '🛂', label: 'Visa', value: 'ETA Required', sub: 'Apply online · ~USD 20–35' },
+          { icon: '🌤️', label: 'Best Season', value: 'Dec–Mar & Jul–Sep', sub: 'Aligns with AU school hols' },
+          { icon: '💰', label: 'Currency', value: 'Sri Lankan Rupee', sub: '1 AUD ≈ 180–200 LKR' },
+        ].map(item => (
+          <div class="reveal">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <p class="text-forest-700 font-semibold text-sm">{item.label}</p>
+            <p class="text-warmbrown font-medium text-sm">{item.value}</p>
+            <p class="text-warmgray text-xs mt-0.5">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Is Sri Lanka safe -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p class="section-eyebrow">Safety & Security</p>
+          <h2 class="section-title mb-5">Is Sri Lanka Safe for Australians in 2026?</h2>
+          <p class="text-warmgray leading-relaxed mb-4">
+            <strong class="text-forest-700">Yes — Sri Lanka is safe for Australian tourists in 2026.</strong>
+            The country has fully stabilised following the 2022 economic crisis, tourism infrastructure
+            has recovered strongly, and international arrivals are back to pre-crisis levels.
+          </p>
+          <p class="text-warmgray leading-relaxed mb-4">
+            The Australian Government's <strong>Smartraveller</strong> rating for Sri Lanka is currently
+            <strong class="text-forest-700">"Exercise normal safety precautions"</strong> — the same
+            rating as popular destinations like Italy, Japan, and Thailand.
+          </p>
+          <p class="text-warmgray leading-relaxed mb-6">
+            Emil has guided over <strong>100 Australian guests</strong> across 14 years — families
+            from Melbourne, couples from Sydney, solo travellers from Brisbane — without a single
+            safety incident. He shares his personal WhatsApp number and is reachable throughout your trip.
+          </p>
+          <a href="https://www.smartraveller.gov.au/destinations/asia/sri-lanka" target="_blank"
+             rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 text-forest-600 text-sm font-medium hover:text-sunset-400 transition-colors">
+            Check Smartraveller Sri Lanka advice →
+          </a>
+        </div>
+        <div class="reveal">
+          <div class="rounded-3xl overflow-hidden shadow-card-hover">
+            <img
+              src={img('destinations/sigiriya/sigiriya lions  rock.webp')}
+              alt="Sigiriya Rock Fortress — safe and popular with Australian tourists"
+              loading="lazy"
+              width="600" height="450"
+              class="w-full h-72 object-cover"
+            />
+          </div>
+          <div class="mt-4 bg-white rounded-2xl border border-stone p-5 shadow-card">
+            <p class="text-forest-700 font-semibold text-sm mb-2">Emil's safety promise to Australian guests</p>
+            <ul class="space-y-1.5 text-warmgray text-sm">
+              {[
+                'Personal WhatsApp — reachable 24/7 during your tour',
+                'Fully insured private vehicle, inspected before every journey',
+                'Pre-vetted hotels, restaurants, and excursion partners',
+                'Emergency contacts and hospital knowledge island-wide',
+              ].map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-forest-600 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best time to visit -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Travel Planning</p>
+        <h2 class="section-title mb-3">Best Time for Australians to Visit Sri Lanka</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm leading-relaxed">
+          Good news — Australian school holidays align perfectly with Sri Lanka's two best travel windows.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        {[
+          {
+            months: 'December – March',
+            badge: '🌞 Jan School Hols',
+            title: 'West & South Coast Season',
+            body: 'Dry, sunny, and perfect for beaches, whale watching in Mirissa, Galle Fort, and the Cultural Triangle. January is peak season — book Emil early. Kandy Temple of the Tooth is spectacular year-round.',
+            highlight: 'Best for: Beaches, Galle, Kandy, Sigiriya, Yala',
+            color: 'border-gold-400/50 bg-gold-400/5',
+          },
+          {
+            months: 'July – September',
+            badge: '🐘 Aug Perahera + Jul School Hols',
+            title: 'Cultural Triangle & East Coast',
+            body: 'Sri Lanka\'s most exciting cultural period. The Kandy Esala Perahera in August is unmissable — 10 nights of elephant processions and traditional ceremony. July school holidays land right in the middle of this window.',
+            highlight: 'Best for: Perahera, Polonnaruwa, Anuradhapura, East Coast',
+            color: 'border-forest-400/50 bg-forest-600/5',
+          },
+        ].map(s => (
+          <div class={`rounded-2xl border-2 p-6 reveal ${s.color}`}>
+            <div class="flex items-center justify-between mb-3">
+              <p class="font-display text-forest-700 text-lg">{s.months}</p>
+              <span class="text-xs bg-white border border-stone rounded-full px-3 py-1 font-medium text-forest-700">{s.badge}</span>
+            </div>
+            <h3 class="font-semibold text-warmbrown mb-2">{s.title}</h3>
+            <p class="text-warmgray text-sm leading-relaxed mb-3">{s.body}</p>
+            <p class="text-forest-600 text-xs font-semibold">{s.highlight}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Perahera callout -->
+      <div class="rounded-3xl overflow-hidden shadow-card-hover reveal">
+        <div class="relative h-56">
+          <img
+            src={img('esela perahera.webp')}
+            alt="Kandy Esala Perahera — August festival Sri Lanka"
+            loading="lazy"
+            width="900" height="400"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-forest-700/90 to-forest-700/30 flex items-center">
+            <div class="p-8 max-w-lg">
+              <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-2">August 2026 · Kandy</p>
+              <h3 class="font-display text-white text-2xl mb-2">Kandy Esala Perahera</h3>
+              <p class="text-white/75 text-sm leading-relaxed mb-4">
+                100+ decorated elephants. Kandyan drummers. Fire dancers. 10 nights of procession
+                through ancient streets. This is the festival Australians fly to Sri Lanka for.
+              </p>
+              <a href="/tailor-made"
+                 class="inline-block bg-gold-400 text-forest-800 font-bold text-sm px-5 py-2.5 rounded-full hover:bg-gold-300 transition-colors">
+                Plan Around the Perahera →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visa section -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <p class="section-eyebrow">Visa & Entry</p>
+          <h2 class="section-title mb-5">Sri Lanka Visa for Australians</h2>
+          <p class="text-warmgray leading-relaxed mb-4">
+            Australian passport holders require an <strong class="text-forest-700">Electronic Travel Authorization (ETA)</strong>
+            to enter Sri Lanka. It is applied for online — no embassy visit required.
+          </p>
+          <div class="space-y-3 mb-6">
+            {[
+              { label: 'Cost', value: 'Approx. USD 20–35 (check eta.gov.lk for current pricing — free ETA periods apply)' },
+              { label: 'Duration', value: '30 days, double entry' },
+              { label: 'Processing', value: 'Usually within 24–72 hours online' },
+              { label: 'Apply at', value: 'eta.gov.lk (official Sri Lanka government portal)' },
+              { label: 'Passport validity', value: 'At least 6 months beyond your travel dates' },
+            ].map(row => (
+              <div class="flex gap-3 bg-white rounded-xl border border-stone p-3.5">
+                <span class="text-forest-700 font-semibold text-sm w-28 flex-shrink-0">{row.label}</span>
+                <span class="text-warmgray text-sm">{row.value}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-warmgray text-sm leading-relaxed">
+            Emil assists all guests with visa questions over WhatsApp before arrival.
+            He'll confirm the current ETA status and flag any entry requirement changes.
+          </p>
+        </div>
+
+        <!-- Flights -->
+        <div class="reveal">
+          <p class="section-eyebrow">Getting There</p>
+          <h2 class="section-title mb-5">Flights from Australia to Sri Lanka</h2>
+          <p class="text-warmgray leading-relaxed mb-5">
+            There are no direct flights between Australia and Sri Lanka — all routes have one stopover.
+            Flight times from Melbourne are typically <strong class="text-forest-700">11–14 hours total</strong>.
+          </p>
+          <div class="space-y-3 mb-5">
+            {[
+              { route: 'Melbourne → Colombo', via: 'Via Singapore (SIA)', time: '~12 hrs' },
+              { route: 'Sydney → Colombo', via: 'Via Kuala Lumpur (MAS)', time: '~11 hrs' },
+              { route: 'Melbourne → Colombo', via: 'Via Dubai (Emirates)', time: '~14 hrs' },
+              { route: 'Any city → Colombo', via: 'SriLankan Airlines via Singapore', time: '~13 hrs' },
+            ].map(f => (
+              <div class="bg-white rounded-xl border border-stone p-3.5 flex items-center justify-between gap-3">
+                <div>
+                  <p class="text-forest-700 font-semibold text-sm">{f.route}</p>
+                  <p class="text-warmgray text-xs">{f.via}</p>
+                </div>
+                <span class="text-forest-600 font-bold text-sm flex-shrink-0">{f.time}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-warmgray text-sm">
+            Emil meets all guests at <strong>Bandaranaike International Airport (CMB)</strong> in Colombo
+            — airport transfer is included in every private tour package.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emil vs Intrepid -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Private vs Group Travel</p>
+        <h2 class="section-title mb-3">Emil vs Intrepid Travel Sri Lanka</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm">
+          Many Australians compare group tours like Intrepid with private chauffeur options.
+          Here's the honest difference.
+        </p>
+      </div>
+      <div class="overflow-x-auto rounded-3xl border border-stone shadow-card reveal">
+        <table class="w-full text-sm min-w-[540px]">
+          <thead>
+            <tr class="bg-forest-gradient text-white">
+              <th class="px-5 py-4 text-left font-semibold"></th>
+              <th class="px-5 py-4 text-left font-semibold text-gold-300">Emil (Private)</th>
+              <th class="px-5 py-4 text-left font-semibold text-white/70">Intrepid / Group Tour</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Group size',          'Just you (+ your travel party)',     '8–16 strangers'],
+              ['Itinerary',           'Fully custom — built around you',    'Fixed group schedule'],
+              ['Guide',               'Emil, every day — direct WhatsApp',  'Varies by departure'],
+              ['Vehicle',             'Private A/C Toyota — yours only',    'Shared group bus'],
+              ['Flexibility',         'Stop anywhere, anytime',             'Fixed stops, fixed times'],
+              ['Airport transfer',    'Included — Emil meets you',          'Not always included'],
+              ['Perahera access',     'Front-row spots, Emil arranges it',  'Standard group viewing'],
+              ['Pace',                'Your pace — slow down, speed up',    'Group consensus'],
+              ['Price per couple',    'Often comparable or better value',   'Per-person group rate'],
+            ].map(([feature, emil, group], i) => (
+              <tr class={i % 2 === 0 ? 'bg-ivory' : 'bg-white'}>
+                <td class="px-5 py-3 font-medium text-forest-700">{feature}</td>
+                <td class="px-5 py-3 text-forest-600 font-medium">{emil}</td>
+                <td class="px-5 py-3 text-warmgray">{group}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-warmgray text-sm mt-6 reveal">
+        Questions? <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+                      class="text-forest-600 font-medium hover:text-sunset-400 transition-colors">
+          Message Emil on WhatsApp
+        </a> — he'll give you an honest answer about whether private travel suits your trip.
+      </p>
+    </div>
+  </section>
+
+  <!-- Top destinations -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Where to Go</p>
+        <h2 class="section-title mb-3">Top Sri Lanka Destinations for Australians</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            name: 'Kandy',
+            img: img('destinations/kandy/kandy temple of the tooth.webp'),
+            desc: 'The cultural capital. Home of the Temple of the Tooth Relic and the Esala Perahera festival. About 3.5 hours from Colombo.',
+          },
+          {
+            name: 'Sigiriya',
+            img: img('destinations/sigiriya/sigiriya lions  rock.webp'),
+            desc: 'The iconic Lion Rock fortress — a UNESCO World Heritage site rising 200m above the jungle. Climb at sunrise with Emil.',
+          },
+          {
+            name: 'Ella',
+            img: img('destinations/Ella/ella 1 nine arch.webp'),
+            desc: 'The Nine Arches Bridge, Ella Rock hike, and the world\'s most scenic train ride. The hill country at its best.',
+          },
+          {
+            name: 'Polonnaruwa',
+            img: img('destinations/polonnaruwa/polonnaruwa.webp'),
+            desc: 'Ancient royal city with perfectly preserved dagobas, stone Buddhas, and ruins set among jungle and lakes.',
+          },
+          {
+            name: 'Yala National Park',
+            img: img('yala-safari.jpg'),
+            desc: 'The world\'s highest density of leopards. Emil times game drives for golden hour and knows where the big cats roam.',
+          },
+          {
+            name: 'Mirissa Beach',
+            img: img('destinations/mirissa/mirissa homepage herosection image idea.webp'),
+            desc: 'Sri Lanka\'s best whale watching (November–April) plus a beautiful crescent beach on the south coast.',
+          },
+        ].map((d, i) => (
+          <div class="bg-white rounded-2xl overflow-hidden border border-stone shadow-card hover:shadow-card-hover transition-shadow reveal"
+               style={`animation-delay:${i * 60}ms`}>
+            <img src={d.img} alt={`${d.name} Sri Lanka`} loading="lazy"
+                 width="400" height="250"
+                 class="w-full h-44 object-cover" />
+            <div class="p-4">
+              <h3 class="font-display text-forest-700 text-lg mb-1">{d.name}</h3>
+              <p class="text-warmgray text-xs leading-relaxed">{d.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Australian Travellers Ask</p>
+        <h2 class="section-title mb-3">Sri Lanka Travel FAQ for Australians</h2>
+      </div>
+      <dl class="space-y-4">
+        {[
+          {
+            q: 'Do Australians need a visa for Sri Lanka?',
+            a: 'Yes. Australian passport holders need an Electronic Travel Authorization (ETA) before arriving. Apply at eta.gov.lk — it costs approximately USD 20–35 and allows 30 days. Processing usually takes 24–72 hours. Sri Lanka has also introduced free ETA periods; check the official site before you travel.',
+          },
+          {
+            q: 'Is Sri Lanka safe for Australian tourists in 2026?',
+            a: 'Yes. Smartraveller\'s current rating is "Exercise normal safety precautions" — the same as Italy, Japan, and Thailand. Sri Lanka has fully recovered from the 2022 economic crisis. Emil has guided hundreds of Australians without incident and is available on WhatsApp throughout your tour.',
+          },
+          {
+            q: 'What is the best time of year for Australians to visit Sri Lanka?',
+            a: 'December–March suits Australian January school holidays — dry season for beaches and the Cultural Triangle. July–September suits July school holidays — ideal for the Cultural Triangle, east coast, and the unmissable Kandy Esala Perahera festival in August.',
+          },
+          {
+            q: 'How long is the flight from Melbourne to Sri Lanka?',
+            a: 'Approximately 11–14 hours with one stopover, typically via Singapore, Kuala Lumpur, or Dubai. SriLankan Airlines, Singapore Airlines, Malaysia Airlines, and Emirates all serve the Melbourne–Colombo route.',
+          },
+          {
+            q: 'What is the Kandy Esala Perahera and should I go?',
+            a: 'The Esala Perahera is Sri Lanka\'s most spectacular Buddhist festival — 10 nights of candlelit processions through Kandy with 100+ decorated elephants, traditional dancers, drummers, and fire performers. It runs in August, perfectly aligned with Australian July–August travel. Emil arranges front-row viewing and builds full itineraries around the festival.',
+          },
+          {
+            q: 'How is a private chauffeur guide different from Intrepid Travel?',
+            a: 'Intrepid runs fixed group itineraries with 8–16 travellers sharing a bus. With Emil you get a fully custom private itinerary, your own air-conditioned vehicle, and 1-on-1 guiding every day. You travel at your pace, stop where you want, and have Emil\'s personal WhatsApp from day one.',
+          },
+          {
+            q: 'Do I need travel insurance for Sri Lanka from Australia?',
+            a: 'Yes — strongly recommended. Cover-More, Allianz, and 1Cover all offer Sri Lanka coverage. Ensure your policy covers medical evacuation and adventure activities if you plan safaris or hiking. Emil recommends sorting insurance before you WhatsApp him for a tour quote.',
+          },
+        ].map((item, i) => (
+          <div class="bg-ivory border border-stone rounded-2xl overflow-hidden reveal" style={`animation-delay:${i * 50}ms`}>
+            <dt>
+              <button class="faq-btn w-full text-left px-6 py-5 font-display text-forest-700 font-semibold text-base flex items-center justify-between gap-4"
+                      aria-expanded="false">
+                {item.q}
+                <span class="text-xl text-gold-500 flex-shrink-0">+</span>
+              </button>
+            </dt>
+            <dd class="overflow-hidden transition-all duration-300" style="max-height:0px">
+              <p class="px-6 pb-5 text-warmgray text-sm leading-relaxed">{item.a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CTABanner />
+
+  <script>
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dd = btn.closest('dt')!.nextElementSibling as HTMLElement;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        dd.style.maxHeight = open ? '0px' : dd.scrollHeight + 'px';
+        const icon = btn.querySelector('span');
+        if (icon) icon.textContent = open ? '+' : '−';
+      });
+    });
+  </script>
+</BaseLayout>

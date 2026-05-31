@@ -9,6 +9,7 @@ const pages = [
   { url: '/tours',   priority: '0.9',  changefreq: 'weekly' },
   { url: '/about',   priority: '0.8',  changefreq: 'monthly' },
   { url: '/contact', priority: '0.8',  changefreq: 'monthly' },
+  { url: '/sri-lanka-tours-from-australia', priority: '0.85', changefreq: 'monthly' },
   ...TOURS.map(t => ({
     url:       `/tours/${t.slug}`,
     priority:  '0.85',
