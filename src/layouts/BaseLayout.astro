@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import WhatsAppButton from '../components/ui/WhatsAppButton.astro';
 import TripAdvisorButton from '../components/ui/TripAdvisorButton.astro';
 import { SITE } from '../data/site';
+import { img } from '../data/imageUrls';
 
 interface Props {
   title?:       string;
@@ -132,6 +133,78 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
 </head>
 
 <body class="min-h-screen flex flex-col">
+
+  <!-- ── Perahera Announcement Bar ── -->
+  <div id="perahera-bar"
+       class="relative z-50 bg-forest-700 border-b border-gold-400/30 px-4 py-2.5
+              flex items-center justify-center gap-3 text-center">
+    <span class="text-lg" aria-hidden="true">🐘</span>
+    <p class="text-white text-xs sm:text-sm font-medium leading-snug">
+      <span class="text-gold-300 font-semibold">Kandy Esala Perahera 2026</span>
+      <span class="hidden sm:inline text-white/70"> · </span>
+      <span class="block sm:inline text-white/80 text-xs">Sri Lanka's greatest festival — August. Limited tour spots available.</span>
+      <a href="/tailor-made"
+         class="ml-2 inline-block bg-gold-400 text-forest-800 text-xs font-bold px-3 py-1 rounded-full
+                hover:bg-gold-300 transition-colors whitespace-nowrap">
+        Book Now →
+      </a>
+    </p>
+    <button id="close-bar" aria-label="Dismiss"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors text-lg leading-none">
+      ×
+    </button>
+  </div>
+
+  <!-- ── Perahera Modal Popup ── -->
+  <div id="perahera-modal"
+       class="fixed inset-0 z-[999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-500">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <!-- Card -->
+    <div class="relative z-10 bg-white rounded-3xl overflow-hidden shadow-2xl max-w-sm w-full">
+      <!-- Image -->
+      <div class="relative h-52 overflow-hidden">
+        <img
+          src={img('destinations/kandy/kandy temple of the tooth.webp')}
+          alt="Kandy Esala Perahera festival — Temple of the Tooth"
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-700/80 to-transparent"></div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-1">August 2026</p>
+          <h2 class="font-display text-white text-xl leading-tight">Kandy Esala Perahera</h2>
+        </div>
+        <button id="close-modal" aria-label="Close"
+                class="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center
+                       hover:bg-black/60 transition-colors text-lg leading-none">
+          ×
+        </button>
+      </div>
+      <!-- Body -->
+      <div class="p-6">
+        <p class="text-warmgray text-sm leading-relaxed mb-5">
+          Sri Lanka's most spectacular festival — 10 nights of candlelit processions,
+          decorated elephants, and traditional drumming through the streets of Kandy.
+          Emil arranges front-row viewing, temple access, and full itinerary around the festival.
+        </p>
+        <div class="flex gap-3">
+          <a href="/tailor-made"
+             class="flex-1 bg-forest-600 hover:bg-forest-700 text-white text-sm font-semibold
+                    py-3 rounded-full text-center transition-colors">
+            Plan My Perahera Trip
+          </a>
+          <a href="/contact"
+             class="flex-1 border border-forest-200 text-forest-700 text-sm font-semibold
+                    py-3 rounded-full text-center hover:bg-forest-50 transition-colors">
+            Ask Emil
+          </a>
+        </div>
+        <p class="text-center text-warmgray/60 text-xs mt-3">Limited spots · August fills fast</p>
+      </div>
+    </div>
+  </div>
+
   <Header />
 
   <main class="flex-1">
@@ -141,6 +214,34 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <Footer />
   <WhatsAppButton />
   <TripAdvisorButton />
+
+  <!-- Perahera bar + modal script -->
+  <script>
+    // Announcement bar
+    const bar = document.getElementById('perahera-bar');
+    if (bar && !sessionStorage.getItem('perahera-bar-closed')) {
+      document.getElementById('close-bar')?.addEventListener('click', () => {
+        bar.style.display = 'none';
+        sessionStorage.setItem('perahera-bar-closed', '1');
+      });
+    } else if (bar) {
+      bar.style.display = 'none';
+    }
+
+    // Modal — show after 5s, once per session
+    const modal = document.getElementById('perahera-modal');
+    if (modal && !sessionStorage.getItem('perahera-modal-shown')) {
+      setTimeout(() => {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        sessionStorage.setItem('perahera-modal-shown', '1');
+      }, 5000);
+      const close = () => {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      };
+      document.getElementById('close-modal')?.addEventListener('click', close);
+      document.getElementById('modal-backdrop')?.addEventListener('click', close);
+    }
+  </script>
 
   <!-- Scroll reveal script -->
   <script>
