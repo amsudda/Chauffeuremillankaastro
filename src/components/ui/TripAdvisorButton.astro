@@ -35,4 +35,8 @@ const taUrl = SITE.social.tripadvisor;
     transform: scale(1.08);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   }
+  /* Hide floating FAB on mobile — the sticky bottom bar covers reviews there */
+  @media (max-width: 1279px) {
+    .tripadvisor-fab { display: none; }
+  }
 </style>

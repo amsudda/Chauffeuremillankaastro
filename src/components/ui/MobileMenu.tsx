@@ -1,41 +1,42 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 interface NavLink { label: string; href: string; }
 interface Props   { links: NavLink[]; whatsapp: string; }
 
 export default function MobileMenu({ links, whatsapp }: Props) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen]       = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Only render the portal after mount (avoids SSR `document` reference).
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
+  // Close on Escape for accessibility.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   const waUrl = `https://wa.me/${whatsapp}?text=Hello%20Emil%2C%20I%27d%20like%20to%20enquire%20about%20a%20Sri%20Lanka%20tour`;
 
-  return (
+  // Overlay + drawer are portalled to <body> so they escape the fixed header's
+  // z-40 stacking context and can layer above the announcement bar (z-50).
+  const drawer = (
     <>
-      {/* Hamburger */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg
-                   text-white hover:bg-white/10 transition-colors"
-        aria-label={open ? 'Close menu' : 'Open menu'}
-        aria-expanded={open}
-      >
-        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
-        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
-        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-      </button>
-
       {/* Overlay */}
-      {open && (
-        <div
-          className="fixed inset-0 z-30 bg-black/60 xl:hidden"
-          onClick={() => setOpen(false)}
-          aria-hidden="true"
-        />
-      )}
+      <div
+        className={`fixed inset-0 z-[90] bg-black/60 xl:hidden transition-opacity duration-300
+                    ${open ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
 
       {/* Drawer */}
       <nav
@@ -43,8 +44,8 @@ export default function MobileMenu({ links, whatsapp }: Props) {
         aria-modal="true"
         aria-label="Mobile navigation"
         style={{ backgroundColor: '#0D2118' }}
-        className={`fixed top-0 right-0 bottom-0 z-40 w-72 flex flex-col
-                    transition-transform duration-400 ease-out xl:hidden
+        className={`fixed top-0 right-0 bottom-0 z-[100] w-72 max-w-[85vw] flex flex-col
+                    transition-transform duration-300 ease-out xl:hidden
                     ${open ? 'translate-x-0' : 'translate-x-full'}`}
       >
         {/* Drawer header */}
@@ -108,6 +109,26 @@ export default function MobileMenu({ links, whatsapp }: Props) {
           </a>
         </div>
       </nav>
+    </>
+  );
+
+  return (
+    <>
+      {/* Hamburger — stays in the header */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 rounded-lg
+                   text-white hover:bg-white/10 transition-colors"
+        aria-label={open ? 'Close menu' : 'Open menu'}
+        aria-expanded={open}
+      >
+        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? 'rotate-45 translate-y-2' : ''}`} />
+        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? 'opacity-0' : ''}`} />
+        <span className={`block w-5 h-0.5 bg-current transition-all duration-300 ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+      </button>
+
+      {/* Overlay + drawer portalled to <body> so they layer above the header & announcement bar */}
+      {mounted && createPortal(drawer, document.body)}
     </>
   );
 }
