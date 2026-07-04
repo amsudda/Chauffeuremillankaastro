@@ -12,6 +12,8 @@ const pages = [
   { url: '/contact',                         priority: '0.8',  changefreq: 'monthly' },
   { url: '/blog',                            priority: '0.7',  changefreq: 'weekly'  },
   { url: '/sri-lanka-tours-from-australia',  priority: '0.85', changefreq: 'monthly' },
+  { url: '/sri-lanka-tours-from-belgium',    priority: '0.85', changefreq: 'monthly' },
+  { url: '/nl/sri-lanka-rondreis',           priority: '0.85', changefreq: 'monthly' },
   ...TOURS.map(t => ({
     url:        `/tours/${t.slug}`,
     priority:   '0.85',

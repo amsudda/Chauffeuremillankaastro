@@ -14,6 +14,8 @@ interface Props {
   type?:        string;
   canonical?:   string;
   noindex?:     boolean;
+  alternates?:  { hreflang: string; href: string }[];
+  lang?:        string;
 }
 
 const {
@@ -23,14 +25,17 @@ const {
   type        = 'website',
   canonical   = Astro.url.href,
   noindex     = false,
+  alternates  = [],
+  lang        = 'en',
 } = Astro.props;
 
 const fullTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
 const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
+const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,6 +48,11 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <meta name="robots"          content={noindex ? 'noindex,nofollow' : 'index,follow'} />
   <link rel="canonical"        href={canonical} />
 
+  <!-- hreflang alternates (language/region targeting) -->
+  {alternates.map(a => (
+    <link rel="alternate" hreflang={a.hreflang} href={a.href} />
+  ))}
+
   <!-- Open Graph -->
   <meta property="og:type"         content={type} />
   <meta property="og:url"          content={canonical} />
@@ -53,7 +63,7 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt"    content={fullTitle} />
   <meta property="og:site_name"    content={SITE.name} />
-  <meta property="og:locale"       content="en_US" />
+  <meta property="og:locale"       content={ogLocale} />
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
@@ -96,6 +106,7 @@ const ogImage  = image.startsWith('http') ? image : `${SITE.url}${image}`;
     "areaServed": [
       { "@type": "Country", "name": "Sri Lanka" },
       { "@type": "Country", "name": "Australia" },
+      { "@type": "Country", "name": "Belgium" },
       { "@type": "Country", "name": "United Kingdom" },
       { "@type": "Country", "name": "United States" }
     ],

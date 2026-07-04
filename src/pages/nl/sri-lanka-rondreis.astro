@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import { SITE } from '../../data/site';
+import { img } from '../../data/imageUrls';
+---
+
+<BaseLayout
+  lang="nl-BE"
+  title="Sri Lanka Rondreis vanuit België 2026 | Privé Chauffeur-gids Emil"
+  description="Een Sri Lanka rondreis plannen vanuit België? Emil Jayasekara is een privé, SLTDA-gecertificeerde chauffeur-gids met 14+ jaar ervaring. Info over visum (ETA), beste reisperiode, vluchten vanuit Brussel, en waarom privé beter is dan een groepsreis."
+  canonical="https://www.chauffeuremillankatour.com/nl/sri-lanka-rondreis"
+  alternates={[
+    { hreflang: 'en',        href: 'https://www.chauffeuremillankatour.com/sri-lanka-tours-from-belgium' },
+    { hreflang: 'nl-BE',     href: 'https://www.chauffeuremillankatour.com/nl/sri-lanka-rondreis' },
+    { hreflang: 'x-default', href: 'https://www.chauffeuremillankatour.com/sri-lanka-tours-from-belgium' },
+  ]}
+>
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "TourOperator"],
+        "@id": "https://www.chauffeuremillankatour.com/#business",
+        "name": "Chauffeur Emil Lanka Tours",
+        "description": "Privé chauffeur-gids en tourchauffeur in Sri Lanka voor Belgische reizigers.",
+        "url": "https://www.chauffeuremillankatour.com",
+        "telephone": "+94761917039",
+        "areaServed": [
+          { "@type": "Country", "name": "Sri Lanka" },
+          { "@type": "Country", "name": "België" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5.0,
+          "reviewCount": 312
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Hebben Belgen een visum nodig voor Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Belgische paspoorthouders hebben een Electronic Travel Authorization (ETA) nodig vóór aankomst in Sri Lanka. Je vraagt die online aan op eta.gov.lk, ze kost ongeveer USD 20–35 en is geldig voor een verblijf van 30 dagen. Sinds 2024 zijn er ook periodes met gratis ETA — controleer de officiële website voor de actuele status vóór je vertrekt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Sri Lanka veilig voor Belgische toeristen in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, Sri Lanka is veilig voor Belgische toeristen in 2026. Het land is volledig gestabiliseerd na de economische crisis van 2022 en het toerisme is sterk hersteld. Het reisadvies van de Belgische FOD Buitenlandse Zaken raadt normale waakzaamheid aan voor het grootste deel van het eiland. Emil heeft honderden Europese gasten, waaronder Belgen, zonder incidenten begeleid."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wat is de beste periode voor Belgen om Sri Lanka te bezoeken?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "December tot maart is het droge seizoen voor de west- en zuidkust — ideaal voor stranden en culturele sites, en de perfecte ontsnapping aan de Belgische winter. Juli tot september is het beste voor de Culturele Driehoek, de oostkust en het Kandy Esala Perahera festival in augustus — wat perfect samenvalt met de Belgische zomervakantie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hoe lang duurt de vlucht van Brussel naar Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Er zijn geen rechtstreekse vluchten van Brussel (BRU) naar Colombo (CMB). De vlucht duurt ongeveer 12–15 uur in totaal met één tussenstop, meestal via Doha (Qatar Airways), Dubai (Emirates), Istanboel (Turkish Airlines) of Abu Dhabi (Etihad). Vanuit Brussels Airport zijn er dagelijkse aansluitingen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wat is de Kandy Esala Perahera en wanneer vindt die plaats in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "De Kandy Esala Perahera is het meest spectaculaire boeddhistische festival van Sri Lanka — 10 nachten met processies bij kaarslicht, meer dan 100 versierde olifanten, traditionele Kandy-trommelaars, dansers en vuurartiesten door de straten van Kandy. In 2026 vindt het plaats in augustus, midden in de Belgische zomervakantie. Emil regelt plaatsen op de eerste rij en bouwt volledige reisroutes rond de festivaldata."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is een privé chauffeur-gids beter dan een groepsreis zoals Koning Aap of Joker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Groepsaanbieders zoals Koning Aap, Joker en Connections werken met vaste reisroutes, gedeeld vervoer en een vast schema. Een privé chauffeur-gids zoals Emil biedt je een volledig op maat gemaakte reisroute, een privé airconditioned voertuig en elke dag persoonlijke begeleiding. Je vertrekt wanneer je wil, stopt waar je wil en hebt de hele reis rechtstreeks contact met Emil via WhatsApp — vaak aan een vergelijkbare prijs voor een koppel of gezin."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Heb ik een reisverzekering nodig voor Sri Lanka vanuit België?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Je ziekenfonds en de Europese ziekteverzekeringskaart dekken je niet in Sri Lanka, dus een reisverzekering is sterk aanbevolen. Belgische verzekeraars zoals Europ Assistance, Ethias, AG Insurance en Allianz Assistance bieden dekking voor Sri Lanka. Zorg dat je polis medische repatriëring en eventuele avontuurlijke activiteiten (zoals safari's of hiken) dekt."
+            }
+          }
+        ]
+      }
+    ]
+  })}</script>
+
+  <!-- Hero -->
+  <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image:radial-gradient(circle at 80% 30%, #C9A84C 0%, transparent 50%)">
+    </div>
+    <div class="relative z-10 section-wrap max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-gold-400/15 border border-gold-400/30 rounded-full
+                  px-4 py-2 mb-6">
+        <span class="text-lg">🇧🇪</span>
+        <span class="text-gold-300 text-xs font-semibold tracking-widest uppercase">Voor Belgische Reizigers</span>
+      </div>
+      <h1 class="font-display text-5xl sm:text-6xl text-white leading-tight mb-6">
+        Sri Lanka Rondreis<br/>
+        <em class="not-italic text-gold-300">vanuit België</em>
+      </h1>
+      <p class="text-white/75 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+        Sla de groepsbus over. Ontdek Sri Lanka privé met Emil Jayasekara —
+        SLTDA-gecertificeerde chauffeur-gids, 14+ jaar ervaring, 312 vijfsterrenreviews.
+        Jouw reisroute, jouw tempo, jouw gids.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-10">
+        <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1fb959] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Emil
+        </a>
+        <a href="/tailor-made"
+           class="border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors">
+          Plan Mijn Sri Lanka Reis
+        </a>
+      </div>
+      <!-- Trust row -->
+      <div class="flex flex-wrap justify-center gap-6 text-white/60 text-xs">
+        {['⭐ 5.0 · 312 TripAdvisor Reviews', '🏅 SLTDA-gecertificeerd', '🇪🇺 Vertrouwd door Europese gasten', '💬 Antwoord binnen 2 uur'].map(t => (
+          <span>{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick info strip -->
+  <section class="bg-white border-b border-stone py-8">
+    <div class="section-wrap">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {[
+          { icon: '✈️', label: 'Vluchtduur', value: '~12–15 u', sub: 'Vanuit Brussel · 1 tussenstop' },
+          { icon: '🛂', label: 'Visum', value: 'ETA vereist', sub: 'Online aanvragen · ~USD 20–35' },
+          { icon: '🌤️', label: 'Beste seizoen', value: 'Dec–Mrt & Jul–Sep', sub: 'Valt samen met Belgische vakanties' },
+          { icon: '💶', label: 'Munteenheid', value: 'Sri Lankaanse roepie', sub: '1 EUR ≈ 320–350 LKR' },
+        ].map(item => (
+          <div class="reveal">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <p class="text-forest-700 font-semibold text-sm">{item.label}</p>
+            <p class="text-warmbrown font-medium text-sm">{item.value}</p>
+            <p class="text-warmgray text-xs mt-0.5">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Is Sri Lanka veilig -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p class="section-eyebrow">Veiligheid</p>
+          <h2 class="section-title mb-5">Is Sri Lanka veilig voor Belgen in 2026?</h2>
+          <p class="text-warmgray leading-relaxed mb-4">
+            <strong class="text-forest-700">Ja — Sri Lanka is veilig voor Belgische toeristen in 2026.</strong>
+            Het land is volledig gestabiliseerd na de economische crisis van 2022, de toeristische
+            infrastructuur is sterk hersteld en het aantal internationale aankomsten is terug op het niveau
+            van voor de crisis.
+          </p>
+          <p class="text-warmgray leading-relaxed mb-4">
+            Het reisadvies van de <strong>FOD Buitenlandse Zaken</strong> raadt
+            <strong class="text-forest-700">normale waakzaamheid</strong> aan voor het grootste deel van
+            het eiland — dezelfde richtlijn als voor veel populaire vakantiebestemmingen.
+          </p>
+          <p class="text-warmgray leading-relaxed mb-6">
+            Emil heeft in 14 jaar honderden Europese gasten begeleid — gezinnen, koppels en soloreizigers
+            uit Brussel, Antwerpen, Gent en Luik — zonder één enkel veiligheidsincident. Hij deelt zijn
+            persoonlijke WhatsApp-nummer en is de hele reis bereikbaar.
+          </p>
+          <a href="https://diplomatie.belgium.be/nl/landen/sri-lanka/reisadvies" target="_blank"
+             rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 text-forest-600 text-sm font-medium hover:text-sunset-400 transition-colors">
+            Bekijk het reisadvies van FOD Buitenlandse Zaken →
+          </a>
+        </div>
+        <div class="reveal">
+          <div class="rounded-3xl overflow-hidden shadow-card-hover">
+            <img
+              src={img('destinations/sigiriya/sigiriya lions  rock.webp')}
+              alt="Sigiriya Rots — veilig en populair bij Belgische toeristen"
+              loading="lazy"
+              width="600" height="450"
+              class="w-full h-72 object-cover"
+            />
+          </div>
+          <div class="mt-4 bg-white rounded-2xl border border-stone p-5 shadow-card">
+            <p class="text-forest-700 font-semibold text-sm mb-2">Emils veiligheidsbelofte aan Belgische gasten</p>
+            <ul class="space-y-1.5 text-warmgray text-sm">
+              {[
+                'Persoonlijke WhatsApp — 24/7 bereikbaar tijdens je reis',
+                'Volledig verzekerd privévoertuig, gecontroleerd vóór elke rit',
+                'Vooraf geselecteerde hotels, restaurants en excursiepartners',
+                'Noodcontacten en kennis van ziekenhuizen over het hele eiland',
+              ].map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-forest-600 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beste reisperiode -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Reisplanning</p>
+        <h2 class="section-title mb-3">Beste reisperiode voor Belgen in Sri Lanka</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm leading-relaxed">
+          Goed nieuws — de Belgische schoolvakanties sluiten mooi aan bij de twee beste reisperiodes van
+          Sri Lanka, of je nu winterzon of het festivalseizoen zoekt.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        {[
+          {
+            months: 'December – Maart',
+            badge: '❄️ Ontsnap aan de Belgische winter',
+            title: 'Seizoen west- & zuidkust',
+            body: 'Droog, zonnig en perfect voor stranden, walvissen spotten in Mirissa, Galle Fort en de Culturele Driehoek. De ideale ontsnapping aan de grijze Belgische winter — de krokusvakantie (februari) valt midden in het hoogseizoen. Boek Emil op tijd.',
+            highlight: 'Ideaal voor: stranden, Galle, Kandy, Sigiriya, Yala',
+            color: 'border-gold-400/50 bg-gold-400/5',
+          },
+          {
+            months: 'Juli – September',
+            badge: '🐘 Perahera + zomervakantie',
+            title: 'Culturele Driehoek & oostkust',
+            body: 'De meest spannende culturele periode van Sri Lanka, precies tijdens de Belgische zomervakantie. De Kandy Esala Perahera in augustus is een must — 10 nachten met olifantenprocessies en traditionele ceremonies.',
+            highlight: 'Ideaal voor: Perahera, Polonnaruwa, Anuradhapura, oostkust',
+            color: 'border-forest-400/50 bg-forest-600/5',
+          },
+        ].map(s => (
+          <div class={`rounded-2xl border-2 p-6 reveal ${s.color}`}>
+            <div class="flex items-center justify-between mb-3 gap-3">
+              <p class="font-display text-forest-700 text-lg">{s.months}</p>
+              <span class="text-xs bg-white border border-stone rounded-full px-3 py-1 font-medium text-forest-700 whitespace-nowrap">{s.badge}</span>
+            </div>
+            <h3 class="font-semibold text-warmbrown mb-2">{s.title}</h3>
+            <p class="text-warmgray text-sm leading-relaxed mb-3">{s.body}</p>
+            <p class="text-forest-600 text-xs font-semibold">{s.highlight}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Perahera callout -->
+      <div class="rounded-3xl overflow-hidden shadow-card-hover reveal">
+        <div class="relative h-56">
+          <img
+            src="/esela-perahera.webp"
+            alt="Kandy Esala Perahera — festival in augustus in Sri Lanka"
+            loading="lazy"
+            width="900" height="400"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-forest-700/90 to-forest-700/30 flex items-center">
+            <div class="p-8 max-w-lg">
+              <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-2">Augustus 2026 · Kandy</p>
+              <h3 class="font-display text-white text-2xl mb-2">Kandy Esala Perahera</h3>
+              <p class="text-white/75 text-sm leading-relaxed mb-4">
+                100+ versierde olifanten. Kandy-trommelaars. Vuurdansers. 10 nachten processie
+                door eeuwenoude straten — perfect getimed voor de Belgische zomervakantie.
+              </p>
+              <a href="/tailor-made"
+                 class="inline-block bg-gold-400 text-forest-800 font-bold text-sm px-5 py-2.5 rounded-full hover:bg-gold-300 transition-colors">
+                Plan rond de Perahera →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visum -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <p class="section-eyebrow">Visum & Toegang</p>
+          <h2 class="section-title mb-5">Sri Lanka visum voor Belgen</h2>
+          <p class="text-warmgray leading-relaxed mb-4">
+            Belgische paspoorthouders hebben een <strong class="text-forest-700">Electronic Travel Authorization (ETA)</strong>
+            nodig om Sri Lanka binnen te komen. Je vraagt die volledig online aan — geen bezoek aan de ambassade nodig.
+          </p>
+          <div class="space-y-3 mb-6">
+            {[
+              { label: 'Kostprijs', value: 'Ongeveer USD 20–35 (check eta.gov.lk voor de actuele prijs — er zijn gratis ETA-periodes)' },
+              { label: 'Geldigheid', value: '30 dagen, dubbele binnenkomst' },
+              { label: 'Verwerking', value: 'Meestal binnen 24–72 uur online' },
+              { label: 'Aanvragen op', value: 'eta.gov.lk (officieel portaal van de Sri Lankaanse overheid)' },
+              { label: 'Paspoort', value: 'Minstens 6 maanden geldig na je reisdatum' },
+            ].map(row => (
+              <div class="flex gap-3 bg-white rounded-xl border border-stone p-3.5">
+                <span class="text-forest-700 font-semibold text-sm w-28 flex-shrink-0">{row.label}</span>
+                <span class="text-warmgray text-sm">{row.value}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-warmgray text-sm leading-relaxed">
+            Emil helpt alle gasten met visumvragen via WhatsApp vóór aankomst. Hij bevestigt de actuele
+            ETA-status en signaleert eventuele wijzigingen in de toegangsvoorwaarden.
+          </p>
+        </div>
+
+        <!-- Vluchten -->
+        <div class="reveal">
+          <p class="section-eyebrow">Reizen naar Sri Lanka</p>
+          <h2 class="section-title mb-5">Vluchten van België naar Sri Lanka</h2>
+          <p class="text-warmgray leading-relaxed mb-5">
+            Er zijn geen rechtstreekse vluchten tussen Brussel en Colombo — alle routes hebben één tussenstop.
+            De totale vluchtduur vanuit <strong class="text-forest-700">Brussel (BRU)</strong> bedraagt doorgaans
+            <strong class="text-forest-700">12–15 uur</strong>.
+          </p>
+          <div class="space-y-3 mb-5">
+            {[
+              { route: 'Brussel → Colombo', via: 'Via Doha (Qatar Airways)', time: '~13 u' },
+              { route: 'Brussel → Colombo', via: 'Via Dubai (Emirates)', time: '~14 u' },
+              { route: 'Brussel → Colombo', via: 'Via Istanboel (Turkish Airlines)', time: '~13 u' },
+              { route: 'Brussel → Colombo', via: 'Via Abu Dhabi (Etihad)', time: '~14 u' },
+            ].map(f => (
+              <div class="bg-white rounded-xl border border-stone p-3.5 flex items-center justify-between gap-3">
+                <div>
+                  <p class="text-forest-700 font-semibold text-sm">{f.route}</p>
+                  <p class="text-warmgray text-xs">{f.via}</p>
+                </div>
+                <span class="text-forest-600 font-bold text-sm flex-shrink-0">{f.time}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-warmgray text-sm">
+            Emil verwelkomt alle gasten op de <strong>internationale luchthaven Bandaranaike (CMB)</strong> in Colombo
+            — de luchthaventransfer is inbegrepen in elk privépakket.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emil vs groepsreis -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Privé vs Groepsreis</p>
+        <h2 class="section-title mb-3">Privégids vs een groepsrondreis</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm">
+          Veel Belgen vergelijken groepsaanbieders zoals Koning Aap, Joker en Connections met een privé
+          chauffeuroptie. Dit is het eerlijke verschil.
+        </p>
+      </div>
+      <div class="overflow-x-auto rounded-3xl border border-stone shadow-card reveal">
+        <table class="w-full text-sm min-w-[540px]">
+          <thead>
+            <tr class="bg-forest-gradient text-white">
+              <th class="px-5 py-4 text-left font-semibold"></th>
+              <th class="px-5 py-4 text-left font-semibold text-gold-300">Emil (Privé)</th>
+              <th class="px-5 py-4 text-left font-semibold text-white/70">Groepsrondreis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Groepsgrootte',       'Enkel jij (+ je reisgezelschap)',        '12–20 onbekenden'],
+              ['Reisroute',           'Volledig op maat — rond jou gebouwd',    'Vast groepsschema'],
+              ['Gids',                'Emil, elke dag — rechtstreekse WhatsApp','Verschilt per vertrek'],
+              ['Voertuig',            'Privé airco Toyota — enkel voor jou',    'Gedeelde groepsbus'],
+              ['Flexibiliteit',       'Stop overal, wanneer je wil',            'Vaste stops, vaste uren'],
+              ['Luchthaventransfer',  'Inbegrepen — Emil haalt je op',          'Niet altijd inbegrepen'],
+              ['Perahera-toegang',    'Eerste rij, Emil regelt het',            'Standaard groepszicht'],
+              ['Tempo',               'Jouw tempo — sneller of trager',         'Consensus in de groep'],
+              ['Prijs per koppel',    'Vaak vergelijkbaar of voordeliger',      'Prijs per persoon'],
+            ].map(([feature, emil, group], i) => (
+              <tr class={i % 2 === 0 ? 'bg-ivory' : 'bg-white'}>
+                <td class="px-5 py-3 font-medium text-forest-700">{feature}</td>
+                <td class="px-5 py-3 text-forest-600 font-medium">{emil}</td>
+                <td class="px-5 py-3 text-warmgray">{group}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-warmgray text-sm mt-6 reveal">
+        Vragen? <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+                      class="text-forest-600 font-medium hover:text-sunset-400 transition-colors">
+          Stuur Emil een bericht op WhatsApp
+        </a> — hij geeft je een eerlijk antwoord of privéreizen bij jouw trip past.
+      </p>
+    </div>
+  </section>
+
+  <!-- Topbestemmingen -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Waar naartoe</p>
+        <h2 class="section-title mb-3">Top Sri Lanka-bestemmingen voor Belgen</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            name: 'Kandy',
+            img: img('destinations/kandy/kandy temple of the tooth.webp'),
+            desc: 'De culturele hoofdstad. Thuis van de Tempel van de Tand en het Esala Perahera festival. Ongeveer 3,5 uur van Colombo.',
+          },
+          {
+            name: 'Sigiriya',
+            img: img('destinations/sigiriya/sigiriya lions  rock.webp'),
+            desc: 'De iconische Leeuwenrots — een UNESCO-werelderfgoedsite die 200 m boven de jungle uitrijst. Beklim hem bij zonsopgang met Emil.',
+          },
+          {
+            name: 'Ella',
+            img: img('destinations/Ella/ella 1 nine arch.webp'),
+            desc: 'De Nine Arches-brug, de Ella Rock-wandeling en de mooiste treinrit ter wereld. Het heuvelland op zijn best.',
+          },
+          {
+            name: 'Polonnaruwa',
+            img: img('destinations/polonnaruwa/polonnaruwa.webp'),
+            desc: 'Oude koningsstad met perfect bewaarde dagobas, stenen Boeddha\'s en ruïnes tussen jungle en meren.',
+          },
+          {
+            name: 'Yala National Park',
+            img: img('yala-safari.jpg'),
+            desc: 'De hoogste luipaardendichtheid ter wereld. Emil plant de game drives voor het gouden uur en weet waar de grote katten zitten.',
+          },
+          {
+            name: 'Mirissa Beach',
+            img: img('destinations/mirissa/mirissa homepage herosection image idea.webp'),
+            desc: 'Het beste plekje voor walvissen spotten in Sri Lanka (november–april) plus een prachtig sikkelvormig strand aan de zuidkust.',
+          },
+        ].map((d, i) => (
+          <div class="bg-white rounded-2xl overflow-hidden border border-stone shadow-card hover:shadow-card-hover transition-shadow reveal"
+               style={`animation-delay:${i * 60}ms`}>
+            <img src={d.img} alt={`${d.name} Sri Lanka`} loading="lazy"
+                 width="400" height="250"
+                 class="w-full h-44 object-cover" />
+            <div class="p-4">
+              <h3 class="font-display text-forest-700 text-lg mb-1">{d.name}</h3>
+              <p class="text-warmgray text-xs leading-relaxed">{d.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Belgische reizigers vragen</p>
+        <h2 class="section-title mb-3">Sri Lanka reis-FAQ voor Belgen</h2>
+      </div>
+      <dl class="space-y-4">
+        {[
+          {
+            q: 'Hebben Belgen een visum nodig voor Sri Lanka?',
+            a: 'Ja. Belgische paspoorthouders hebben een Electronic Travel Authorization (ETA) nodig vóór aankomst. Vraag die aan op eta.gov.lk — ze kost ongeveer USD 20–35 en is geldig voor 30 dagen. De verwerking duurt meestal 24–72 uur. Sri Lanka heeft ook periodes met gratis ETA ingevoerd; controleer de officiële site vóór je vertrekt.',
+          },
+          {
+            q: 'Is Sri Lanka veilig voor Belgische toeristen in 2026?',
+            a: 'Ja. Het reisadvies van de FOD Buitenlandse Zaken raadt normale waakzaamheid aan voor het grootste deel van het eiland. Sri Lanka is volledig hersteld van de economische crisis van 2022. Emil heeft honderden Europese gasten zonder incidenten begeleid en is de hele reis bereikbaar via WhatsApp.',
+          },
+          {
+            q: 'Wat is de beste reisperiode voor Belgen in Sri Lanka?',
+            a: 'December–maart is droog seizoen voor de stranden en de Culturele Driehoek — de perfecte ontsnapping aan de Belgische winter, en de krokusvakantie valt er middenin. Juli–september past bij de zomervakantie — ideaal voor de Culturele Driehoek, de oostkust en het onmisbare Kandy Esala Perahera festival in augustus.',
+          },
+          {
+            q: 'Hoe lang duurt de vlucht van Brussel naar Sri Lanka?',
+            a: 'Ongeveer 12–15 uur met één tussenstop — er zijn geen rechtstreekse vluchten. Gangbare routes vanuit Brussel (BRU) gaan via Doha (Qatar Airways), Dubai (Emirates), Istanboel (Turkish Airlines) of Abu Dhabi (Etihad).',
+          },
+          {
+            q: 'Wat is de Kandy Esala Perahera en moet ik erheen?',
+            a: 'De Esala Perahera is het meest spectaculaire boeddhistische festival van Sri Lanka — 10 nachten processies bij kaarslicht door Kandy met 100+ versierde olifanten, dansers, trommelaars en vuurartiesten. Het vindt plaats in augustus, midden in de Belgische zomervakantie. Emil regelt plaatsen op de eerste rij en bouwt volledige reisroutes rond het festival.',
+          },
+          {
+            q: 'Is een privé chauffeur-gids beter dan een groepsreis zoals Koning Aap of Joker?',
+            a: 'Groepsaanbieders zoals Koning Aap, Joker en Connections werken met vaste reisroutes, een gedeelde bus en een vast schema. Bij Emil krijg je een volledig op maat gemaakte privéreisroute, je eigen airconditioned voertuig en elke dag persoonlijke begeleiding. Je reist op jouw tempo, stopt waar je wil en hebt vanaf dag één Emils persoonlijke WhatsApp — vaak aan een vergelijkbare prijs voor een koppel of gezin.',
+          },
+          {
+            q: 'Heb ik een reisverzekering nodig voor Sri Lanka vanuit België?',
+            a: 'Ja — sterk aanbevolen. Je ziekenfonds en de Europese ziekteverzekeringskaart dekken Sri Lanka niet. Europ Assistance, Ethias, AG Insurance en Allianz Assistance bieden allemaal dekking voor Sri Lanka. Zorg dat je polis medische repatriëring en avontuurlijke activiteiten dekt als je safari\'s of wandelingen plant.',
+          },
+        ].map((item, i) => (
+          <div class="bg-ivory border border-stone rounded-2xl overflow-hidden reveal" style={`animation-delay:${i * 50}ms`}>
+            <dt>
+              <button class="faq-btn w-full text-left px-6 py-5 font-display text-forest-700 font-semibold text-base flex items-center justify-between gap-4"
+                      aria-expanded="false">
+                {item.q}
+                <span class="text-xl text-gold-500 flex-shrink-0">+</span>
+              </button>
+            </dt>
+            <dd class="overflow-hidden transition-all duration-300" style="max-height:0px">
+              <p class="px-6 pb-5 text-warmgray text-sm leading-relaxed">{item.a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CTABanner />
+
+  <script>
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dd = btn.closest('dt')!.nextElementSibling as HTMLElement;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        dd.style.maxHeight = open ? '0px' : dd.scrollHeight + 'px';
+        const icon = btn.querySelector('span');
+        if (icon) icon.textContent = open ? '+' : '−';
+      });
+    });
+  </script>
+</BaseLayout>
