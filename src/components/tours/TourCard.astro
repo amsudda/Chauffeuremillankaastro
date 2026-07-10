@@ -61,7 +61,12 @@ const { tour, large = false } = Astro.props;
     </div>
 
     <!-- Footer row -->
-    <div class="flex items-center justify-end pt-4 border-t border-stone">
+    <div class="flex items-center justify-between gap-2 pt-4 border-t border-stone">
+      {tour.priceFrom ? (
+        <span class="text-forest-700 text-sm font-semibold leading-tight">{tour.priceFrom}</span>
+      ) : (
+        <span></span>
+      )}
       <a
         href={`/tours/${tour.slug}`}
         class="btn-primary py-2.5 px-5 text-xs"
