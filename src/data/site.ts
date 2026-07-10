@@ -20,7 +20,7 @@ export const SITE = {
     tripadvisor: 'https://www.tripadvisor.com/Attraction_Review-g1500185-d15242639-Reviews-Chauffeur_Emil_Lanka_Tours-Katunayake_Negombo_Western_Province.html',
   },
   trustBadges: [
-    { icon: '⭐', label: '5-Star Rated', sub: '300+ Reviews' },
+    { icon: '⭐', label: '5-Star Rated', sub: '5.0 on TripAdvisor' },
     { icon: '🏅', label: 'Certified Guide', sub: 'SLTDA Licensed' },
     { icon: '🌿', label: 'Eco Responsible', sub: 'Sustainable Travel' },
     { icon: '🔒', label: 'Fully Insured', sub: 'Peace of Mind' },
