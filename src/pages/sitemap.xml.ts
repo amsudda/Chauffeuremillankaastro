@@ -15,6 +15,7 @@ const pages = [
   { url: '/sri-lanka-tours-from-belgium',    priority: '0.85', changefreq: 'monthly' },
   { url: '/nl/sri-lanka-rondreis',           priority: '0.85', changefreq: 'monthly' },
   { url: '/best-time-to-travel-sri-lanka',   priority: '0.90', changefreq: 'monthly' },
+  { url: '/de/sehenswuerdigkeiten-sri-lanka', priority: '0.90', changefreq: 'monthly' },
   ...TOURS.map(t => ({
     url:        `/tours/${t.slug}`,
     priority:   '0.85',

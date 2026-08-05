@@ -1,0 +1,589 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/home/CTABanner.astro';
+import { SITE } from '../../data/site';
+import { img } from '../../data/imageUrls';
+
+const waUrl = `https://wa.me/${SITE.whatsapp}?text=Hallo%20Emil%2C%20ich%20m%C3%B6chte%20eine%20private%20Sri-Lanka-Reise%20anfragen`;
+
+const attractions = [
+  {
+    num: '01',
+    name: 'Sigiriya',
+    sub: 'Der Löwenfelsen',
+    tag: 'UNESCO-Welterbe · Kulturdreieck',
+    color: '#C9501A',
+    bgLight: '#FFF7F3',
+    image: img('destinations/sigiriya/sigiriya lions  rock.webp'),
+    alt: 'Sigiriya Löwenfelsen Sri Lanka',
+    facts: ['200 m hoch', '5. Jh. n. Chr.', 'Aufstieg ~1,5 Std.', 'Bestes Licht: Sonnenaufgang'],
+    body: `Mitten aus dem Dschungel ragt er empor wie ein vergessener Titan: der Sigiriya-Felsen. 200 Meter reiner Stein, gekrönt von den Überresten eines Königspalastes aus dem 5. Jahrhundert. König Kassapa ließ ihn erbauen — ein Monument aus Paranoia und Größenwahn, heute eines der erstaunlichsten Bauwerke Asiens.
+
+Der Aufstieg führt vorbei an einzigartigen Fresken, die seit 1.500 Jahren überleben. Oben angekommen öffnet sich ein Panorama, das man nicht beschreiben, nur erleben kann: grenzenloser Dschungel in alle Richtungen, soweit das Auge reicht.`,
+    tip: 'Emil startet den Aufstieg vor Sonnenaufgang — kühler, menschenleer, und das goldene Morgenlicht auf dem Felsen ist unvergesslich. Die Masse kommt ab 9 Uhr. Sie nicht.',
+    tipIcon: '🌅',
+  },
+  {
+    num: '02',
+    name: 'Mirissa',
+    sub: 'Wale & Traumstrände',
+    tag: 'Südküste · Walbeobachtung · Strand',
+    color: '#0E7490',
+    bgLight: '#F0FBFF',
+    image: img('destinations/mirissa/mirissa 1.webp'),
+    alt: 'Mirissa Strand Sri Lanka Südküste',
+    facts: ['Blauwale Nov–Apr', 'Strand 800 m Länge', '~2,5 Std. von Galle', 'Beste Zeit: Dez–März'],
+    body: `Mirissa ist kein Strand. Mirissa ist eine Stimmung. Die Sichel aus weißem Sand, dahinter Kokospalmen, davor Wellen, die sanft auslaufen — und irgendwo draußen, im tiefen Blau des Indischen Ozeans, ziehen Blauwale ihre Bahnen.
+
+Von November bis April ist Mirissa der beste Ort der Welt zur Walbeobachtung. Blauwale — die größten Tiere, die je auf der Erde gelebt haben — kommen so nah heran, dass man den Atem aus dem Blasloch hört. Emil kennt die besten Bootskapitäne und bucht nur bei Sonnenaufgang — wenn das Meer ruhig ist und das Licht golden.`,
+    tip: 'Buchen Sie keine Abend-Ausfahrten. Emil organisiert ausschließlich Morgenprogramme — die Wale sind aktiver, das Meer ruhiger, und Sie sehen den Sonnenaufgang über dem Indischen Ozean.',
+    tipIcon: '🐋',
+  },
+  {
+    num: '03',
+    name: 'Yala National Park',
+    sub: 'Die Leopardenhauptstadt der Welt',
+    tag: 'Wildlife Safari · Südosten · Jeep-Safari',
+    color: '#166534',
+    bgLight: '#F0FDF4',
+    image: img('destinations/yala/yala.webp'),
+    alt: 'Yala Nationalpark Leopard Sri Lanka Safari',
+    facts: ['Höchste Leoparden-Dichte weltweit', '979 km² Schutzgebiet', 'Beste Zeit: Dez–Apr', 'Öffnung: 6:00 Uhr'],
+    body: `Nirgendwo auf der Welt sehen Sie mehr Leoparden als hier. Yala hat die höchste Leoparden-Dichte des Planeten — und anders als in Afrika verstecken sich diese Raubkatzen nicht. Sie liegen auf Felsen, schlendern durch Savannengras, dösen auf Ästen. In Sri Lanka gehört der Leopard sich selbst — und er weiß es.
+
+Dazu Elefantenherden, Krokodile, Pfauen, Sloth-Bären, Sumpfkrokodile und hunderte Vogelarten. Yala ist nicht irgendein Nationalpark. Es ist die komprimierteste Wilderfahrung Asiens.`,
+    tip: 'Emil fährt die Morgensafari ab 6 Uhr — wenn die Raubkatzen noch aktiv sind. Er kennt die Wasserlöcher, die Felsformationen und die Schlafbäume der Leoparden. Mit ihm sehen Sie Tiere, die andere verpassen.',
+    tipIcon: '🐆',
+  },
+  {
+    num: '04',
+    name: 'Udawalawe',
+    sub: 'Das Elefantenparadies',
+    tag: 'Wildtiere · Elefanten · Familienreise',
+    color: '#92400E',
+    bgLight: '#FFFBEB',
+    image: img('destinations/udwalawa.webp'),
+    alt: 'Udawalawe Nationalpark Elefanten Sri Lanka',
+    facts: ['~600 wilde Elefanten', '308 km² Parkfläche', 'Garantierte Sichtungen', 'Ideal für Familien'],
+    body: `Wenn Yala das Unberechenbare ist, dann ist Udawalawe das Versprechen. Hier sehen Sie Elefanten — garantiert. Nicht einen, nicht zwei. Herden. Familien. Babys, die taumeln. Alte Bullen, die langsam durch das hohe Gras ziehen.
+
+Der Udawalawe-Stausee zieht die Elefanten an — sie kommen zum Trinken, zum Baden, zum Spielen. Im goldenen Licht des frühen Abends, wenn die Sonne den Stausee in Orange taucht und hundert Elefanten am Ufer stehen, versteht man, warum Reisende aus aller Welt hierherkommen.`,
+    tip: 'Emil kombiniert Udawalawe gerne mit einem Besuch im Elephant Transit Home — einer Aufzuchtstation für Waisenkaisern, die täglich um 9, 12, 15 und 17 Uhr gefüttert werden. Berührend und spannend.',
+    tipIcon: '🐘',
+  },
+  {
+    num: '05',
+    name: 'Sri Dalada Maligawa',
+    sub: 'Der Zahntempel von Kandy',
+    tag: 'UNESCO-Welterbe · Heiliger Ort · Kandy',
+    color: '#7C3AED',
+    bgLight: '#FAF5FF',
+    image: img('destinations/kandy/kandy temple of the tooth.webp'),
+    alt: 'Zahntempel Kandy Sri Lanka Sri Dalada Maligawa',
+    facts: ['Heiligster Ort Sri Lankas', 'Am Kandysee gelegen', 'Besuch: früh morgens', 'Dresscode beachten'],
+    body: `Im Herzen von Kandy, am Ufer des gleichnamigen Sees, bewacht ein stiller Tempel einen der heiligsten Gegenstände des Buddhismus: einen Zahn des Buddha. Nicht als Touristenattraktion — als lebendigen Mittelpunkt des Glaubens für 500 Millionen Menschen weltweit.
+
+Der Besuch des Zahntempels ist kein sightseeing. Es ist eine Begegnung. Mönche in safrangelben Gewändern, der Duft von Lotus und Räucherwerk, Pilger, die flüstern. Dreimal täglich öffnet der innere Schrein für puja — das Morgengebet ist das eindrucksvollste.`,
+    tip: 'Emil kennt die Puja-Zeiten und organisiert den Eintritt zur Morgenpuja um 5:30 Uhr — bevor die Touristengruppen ankommen. Ein spirituelles Erlebnis, das sich von allen anderen abhebt.',
+    tipIcon: '🏛️',
+  },
+  {
+    num: '06',
+    name: 'Galle Dutch Fort',
+    sub: 'Europäische Geschichte am Indischen Ozean',
+    tag: 'UNESCO-Welterbe · Kolonialgeschichte · Galle',
+    color: '#0F4C75',
+    bgLight: '#F0F7FF',
+    image: img('destinations/Galle/galle  homepage hero image 1.webp'),
+    alt: 'Galle Dutch Fort Sri Lanka Kolonialfestung',
+    facts: ['Erbaut 1588 von Portugiesen', 'Ausgebaut 1663 von Holländern', 'UNESCO-Welterbe', '36 Hektar Fläche'],
+    body: `Ein Stück Europa am Ende der Welt. Die Festung von Galle wurde 1588 von den Portugiesen gebaut, von den Holländern perfektioniert und hat Tsunamis, Kriege und Jahrhunderte überstanden. Heute sind die Festungsmauern der schönste Spazierweg Sri Lankas — besonders bei Sonnenuntergang, wenn das Meer in den Farben eines Turner-Gemäldes leuchtet.
+
+Innerhalb der Mauern: kopfsteingepflasterte Gassen, holländische Kolonialarchitektur, unabhängige Boutiquen, Cafés und Galerien. Galle Fort ist eine lebendige Stadt — und eine der am besten erhaltenen Kolonialfestungen Asiens.`,
+    tip: 'Emil führt Sie zum Sonnenuntergang auf die Festungsmauern — der Blick auf den Indischen Ozean in Abendrot ist eines der schönsten Momente Sri Lankas. Danach kennt er das beste Meeresfrüchterestaurant innerhalb der Mauern.',
+    tipIcon: '🌅',
+  },
+  {
+    num: '07',
+    name: 'Nine Arch Bridge',
+    sub: 'Ella's ikonisches Viadukt',
+    tag: 'Ella · Zug · Kolonialerbe · Hügelland',
+    color: '#065F46',
+    bgLight: '#F0FDF9',
+    image: img('destinations/Ella/ella 1 nine arch.webp'),
+    alt: 'Nine Arch Bridge Ella Sri Lanka Neun-Bogen-Brücke',
+    facts: ['Erbaut 1921', '91 m lang · 24 m hoch', 'Züge: ~6 täglich', 'Bestes Licht: 9–11 Uhr'],
+    body: `Es gibt Bilder, die man hundertmal gesehen hat — und die trotzdem den Atem verschlagen, wenn man davor steht. Die Nine Arch Bridge ist so ein Ort. Neun Bögen aus handgelegtem Kolonialbeton, tief eingebettet in tropisches Grün, von dem alle 2 Stunden ein blauer Zug langsam darüberrollt.
+
+Kein Stahl. Kein Zement aus der Fabrik. Jeder Stein wurde von Hand gelegt, 1921, während die Welt noch mit anderen Dingen beschäftigt war. Das Ergebnis ist ein Bauwerk, das wirkt, als hätte die Natur es selbst erschaffen.`,
+    tip: 'Emil kennt den genauen Zugfahrplan und bringt Sie zu den besten Aussichtspunkten — nicht zu dem überfüllten Hauptaussichtspunkt, sondern zu zwei versteckten Spots, von denen Sie die Brücke und den Zug in Ruhe fotografieren können.',
+    tipIcon: '🚂',
+  },
+  {
+    num: '08',
+    name: 'Ella Rock',
+    sub: 'Der Gipfel des Hügellands',
+    tag: 'Wanderung · Ella · Panorama · Hügelland',
+    color: '#1E3A5F',
+    bgLight: '#F5F7FF',
+    image: img('destinations/Ella/ella 3.webp'),
+    alt: 'Ella Rock Aussichtspunkt Sri Lanka Wanderung',
+    facts: ['Aufstieg ~3 Std.', '1.041 m Höhe', 'Durch Teeplantagen', 'Bestes Licht: Morgen'],
+    body: `Der Ella Rock ist kein Spaziergang. Er ist eine Reise. Drei Stunden durch Teeplantagen, Regenwald und Eukalyptushaine — der Pfad ist nicht markiert, der Weg nicht geteert, und genau das macht ihn unvergesslich.
+
+Oben angekommen: ein 360°-Panorama über das gesamte Hügelland. Endlose Teehänge, Wasserfälle im Dunst, die Ebene weit unten und über allem ein Himmel, der sich nicht entscheiden kann, ob er Wolken oder Sonne will. Ella Rock ist der Moment, in dem Sri Lanka aufhört, schön zu sein, und anfängt, überwältigend zu werden.`,
+    tip: 'Ohne ortskundigen Begleiter verlaufen sich die meisten Wanderer. Emil kennt jeden Abzweig und startet früh morgens — so erreichen Sie den Gipfel vor den Wolken und kehren in der Mittagshitze bereits zurück.',
+    tipIcon: '🥾',
+  },
+];
+---
+
+<BaseLayout
+  title="Sehenswürdigkeiten Sri Lanka 2026 | Sigiriya, Yala, Galle & mehr | Emil Lanka Tours"
+  description="Die 8 schönsten Sehenswürdigkeiten Sri Lankas — Sigiriya, Mirissa, Yala, Udawalawe, Zahntempel, Galle Fort, Nine Arch Bridge und Ella Rock. Mit Emils persönlichen Insidertipps für Ihre Privatreise."
+  canonical="https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka"
+  lang="de"
+>
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness","TourOperator"],
+        "@id": "https://www.chauffeuremillankatour.com/#business",
+        "name": "Chauffeur Emil Lanka Tours",
+        "description": "Privater Chauffeur-Guide für Sri Lanka — persönlich, maßgeschneidert, unvergesslich.",
+        "url": "https://www.chauffeuremillankatour.com",
+        "telephone": "+94761917039",
+        "areaServed": [
+          { "@type": "Country", "name": "Sri Lanka" },
+          { "@type": "Country", "name": "Germany" },
+          { "@type": "Country", "name": "Austria" },
+          { "@type": "Country", "name": "Switzerland" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5.0,
+          "reviewCount": 35
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Sehenswürdigkeiten Sri Lanka",
+        "numberOfItems": 8,
+        "itemListElement": [
+          { "@type":"ListItem","position":1,"name":"Sigiriya Löwenfelsen","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#sigiriya" },
+          { "@type":"ListItem","position":2,"name":"Mirissa Strand & Walbeobachtung","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#mirissa" },
+          { "@type":"ListItem","position":3,"name":"Yala Nationalpark","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#yala" },
+          { "@type":"ListItem","position":4,"name":"Udawalawe Nationalpark","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#udawalawe" },
+          { "@type":"ListItem","position":5,"name":"Sri Dalada Maligawa — Zahntempel Kandy","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#zahntempel" },
+          { "@type":"ListItem","position":6,"name":"Galle Dutch Fort","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#galle" },
+          { "@type":"ListItem","position":7,"name":"Nine Arch Bridge Ella","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#nine-arch" },
+          { "@type":"ListItem","position":8,"name":"Ella Rock Aussichtspunkt","url":"https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka#ella-rock" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was sind die schönsten Sehenswürdigkeiten in Sri Lanka?",
+            "acceptedAnswer": { "@type":"Answer","text":"Die acht Highlights Sri Lankas sind Sigiriya (UNESCO-Felsenfestung), Mirissa (Strände & Walbeobachtung), Yala Nationalpark (Leoparden), Udawalawe (Elefanten), der Zahntempel von Kandy, das Galle Dutch Fort, die Nine Arch Bridge und Ella Rock. Ein privater Chauffeur-Guide wie Emil verbindet alle Orte in einer maßgeschneiderten Route." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange braucht man für Sigiriya?",
+            "acceptedAnswer": { "@type":"Answer","text":"Der Aufstieg auf den Sigiriya-Felsen dauert etwa 1,5 Stunden, inklusive Abstieg und Besichtigung der Fresken rechnen Sie mit 3–4 Stunden vor Ort. Emil startet vor Sonnenaufgang, damit Sie den Felsen ohne Menschenmassen erleben." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wann ist die beste Zeit für eine Sri Lanka Reise aus Deutschland?",
+            "acceptedAnswer": { "@type":"Answer","text":"Dezember bis März ist die Trockenzeit für die West- und Südküste — ideal für Strände, Galle und Yala. Juli bis September ist perfekt für den Osten, das Kulturdreieck und das Hügelland. Deutsche Sommerferien (Juli/August) fallen ideal in das zweite Fenster." }
+          },
+          {
+            "@type": "Question",
+            "name": "Brauche ich ein Visum für Sri Lanka aus Deutschland?",
+            "acceptedAnswer": { "@type":"Answer","text":"Ja, deutsche Staatsbürger benötigen eine Electronic Travel Authorization (ETA) für Sri Lanka. Sie wird online beantragt (eta.gov.lk), kostet ca. 20–35 USD und ist innerhalb von 24–72 Stunden ausgestellt. Emil hilft seinen Gästen vorab per WhatsApp bei allen Einreisefragen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist Sri Lanka sicher für Deutsche Touristen?",
+            "acceptedAnswer": { "@type":"Answer","text":"Ja. Das Auswärtige Amt Deutschland stuft Sri Lanka als normale Reisevorsicht ein — dieselbe Kategorie wie Italien, Japan und Thailand. Emil hat in 14 Jahren hunderte europäische Gäste begleitet, ohne einen einzigen Zwischenfall." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet eine Privatreise mit Emil in Sri Lanka?",
+            "acceptedAnswer": { "@type":"Answer","text":"Emil erstellt für jede Reise ein maßgeschneidertes Angebot je nach Dauer, Route und gewünschten Unterkünften. Senden Sie Emil Ihre Reisedaten per WhatsApp oder über das Kontaktformular — er antwortet in der Regel innerhalb von 2 Stunden." }
+          }
+        ]
+      }
+    ]
+  })}</script>
+
+  <style>
+    .attraction-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 15vw, 11rem);
+      font-weight: 700;
+      line-height: 1;
+      opacity: 0.07;
+      position: absolute;
+      top: -1.5rem;
+      left: -1rem;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+    .tip-box {
+      border-left: 3px solid currentColor;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+    }
+    .fact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      border: 1.5px solid currentColor;
+    }
+    /* Scroll-triggered fade-slide */
+    .slide-in { opacity:0; transform:translateY(40px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .slide-in.visible { opacity:1; transform:translateY(0); }
+    .slide-right { opacity:0; transform:translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .slide-right.visible { opacity:1; transform:translateX(0); }
+    .slide-left { opacity:0; transform:translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .slide-left.visible { opacity:1; transform:translateX(0); }
+  </style>
+
+  <!-- ── HERO ── -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#0D1F16]">
+    <!-- layered background texture -->
+    <div class="absolute inset-0"
+         style="background:radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(27,58,45,0.8) 0%, transparent 50%)">
+    </div>
+    <div class="absolute inset-0 opacity-20"
+         style="background-image:url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fill-rule=evenodd%3E%3Cg fill=%23C9A84C fill-opacity=0.15%3E%3Cpath d=M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')">
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-24">
+      <!-- eyebrow -->
+      <div class="inline-flex items-center gap-2.5 mb-8">
+        <span class="h-px w-10 bg-gold-400/60"></span>
+        <span class="text-gold-300 text-xs font-semibold tracking-[0.3em] uppercase">Privater Chauffeur Guide · Sri Lanka</span>
+        <span class="h-px w-10 bg-gold-400/60"></span>
+      </div>
+
+      <h1 class="font-display text-white leading-tight mb-6"
+          style="font-size:clamp(2.8rem,7vw,5.5rem)">
+        Die 8 Orte, die<br/>
+        <em class="not-italic" style="color:#C9A84C">Sri Lanka unvergesslich</em><br/>
+        machen
+      </h1>
+
+      <p class="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+        Von Emil Jayasekara — privatem Chauffeur-Guide mit 14 Jahren Erfahrung.
+        Keine Reiseführer-Phrasen. Nur Orte, die er selbst liebt
+        und die er seinen Gästen immer wieder zeigt.
+      </p>
+
+      <!-- Scroll indicator + CTA -->
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2.5 bg-[#25D366] text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-[#1fb959] transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Emil auf WhatsApp fragen
+        </a>
+        <a href="/tailor-made"
+           class="border border-white/30 text-white font-semibold px-7 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors">
+          Meine Reise planen
+        </a>
+      </div>
+
+      <!-- 8 place quick nav -->
+      <div class="flex flex-wrap justify-center gap-2">
+        {['Sigiriya','Mirissa','Yala','Udawalawe','Zahntempel','Galle Fort','Nine Arch','Ella Rock'].map((n,i) => (
+          <a href={`#attraction-${i}`}
+             class="text-white/50 hover:text-gold-300 text-xs font-medium tracking-wide transition-colors border border-white/10 hover:border-gold-400/40 px-3 py-1.5 rounded-full">
+            {String(i+1).padStart(2,'0')} {n}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- bottom fade -->
+    <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#F8F3EC] to-transparent"></div>
+  </section>
+
+  <!-- ── ATTRACTION SECTIONS ── -->
+  {attractions.map((a, i) => {
+    const isEven = i % 2 === 0;
+    const ids = ['sigiriya','mirissa','yala','udawalawe','zahntempel','galle','nine-arch','ella-rock'];
+    return (
+      <section
+        id={`attraction-${i}`}
+        data-id={ids[i]}
+        style={`background-color:${a.bgLight}`}
+        class="py-20 sm:py-28 overflow-hidden"
+      >
+        <div class="max-w-6xl mx-auto px-6 xl:px-8">
+          <div class={`grid lg:grid-cols-2 gap-12 xl:gap-20 items-center ${!isEven ? 'lg:grid-flow-col-dense' : ''}`}>
+
+            <!-- Text side -->
+            <div class={`relative ${!isEven ? 'lg:col-start-2' : ''}`}>
+              <!-- giant decorative number -->
+              <span class="attraction-num" style={`color:${a.color}`}>{a.num}</span>
+
+              <div class="relative slide-right">
+                <!-- tag -->
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase mb-3" style={`color:${a.color}`}>
+                  {a.tag}
+                </p>
+
+                <!-- name -->
+                <h2 class="font-display leading-tight mb-1" style={`font-size:clamp(2.2rem,5vw,3.5rem); color:#0D2118`}>
+                  {a.name}
+                </h2>
+                <p class="font-display italic mb-6" style={`color:${a.color}; font-size:1.1rem`}>
+                  {a.sub}
+                </p>
+
+                <!-- fact pills -->
+                <div class="flex flex-wrap gap-2 mb-7">
+                  {a.facts.map(f => (
+                    <span class="fact-pill" style={`color:${a.color}; border-color:${a.color}40; background:${a.color}10`}>
+                      {f}
+                    </span>
+                  ))}
+                </div>
+
+                <!-- body text -->
+                <div class="space-y-4 mb-8">
+                  {a.body.trim().split('\n\n').map(para => (
+                    <p class="text-warmgray leading-relaxed text-[15px]">{para.trim()}</p>
+                  ))}
+                </div>
+
+                <!-- Emil's tip box -->
+                <div class="tip-box rounded-2xl p-5 mb-8" style={`color:${a.color}; border-color:${a.color}`}>
+                  <p class="text-xs font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+                    <span class="text-base">{a.tipIcon}</span>
+                    Emils Tipp
+                  </p>
+                  <p class="text-warmgray text-sm leading-relaxed">{a.tip}</p>
+                </div>
+
+                <!-- CTA -->
+                <a href={waUrl} target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-200"
+                   style={`color:${a.color}`}>
+                  Diesen Ort mit Emil besuchen
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Image side -->
+            <div class={`slide-left ${!isEven ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+              <div class="relative">
+                <!-- main image -->
+                <div class="rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={a.image}
+                    alt={a.alt}
+                    loading="lazy"
+                    width="700" height="500"
+                    class="w-full h-[420px] sm:h-[480px] object-cover"
+                  />
+                </div>
+                <!-- floating number badge -->
+                <div class="absolute -bottom-5 -right-5 w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl font-display font-bold text-2xl text-white rotate-3"
+                     style={`background:${a.color}`}>
+                  {a.num}
+                </div>
+                <!-- decorative ring -->
+                <div class="absolute -top-4 -left-4 w-24 h-24 rounded-full opacity-20 border-4"
+                     style={`border-color:${a.color}`}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <!-- ── MID-PAGE CTA STRIP ── -->
+  <section class="py-16 bg-forest-gradient">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-gold-300 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Alle 8 Orte. Eine Reise.</p>
+      <h2 class="font-display text-white text-3xl sm:text-4xl mb-4 leading-tight">
+        Lassen Sie Emil eine Route<br/>durch alle Highlights bauen
+      </h2>
+      <p class="text-white/65 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
+        10–14 Tage, privates klimatisiertes Fahrzeug, Emil jeden Tag —
+        kein Gruppenbus, kein festes Programm, keine Kompromisse.
+        Schicken Sie ihm Ihre Reisedaten und er entwirft Ihre Traumroute.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1fb959] transition-colors">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Jetzt auf WhatsApp anfragen
+        </a>
+        <a href="/tailor-made"
+           class="border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors">
+          Reise online planen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY PRIVATE ── -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12 slide-in">
+        <p class="section-eyebrow">Warum Privat</p>
+        <h2 class="section-title mb-3">Mit Emil — nicht mit einer Gruppe</h2>
+        <p class="text-warmgray max-w-xl mx-auto text-sm leading-relaxed">
+          Gruppenreisen bringen Sie an die Orte. Emil bringt Sie <em>in</em> die Orte.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { icon:'🚗', title:'Nur Sie', text:'Privates klimatisiertes Toyota-Fahrzeug — kein Gruppenbus, keine fremden Mitreisenden.' },
+          { icon:'🗺️', title:'Ihre Route', text:'Emil baut jede Reise neu. Sigiriya bei Sonnenaufgang, Ella Rock früh morgens — timing nach Ihnen.' },
+          { icon:'💬', title:'Direkte Kommunikation', text:'Emils persönliche WhatsApp-Nummer. Kein Call-Center, kein Mittelsmann — er antwortet selbst.' },
+          { icon:'⭐', title:'5,0 auf TripAdvisor', text:'35 Bewertungen, alle 5 Sterne. Viele seiner Gäste kommen aus Deutschland, Österreich und der Schweiz.' },
+          { icon:'🏅', title:'SLTDA-zertifiziert', text:'Sri Lanka Tourism Development Authority lizenzierter Guide mit 14 Jahren Erfahrung.' },
+          { icon:'🛡️', title:'Vollversichert', text:'Vollversichertes Fahrzeug, geprüfte Partnerhotels und Emil als persönlicher Ansprechpartner 24/7.' },
+        ].map(item => (
+          <div class="bg-white border border-stone rounded-2xl p-6 slide-in hover:shadow-card-hover transition-shadow">
+            <div class="text-3xl mb-3">{item.icon}</div>
+            <h3 class="font-semibold text-forest-700 mb-2">{item.title}</h3>
+            <p class="text-warmgray text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="text-center mb-12 slide-in">
+        <p class="section-eyebrow">Häufige Fragen</p>
+        <h2 class="section-title mb-3">Was Deutsche Reisende fragen</h2>
+      </div>
+      <dl class="space-y-4">
+        {[
+          {
+            q: 'Was sind die schönsten Sehenswürdigkeiten in Sri Lanka?',
+            a: 'Die acht absoluten Highlights sind Sigiriya, Mirissa, Yala Nationalpark, Udawalawe, der Zahntempel von Kandy, das Galle Dutch Fort, die Nine Arch Bridge und Ella Rock. Ein privater Reiseführer wie Emil verbindet alle Orte in einer maßgeschneiderten Route — im richtigen Tempo, zur richtigen Tageszeit.',
+          },
+          {
+            q: 'Wie lange sollte eine Sri Lanka Reise dauern?',
+            a: 'Für eine entspannte Rundreise durch die wichtigsten Sehenswürdigkeiten empfiehlt Emil 10–14 Tage. In 10 Tagen schaffen Sie Kulturdreieck, Hügelland und Südküste. In 14 Tagen kommen Yala, Udawalawe und die Ostküste dazu. Weniger als 8 Tage führt zu Hetze.',
+          },
+          {
+            q: 'Brauche ich ein Visum für Sri Lanka?',
+            a: 'Ja, deutsche Staatsangehörige benötigen eine Electronic Travel Authorization (ETA). Sie wird online unter eta.gov.lk beantragt, kostet ca. 20–35 USD und erlaubt einen 30-tägigen Aufenthalt. Die Bearbeitung dauert 24–72 Stunden. Emil hilft per WhatsApp bei allen Fragen vor der Abreise.',
+          },
+          {
+            q: 'Ist Sri Lanka sicher für deutsche Touristen?',
+            a: 'Ja. Das Auswärtige Amt stuft Sri Lanka als „normale Sicherheitshinweise" ein — dieselbe Kategorie wie Italien oder Japan. Emil hat in 14 Jahren keine Zwischenfälle mit seinen Gästen erlebt. Er gibt seine persönliche Handynummer und ist während der gesamten Reise erreichbar.',
+          },
+          {
+            q: 'Wann ist die beste Reisezeit für Sri Lanka?',
+            a: 'Dezember bis März ist Trockenzeit für West- und Südküste — ideal für Galle, Mirissa und Yala. Juli bis September ist die beste Zeit für das Kulturdreieck, das Hügelland (Ella, Nine Arch Bridge) und die Ostküste. Deutsche Sommerferien fallen perfekt in das zweite Fenster.',
+          },
+          {
+            q: 'Was kostet eine Privatreise mit Emil?',
+            a: 'Emil erstellt ein individuelles Angebot je nach Reisedauer, Route und Unterkunftskategorie. Senden Sie ihm Ihre Reisedaten per WhatsApp — er antwortet in der Regel innerhalb von 2 Stunden auf Englisch. Viele seiner Gäste aus der DACH-Region berichten, dass das Preis-Leistungs-Verhältnis deutlich besser ist als bei Gruppenreisen.',
+          },
+        ].map((item, i) => (
+          <div class="bg-ivory border border-stone rounded-2xl overflow-hidden slide-in" style={`animation-delay:${i*50}ms`}>
+            <dt>
+              <button class="faq-btn w-full text-left px-6 py-5 font-display text-forest-700 font-semibold text-base flex items-center justify-between gap-4" aria-expanded="false">
+                {item.q}
+                <span class="text-xl text-gold-500 flex-shrink-0">+</span>
+              </button>
+            </dt>
+            <dd class="overflow-hidden transition-all duration-300" style="max-height:0">
+              <p class="px-6 pb-5 text-warmgray text-sm leading-relaxed">{item.a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="py-20 sm:py-24 bg-[#0D1F16] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background:radial-gradient(ellipse at 60% 50%, #C9A84C 0%, transparent 60%)"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <p class="text-gold-300 text-xs font-semibold tracking-[0.25em] uppercase mb-4">Bereit für Sri Lanka?</p>
+      <h2 class="font-display text-white text-4xl sm:text-5xl leading-tight mb-5">
+        Schreiben Sie Emil.<br/>
+        <em class="not-italic text-gold-300">Er antwortet heute noch.</em>
+      </h2>
+      <p class="text-white/60 text-sm leading-relaxed max-w-xl mx-auto mb-10">
+        Kein Formular-Dschungel. Keine automatischen E-Mails.
+        Nur Emil, sein Telefon und 14 Jahre Insider-Wissen über Sri Lanka —
+        für Ihre Reise.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <a href={waUrl} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2.5 bg-[#25D366] text-white font-bold px-8 py-4 rounded-full hover:bg-[#1fb959] transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Auf WhatsApp schreiben
+        </a>
+        <a href="/contact"
+           class="border border-white/30 text-white font-semibold px-8 py-4 rounded-full hover:bg-white/10 transition-colors">
+          Kontaktformular
+        </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-white/40 text-xs">
+        {['⭐ 5,0 · 35 TripAdvisor-Bewertungen','🏅 SLTDA-zertifiziert','💬 Antwortet in ~2 Stunden','🇩🇪 DACH-Gäste willkommen'].map(t => (
+          <span>{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dd = btn.closest('dt')!.nextElementSibling as HTMLElement;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        dd.style.maxHeight = open ? '0' : dd.scrollHeight + 'px';
+        const icon = btn.querySelector('span');
+        if (icon) icon.textContent = open ? '+' : '−';
+      });
+    });
+
+    // Scroll animations
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.slide-in, .slide-right, .slide-left, .reveal').forEach(el => io.observe(el));
+  </script>
+</BaseLayout>
