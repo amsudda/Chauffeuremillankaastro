@@ -54,7 +54,7 @@ import { img } from '../data/imageUrls';
             "name": "What is the best time for Australians to visit Sri Lanka?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "December to March is the dry season for the west and south coasts — perfect for beaches and cultural sites. July to September is ideal for the Cultural Triangle, east coast, and the Kandy Esala Perahera festival in August. Australian school holidays in January and July align well with both peak seasons."
+              "text": "December to March is the dry season for the west and south coasts — perfect for beaches and cultural sites. July to September is ideal for the Cultural Triangle, east coast, and hill country. Australian school holidays in January and July align well with both peak seasons."
             }
           },
           {
@@ -65,14 +65,7 @@ import { img } from '../data/imageUrls';
               "text": "Flights from Melbourne (MEL) to Colombo (CMB) take approximately 11–14 hours with one stopover, typically via Singapore, Kuala Lumpur, or Dubai. Direct flight times vary by airline. SriLankan Airlines, Singapore Airlines, Malaysia Airlines, and Emirates all fly this route regularly."
             }
           },
-          {
-            "@type": "Question",
-            "name": "What is the Kandy Esala Perahera and when is it in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Kandy Esala Perahera is Sri Lanka's most spectacular Buddhist festival — 10 nights of candlelit processions featuring over 100 decorated elephants, traditional Kandyan drummers, dancers, and fire performers through the streets of Kandy. In 2026 it runs in August. Emil organises front-row viewing spots and builds full itineraries around the festival dates."
-            }
-          },
+
           {
             "@type": "Question",
             "name": "How is a private chauffeur guide different from Intrepid Travel Sri Lanka?",
@@ -238,10 +231,10 @@ import { img } from '../data/imageUrls';
           },
           {
             months: 'July – September',
-            badge: '🐘 Aug Perahera + Jul School Hols',
+            badge: '🌿 Jul–Sep Season',
             title: 'Cultural Triangle & East Coast',
-            body: 'Sri Lanka\'s most exciting cultural period. The Kandy Esala Perahera in August is unmissable — 10 nights of elephant processions and traditional ceremony. July school holidays land right in the middle of this window.',
-            highlight: 'Best for: Perahera, Polonnaruwa, Anuradhapura, East Coast',
+            body: 'Sri Lanka\'s most exciting cultural period. The Cultural Triangle, east coast, and hill country are all at their best. July school holidays land right in the middle of this window.',
+            highlight: 'Best for: Trincomalee, Polonnaruwa, Anuradhapura, East Coast',
             color: 'border-forest-400/50 bg-forest-600/5',
           },
         ].map(s => (
@@ -257,32 +250,7 @@ import { img } from '../data/imageUrls';
         ))}
       </div>
 
-      <!-- Perahera callout -->
-      <div class="rounded-3xl overflow-hidden shadow-card-hover reveal">
-        <div class="relative h-56">
-          <img
-            src="/esela-perahera.webp"
-            alt="Kandy Esala Perahera — August festival Sri Lanka"
-            loading="lazy"
-            width="900" height="400"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-gradient-to-r from-forest-700/90 to-forest-700/30 flex items-center">
-            <div class="p-8 max-w-lg">
-              <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-2">August 2026 · Kandy</p>
-              <h3 class="font-display text-white text-2xl mb-2">Kandy Esala Perahera</h3>
-              <p class="text-white/75 text-sm leading-relaxed mb-4">
-                100+ decorated elephants. Kandyan drummers. Fire dancers. 10 nights of procession
-                through ancient streets. This is the festival Australians fly to Sri Lanka for.
-              </p>
-              <a href="/tailor-made"
-                 class="inline-block bg-gold-400 text-forest-800 font-bold text-sm px-5 py-2.5 rounded-full hover:bg-gold-300 transition-colors">
-                Plan Around the Perahera →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -378,7 +346,6 @@ import { img } from '../data/imageUrls';
               ['Vehicle',             'Private A/C Toyota — yours only',    'Shared group bus'],
               ['Flexibility',         'Stop anywhere, anytime',             'Fixed stops, fixed times'],
               ['Airport transfer',    'Included — Emil meets you',          'Not always included'],
-              ['Perahera access',     'Front-row spots, Emil arranges it',  'Standard group viewing'],
               ['Pace',                'Your pace — slow down, speed up',    'Group consensus'],
               ['Price per couple',    'Often comparable or better value',   'Per-person group rate'],
             ].map(([feature, emil, group], i) => (
@@ -412,7 +379,7 @@ import { img } from '../data/imageUrls';
           {
             name: 'Kandy',
             img: img('destinations/kandy/kandy temple of the tooth.webp'),
-            desc: 'The cultural capital. Home of the Temple of the Tooth Relic and the Esala Perahera festival. About 3.5 hours from Colombo.',
+            desc: 'The cultural capital. Home of the Temple of the Tooth Relic and some of Sri Lanka's richest Buddhist heritage. About 3.5 hours from Colombo.',
           },
           {
             name: 'Sigiriya',
@@ -474,16 +441,13 @@ import { img } from '../data/imageUrls';
           },
           {
             q: 'What is the best time of year for Australians to visit Sri Lanka?',
-            a: 'December–March suits Australian January school holidays — dry season for beaches and the Cultural Triangle. July–September suits July school holidays — ideal for the Cultural Triangle, east coast, and the unmissable Kandy Esala Perahera festival in August.',
+            a: 'December–March suits Australian January school holidays — dry season for beaches and the Cultural Triangle. July–September suits July school holidays — ideal for the Cultural Triangle, east coast, and hill country at their best.',
           },
           {
             q: 'How long is the flight from Melbourne to Sri Lanka?',
             a: 'Approximately 11–14 hours with one stopover, typically via Singapore, Kuala Lumpur, or Dubai. SriLankan Airlines, Singapore Airlines, Malaysia Airlines, and Emirates all serve the Melbourne–Colombo route.',
           },
-          {
-            q: 'What is the Kandy Esala Perahera and should I go?',
-            a: 'The Esala Perahera is Sri Lanka\'s most spectacular Buddhist festival — 10 nights of candlelit processions through Kandy with 100+ decorated elephants, traditional dancers, drummers, and fire performers. It runs in August, perfectly aligned with Australian July–August travel. Emil arranges front-row viewing and builds full itineraries around the festival.',
-          },
+
           {
             q: 'How is a private chauffeur guide different from Intrepid Travel?',
             a: 'Intrepid runs fixed group itineraries with 8–16 travellers sharing a bus. With Emil you get a fully custom private itinerary, your own air-conditioned vehicle, and 1-on-1 guiding every day. You travel at your pace, stop where you want, and have Emil\'s personal WhatsApp from day one.',

@@ -38,7 +38,7 @@ import { img } from '../data/imageUrls';
             "name": "What is the best time to travel to Sri Lanka?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sri Lanka has two main dry seasons depending on which coast you visit. December to March is best for the west and south coasts (beaches, Galle, Kandy, Sigiriya). July to September is best for the east coast, Cultural Triangle, and the iconic Kandy Esala Perahera festival in August. Because Sri Lanka is a small island, it is possible to find good weather somewhere on the island year-round."
+              "text": "Sri Lanka has two main dry seasons depending on which coast you visit. December to March is best for the west and south coasts (beaches, Galle, Kandy, Sigiriya). July to September is best for the east coast, Cultural Triangle, Minneriya elephant gathering, and wildlife. Because Sri Lanka is a small island, it is possible to find good weather somewhere on the island year-round."
             }
           },
           {
@@ -46,7 +46,7 @@ import { img } from '../data/imageUrls';
             "name": "What is the best time to visit Sri Lanka from Australia?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Australian travellers are perfectly timed for both of Sri Lanka's peak seasons. The December–March window aligns with Australian January school holidays — ideal for beaches and cultural sites. The July–September window aligns with Australian July school holidays and includes the spectacular Kandy Esala Perahera festival in August."
+              "text": "Australian travellers are perfectly timed for both of Sri Lanka's peak seasons. The December–March window aligns with Australian January school holidays — ideal for beaches and cultural sites. The July–September window aligns with Australian July school holidays, with excellent conditions for the Cultural Triangle and east coast."
             }
           },
           {
@@ -62,7 +62,7 @@ import { img } from '../data/imageUrls';
             "name": "What is the weather like in Sri Lanka in August?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "August is one of the best months to visit Sri Lanka's Cultural Triangle (Sigiriya, Kandy, Polonnaruwa) and the east coast (Trincomalee, Arugam Bay). The west coast may see some rain, but the hill country and east are dry. August is also when the Kandy Esala Perahera festival occurs — the most spectacular cultural event in Sri Lanka and one of the greatest festivals in Asia."
+              "text": "August is one of the best months to visit Sri Lanka's Cultural Triangle (Sigiriya, Kandy, Polonnaruwa) and the east coast (Trincomalee, Arugam Bay). The west coast may see some rain, but the hill country and east are dry. August is one of Emil's favourite months to guide — the Cultural Triangle is dry, wildlife sightings are excellent, and the east coast is still beautiful."
             }
           },
           {
@@ -81,14 +81,7 @@ import { img } from '../data/imageUrls';
               "text": "April is a transitional month in Sri Lanka and a great time to visit. The early part of April (1–13) is the Sinhala and Tamil New Year period — the biggest local festival of the year with vibrant celebrations island-wide. The weather is warm and mostly dry. April is also a shoulder season month meaning fewer crowds and sometimes better rates."
             }
           },
-          {
-            "@type": "Question",
-            "name": "When is the Kandy Esala Perahera in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Kandy Esala Perahera 2026 runs in August. It is a 10-night festival of candlelit processions through Kandy featuring 100+ decorated elephants, Kandyan drummers, traditional dancers, and fire performers. Emil arranges front-row viewing spots and builds complete tour itineraries around the festival dates."
-            }
-          }
+
         ]
       }
     ]
@@ -143,7 +136,7 @@ import { img } from '../data/imageUrls';
         {[
           { icon: '🌞', label: 'West & South', value: 'Dec – Mar', sub: 'Beaches, Galle, Kandy' },
           { icon: '🌿', label: 'Hill Country', value: 'Jan – Apr', sub: 'Tea estates, Ella, Nuwara Eliya' },
-          { icon: '🐘', label: 'Perahera', value: 'Aug 2026', sub: 'Kandy — unmissable' },
+          { icon: '🎭', label: 'Kandy Festival', value: 'Aug–Sep', sub: 'Cultural Triangle peak' },
           { icon: '🌊', label: 'East Coast', value: 'May – Sep', sub: 'Trincomalee, Arugam Bay' },
         ].map(item => (
           <div class="reveal">
@@ -183,8 +176,8 @@ import { img } from '../data/imageUrls';
             months: 'July – September',
             badge: '🐘 Cultural & East Season',
             title: 'Festivals, East Coast & Hill Country',
-            body: 'Dry season for Sri Lanka\'s east coast and Cultural Triangle. The east coast opens up (Trincomalee, Arugam Bay surfing). August brings the Kandy Esala Perahera — the most spectacular festival in Asia. Hill country tea estates are lush and green.',
-            highlight: 'Best for: Kandy Perahera · Trincomalee · Arugam Bay · Polonnaruwa',
+            body: 'Dry season for Sri Lanka\'s east coast and Cultural Triangle. The hill country and east coast are at their most vibrant. Minneriya elephant gathering draws hundreds of wild elephants. Trincomalee beaches and Arugam Bay surf are both at their peak.',
+            highlight: 'Best for: Trincomalee · Arugam Bay · Polonnaruwa · Minneriya',
             color: 'border-forest-400/50 bg-forest-600/5',
             note: '🇦🇺 Aligns with Australian July school holidays',
           },
@@ -202,33 +195,7 @@ import { img } from '../data/imageUrls';
         ))}
       </div>
 
-      <!-- Perahera callout -->
-      <div class="rounded-3xl overflow-hidden shadow-card-hover reveal">
-        <div class="relative h-56">
-          <img
-            src="/esela-perahera.webp"
-            alt="Kandy Esala Perahera — best time to visit Sri Lanka August"
-            loading="lazy"
-            width="900" height="400"
-            class="w-full h-full object-cover"
-          />
-          <div class="absolute inset-0 bg-gradient-to-r from-forest-700/90 to-forest-700/30 flex items-center">
-            <div class="p-8 max-w-lg">
-              <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-2">August 2026 · Kandy</p>
-              <h3 class="font-display text-white text-2xl mb-2">The Kandy Esala Perahera</h3>
-              <p class="text-white/75 text-sm leading-relaxed mb-4">
-                Sri Lanka's greatest festival. 10 nights, 100+ decorated elephants, fire performers,
-                Kandyan drummers. If you're travelling in July–August, this is unmissable.
-                Emil arranges front-row viewing and plans your full itinerary around it.
-              </p>
-              <a href="/tailor-made"
-                 class="inline-block bg-gold-400 text-forest-800 font-bold text-sm px-5 py-2.5 rounded-full hover:bg-gold-300 transition-colors">
-                Plan Around the Perahera →
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -298,15 +265,15 @@ import { img } from '../data/imageUrls';
             label: 'Peak — East & Culture',
             color: 'bg-green-50 border-green-200',
             badge: 'text-green-700 bg-green-100',
-            summary: 'Australian school holidays! East coast and Cultural Triangle are at their best. Arugam Bay surf season peaks. Prelude to the Perahera. Minneriya elephant gathering (hundreds of elephants). Plan this month carefully — it fills quickly.',
+            summary: 'Australian school holidays! East coast and Cultural Triangle are at their best. Arugam Bay surf season peaks. Minneriya elephant gathering (hundreds of elephants). Plan this month carefully — it fills quickly.',
           },
           {
             month: 'August',
             rating: '⭐⭐⭐⭐⭐',
-            label: '🐘 Perahera Month',
+            label: '🐘 Wildlife & Culture',
             color: 'bg-amber-50 border-amber-300',
             badge: 'text-amber-700 bg-amber-100',
-            summary: 'The Kandy Esala Perahera runs in August — Emil\'s personal favourite month to guide. East coast still beautiful. Cultural Triangle is dry. Minneriya elephant gathering continues. The most culturally rich month on the Sri Lanka calendar. Book Emil months in advance for August.',
+            summary: 'Emil\'s personal favourite month to guide. East coast still beautiful. Cultural Triangle is dry. Minneriya elephant gathering continues. The most wildlife-rich month on the Sri Lanka calendar.',
           },
           {
             month: 'September',
@@ -377,7 +344,7 @@ import { img } from '../data/imageUrls';
               {
                 period: 'July School Holidays',
                 flag: '🐘',
-                detail: 'July–August aligns with the east coast season and the Kandy Esala Perahera in August. The most culturally rich time to visit — Emil\'s personal recommendation for first-time Australian visitors.',
+                detail: 'July–August aligns with the east coast season. The east coast opens up fully and Minneriya elephant gathering is spectacular. The most culturally rich time to visit — Emil\'s personal recommendation for first-time Australian visitors.',
               },
             ].map(p => (
               <div class="bg-white border border-stone rounded-2xl p-5">
@@ -408,7 +375,7 @@ import { img } from '../data/imageUrls';
             <p class="text-forest-700 font-semibold text-sm mb-3">Emil's recommendation for Australians</p>
             <ul class="space-y-2 text-warmgray text-sm">
               {[
-                'First visit? Choose July–August for the Perahera — you\'ll never forget it',
+                'First visit? Choose July–August for the east coast, wildlife & cultural sites',
                 'Beaches & relaxation? Choose December–February',
                 'Best of everything? Split 5 days west coast + 5 days Cultural Triangle',
                 'Emil adjusts every itinerary to your exact travel dates',
@@ -441,10 +408,10 @@ import { img } from '../data/imageUrls';
             desc: 'The iconic Lion Rock fortress. Best climbed at sunrise with Emil before the heat. Accessible in both dry seasons.',
           },
           {
-            name: 'Kandy & Perahera',
-            season: 'Year-round · Peak: Aug',
+            name: 'Kandy',
+            season: 'Year-round',
             img: img('destinations/kandy/kandy temple of the tooth.webp'),
-            desc: 'The Temple of the Tooth Relic is beautiful year-round. August is peak for the Esala Perahera — plan 2+ nights.',
+            desc: 'The Temple of the Tooth Relic and Kandy Lake make this a must-visit year-round. The hill country setting is spectacular — plan at least 2 nights.',
           },
           {
             name: 'Ella & Hill Country',
@@ -572,12 +539,9 @@ import { img } from '../data/imageUrls';
           },
           {
             q: 'What is the best time to visit Sri Lanka from Australia?',
-            a: 'Australian travellers are perfectly placed for both seasons. January school holidays coincide with the December–March west coast dry season — ideal for beaches and cultural sites. July school holidays align with the July–September east coast season, including the Kandy Esala Perahera festival in August.',
+            a: 'Australian travellers are perfectly placed for both seasons. January school holidays coincide with the December–March west coast dry season — ideal for beaches and cultural sites. July school holidays align with the July–September east coast season, with excellent conditions for the Cultural Triangle and east coast.',
           },
-          {
-            q: 'When is the Kandy Esala Perahera in 2026?',
-            a: 'The Kandy Esala Perahera 2026 takes place in August. It is a 10-night festival featuring 100+ decorated elephants, Kandyan drummers, traditional dancers, and fire performers processing through the streets of Kandy. It is the most spectacular cultural event in Sri Lanka and one of the greatest festivals in all of Asia. Emil organises front-row viewing and plans complete itineraries around the festival.',
-          },
+
           {
             q: 'Is Sri Lanka good to visit in December?',
             a: 'Yes — December is one of the best months to visit. It marks the start of the west and south coast dry season. Expect sunny days (28–32°C), calm seas perfect for whale watching in Mirissa, and ideal conditions for beaches, Galle Fort, Sigiriya, and Kandy. The island has a festive Christmas and New Year atmosphere.',
@@ -592,7 +556,7 @@ import { img } from '../data/imageUrls';
           },
           {
             q: 'What is the weather like in August in Sri Lanka?',
-            a: 'August is excellent for Sri Lanka\'s Cultural Triangle, east coast, and Kandy. The west coast may have some afternoon showers, but the hill country and east are mostly dry and warm. August is also when the legendary Kandy Esala Perahera takes place — the highlight of the Sri Lanka travel calendar. Emil\'s busiest and most exciting month to guide.',
+            a: 'August is excellent for Sri Lanka\'s Cultural Triangle, east coast, and Kandy. The west coast may have some afternoon showers, but the hill country and east are mostly dry and warm. August is one of Emil\'s favourite months to guide — the Cultural Triangle is dry, wildlife sightings are excellent, and the east coast is still beautiful.',
           },
         ].map((item, i) => (
           <div class="bg-ivory border border-stone rounded-2xl overflow-hidden reveal" style={`animation-delay:${i * 50}ms`}>
