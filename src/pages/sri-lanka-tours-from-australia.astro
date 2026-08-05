@@ -10,7 +10,7 @@ import { img } from '../data/imageUrls';
   description="Planning a Sri Lanka holiday from Australia? Emil Jayasekara is a private SLTDA-certified chauffeur guide with 14+ years experience. Visa info, best time to visit, flights from Melbourne & Sydney, and why private beats Intrepid."
   canonical="https://www.chauffeuremillankatour.com/sri-lanka-tours-from-australia"
 >
-  <script slot="head" type="application/ld+json">{JSON.stringify({
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -65,7 +65,6 @@ import { img } from '../data/imageUrls';
               "text": "Flights from Melbourne (MEL) to Colombo (CMB) take approximately 11–14 hours with one stopover, typically via Singapore, Kuala Lumpur, or Dubai. Direct flight times vary by airline. SriLankan Airlines, Singapore Airlines, Malaysia Airlines, and Emirates all fly this route regularly."
             }
           },
-
           {
             "@type": "Question",
             "name": "How is a private chauffeur guide different from Intrepid Travel Sri Lanka?",
@@ -85,7 +84,7 @@ import { img } from '../data/imageUrls';
         ]
       }
     ]
-  })}</script>
+  })} />
 
   <!-- Hero -->
   <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
@@ -379,7 +378,7 @@ import { img } from '../data/imageUrls';
           {
             name: 'Kandy',
             img: img('destinations/kandy/kandy temple of the tooth.webp'),
-            desc: 'The cultural capital. Home of the Temple of the Tooth Relic and some of Sri Lanka's richest Buddhist heritage. About 3.5 hours from Colombo.',
+            desc: 'The cultural capital. Home of the Temple of the Tooth Relic and some of Sri Lanka\'s richest Buddhist heritage. About 3.5 hours from Colombo.',
           },
           {
             name: 'Sigiriya',

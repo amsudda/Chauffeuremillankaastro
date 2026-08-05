@@ -106,7 +106,7 @@ Innerhalb der Mauern: kopfsteingepflasterte Gassen, holländische Kolonialarchit
   {
     num: '07',
     name: 'Nine Arch Bridge',
-    sub: 'Ella's ikonisches Viadukt',
+    sub: 'Ellas ikonisches Viadukt',
     tag: 'Ella · Zug · Kolonialerbe · Hügelland',
     color: '#065F46',
     bgLight: '#F0FDF9',
@@ -144,7 +144,7 @@ Oben angekommen: ein 360°-Panorama über das gesamte Hügelland. Endlose Teehä
   canonical="https://www.chauffeuremillankatour.com/de/sehenswuerdigkeiten-sri-lanka"
   lang="de"
 >
-  <script slot="head" type="application/ld+json">{JSON.stringify({
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -217,7 +217,7 @@ Oben angekommen: ein 360°-Panorama über das gesamte Hügelland. Endlose Teehä
         ]
       }
     ]
-  })}</script>
+  })} />
 
   <style>
     .attraction-num {
