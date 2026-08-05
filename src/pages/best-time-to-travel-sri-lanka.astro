@@ -1,0 +1,629 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/home/CTABanner.astro';
+import { SITE } from '../data/site';
+import { img } from '../data/imageUrls';
+---
+
+<BaseLayout
+  title="Best Time to Travel Sri Lanka 2026 | Month-by-Month Guide | Emil Lanka Tours"
+  description="When is the best time to visit Sri Lanka? Complete month-by-month guide for 2026 — dry seasons, monsoons, festivals, and the ideal time for Australians. Written by Emil Jayasekara, private chauffeur guide with 14+ years experience."
+  canonical="https://www.chauffeuremillankatour.com/best-time-to-travel-sri-lanka"
+>
+  <script slot="head" type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "TourOperator"],
+        "@id": "https://www.chauffeuremillankatour.com/#business",
+        "name": "Chauffeur Emil Lanka Tours",
+        "description": "Private chauffeur guide for Sri Lanka — expert on best travel seasons, festivals and regional weather.",
+        "url": "https://www.chauffeuremillankatour.com",
+        "telephone": "+94761917039",
+        "areaServed": [
+          { "@type": "Country", "name": "Sri Lanka" },
+          { "@type": "Country", "name": "Australia" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5.0,
+          "reviewCount": 35
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the best time to travel to Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sri Lanka has two main dry seasons depending on which coast you visit. December to March is best for the west and south coasts (beaches, Galle, Kandy, Sigiriya). July to September is best for the east coast, Cultural Triangle, and the iconic Kandy Esala Perahera festival in August. Because Sri Lanka is a small island, it is possible to find good weather somewhere on the island year-round."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best time to visit Sri Lanka from Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Australian travellers are perfectly timed for both of Sri Lanka's peak seasons. The December–March window aligns with Australian January school holidays — ideal for beaches and cultural sites. The July–September window aligns with Australian July school holidays and includes the spectacular Kandy Esala Perahera festival in August."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Sri Lanka good to visit in December?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — December marks the start of the dry season for Sri Lanka's west and south coasts. It is one of the best months to visit. Expect sunny days, warm temperatures (28–32°C), calm seas ideal for whale watching in Mirissa, and ideal conditions for Galle Fort, Sigiriya, Kandy, and beaches. The island is festive with Christmas and New Year celebrations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the weather like in Sri Lanka in August?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "August is one of the best months to visit Sri Lanka's Cultural Triangle (Sigiriya, Kandy, Polonnaruwa) and the east coast (Trincomalee, Arugam Bay). The west coast may see some rain, but the hill country and east are dry. August is also when the Kandy Esala Perahera festival occurs — the most spectacular cultural event in Sri Lanka and one of the greatest festivals in Asia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When is monsoon season in Sri Lanka?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sri Lanka has two monsoon seasons. The south-west monsoon (Yala) affects the west and south coasts from May to September — bringing heavy afternoon rains mainly to Colombo, Galle, and the western beaches. The north-east monsoon (Maha) affects the north, east, and hill country from October to January. Understanding which coast you're visiting helps you plan around the rains — Emil can advise on this specifically for your itinerary."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you visit Sri Lanka in April?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "April is a transitional month in Sri Lanka and a great time to visit. The early part of April (1–13) is the Sinhala and Tamil New Year period — the biggest local festival of the year with vibrant celebrations island-wide. The weather is warm and mostly dry. April is also a shoulder season month meaning fewer crowds and sometimes better rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When is the Kandy Esala Perahera in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Kandy Esala Perahera 2026 runs in August. It is a 10-night festival of candlelit processions through Kandy featuring 100+ decorated elephants, Kandyan drummers, traditional dancers, and fire performers. Emil arranges front-row viewing spots and builds complete tour itineraries around the festival dates."
+            }
+          }
+        ]
+      }
+    ]
+  })}</script>
+
+  <!-- ── Hero ── -->
+  <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10"
+         style="background-image:radial-gradient(circle at 20% 60%, #C9A84C 0%, transparent 55%), radial-gradient(circle at 80% 20%, #4CAF50 0%, transparent 50%)">
+    </div>
+    <div class="relative z-10 section-wrap max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-gold-400/15 border border-gold-400/30 rounded-full
+                  px-4 py-2 mb-6">
+        <span class="text-lg">🗓️</span>
+        <span class="text-gold-300 text-xs font-semibold tracking-widest uppercase">2026 Travel Guide</span>
+      </div>
+      <h1 class="font-display text-5xl sm:text-6xl text-white leading-tight mb-6">
+        Best Time to<br/>
+        <em class="not-italic text-gold-300">Travel Sri Lanka</em>
+      </h1>
+      <p class="text-white/75 text-lg sm:text-xl leading-relaxed mb-8 max-w-2xl mx-auto">
+        A complete month-by-month guide from Emil Jayasekara — private chauffeur guide
+        with 14+ years on the island. Know exactly when to go, what to expect, and how
+        to plan around festivals, weather, and seasons.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center mb-10">
+        <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+           class="flex items-center gap-2 bg-[#25D366] text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-[#1fb959] transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Ask Emil About Timing
+        </a>
+        <a href="/tailor-made"
+           class="border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full text-sm hover:bg-white/10 transition-colors">
+          Plan My Trip Around the Season
+        </a>
+      </div>
+      <!-- Trust row -->
+      <div class="flex flex-wrap justify-center gap-6 text-white/60 text-xs">
+        {['⭐ 5.0 · 35 TripAdvisor Reviews', '🏅 SLTDA Certified', '📅 14+ Years on the Island', '🇦🇺 Trusted by Australian Travellers'].map(t => (
+          <span>{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick-glance season strip -->
+  <section class="bg-white border-b border-stone py-8">
+    <div class="section-wrap">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        {[
+          { icon: '🌞', label: 'West & South', value: 'Dec – Mar', sub: 'Beaches, Galle, Kandy' },
+          { icon: '🌿', label: 'Hill Country', value: 'Jan – Apr', sub: 'Tea estates, Ella, Nuwara Eliya' },
+          { icon: '🐘', label: 'Perahera', value: 'Aug 2026', sub: 'Kandy — unmissable' },
+          { icon: '🌊', label: 'East Coast', value: 'May – Sep', sub: 'Trincomalee, Arugam Bay' },
+        ].map(item => (
+          <div class="reveal">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <p class="text-forest-700 font-semibold text-sm">{item.label}</p>
+            <p class="text-warmbrown font-medium text-sm">{item.value}</p>
+            <p class="text-warmgray text-xs mt-0.5">{item.sub}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Two peak seasons overview -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">When to Go</p>
+        <h2 class="section-title mb-3">Sri Lanka's Two Best Travel Windows</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm leading-relaxed">
+          Sri Lanka has two distinct dry seasons driven by opposing monsoons. Emil plans every tour
+          around the right window for each region — so you always get the best weather.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        {[
+          {
+            months: 'December – March',
+            badge: '🌞 West & South Season',
+            title: 'Beaches, Culture & Wildlife',
+            body: 'The dry season for the west and south coasts. Sunny skies, calm seas, and ideal conditions for Mirissa beaches, whale watching, Galle Fort, Yala safaris, Kandy, and Sigiriya. This is Sri Lanka\'s peak tourist season — book Emil early. Temperatures range from 28–34°C.',
+            highlight: 'Best for: Galle · Mirissa · Yala · Kandy · Sigiriya · Negombo',
+            color: 'border-gold-400/50 bg-gold-400/5',
+            note: '🇦🇺 Aligns with Australian January school holidays',
+          },
+          {
+            months: 'July – September',
+            badge: '🐘 Cultural & East Season',
+            title: 'Festivals, East Coast & Hill Country',
+            body: 'Dry season for Sri Lanka\'s east coast and Cultural Triangle. The east coast opens up (Trincomalee, Arugam Bay surfing). August brings the Kandy Esala Perahera — the most spectacular festival in Asia. Hill country tea estates are lush and green.',
+            highlight: 'Best for: Kandy Perahera · Trincomalee · Arugam Bay · Polonnaruwa',
+            color: 'border-forest-400/50 bg-forest-600/5',
+            note: '🇦🇺 Aligns with Australian July school holidays',
+          },
+        ].map(s => (
+          <div class={`rounded-2xl border-2 p-6 reveal ${s.color}`}>
+            <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <p class="font-display text-forest-700 text-lg">{s.months}</p>
+              <span class="text-xs bg-white border border-stone rounded-full px-3 py-1 font-medium text-forest-700">{s.badge}</span>
+            </div>
+            <h3 class="font-semibold text-warmbrown mb-2">{s.title}</h3>
+            <p class="text-warmgray text-sm leading-relaxed mb-3">{s.body}</p>
+            <p class="text-forest-600 text-xs font-semibold mb-2">{s.highlight}</p>
+            <p class="text-gold-600 text-xs font-medium">{s.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Perahera callout -->
+      <div class="rounded-3xl overflow-hidden shadow-card-hover reveal">
+        <div class="relative h-56">
+          <img
+            src="/esela-perahera.webp"
+            alt="Kandy Esala Perahera — best time to visit Sri Lanka August"
+            loading="lazy"
+            width="900" height="400"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-forest-700/90 to-forest-700/30 flex items-center">
+            <div class="p-8 max-w-lg">
+              <p class="text-gold-300 text-xs font-semibold tracking-widest uppercase mb-2">August 2026 · Kandy</p>
+              <h3 class="font-display text-white text-2xl mb-2">The Kandy Esala Perahera</h3>
+              <p class="text-white/75 text-sm leading-relaxed mb-4">
+                Sri Lanka's greatest festival. 10 nights, 100+ decorated elephants, fire performers,
+                Kandyan drummers. If you're travelling in July–August, this is unmissable.
+                Emil arranges front-row viewing and plans your full itinerary around it.
+              </p>
+              <a href="/tailor-made"
+                 class="inline-block bg-gold-400 text-forest-800 font-bold text-sm px-5 py-2.5 rounded-full hover:bg-gold-300 transition-colors">
+                Plan Around the Perahera →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Month by month guide -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Month-by-Month</p>
+        <h2 class="section-title mb-3">Sri Lanka Weather — Every Month Explained</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm leading-relaxed">
+          No month is completely off-limits in Sri Lanka. Emil matches your travel dates to the right region.
+        </p>
+      </div>
+      <div class="space-y-3">
+        {[
+          {
+            month: 'January',
+            rating: '⭐⭐⭐⭐⭐',
+            label: 'Peak Season',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'Best month for the west and south coasts. Dry, sunny, and busy. Australian school holidays — book Emil early. Perfect for Galle, Mirissa, Kandy, Sigiriya, and Yala safari.',
+          },
+          {
+            month: 'February',
+            rating: '⭐⭐⭐⭐⭐',
+            label: 'Excellent',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'Dry and warm. One of the most reliable months. Ideal for beaches, wildlife, and cultural sites. Fewer crowds than January. Whale watching in Mirissa peaks in Feb–Mar.',
+          },
+          {
+            month: 'March',
+            rating: '⭐⭐⭐⭐½',
+            label: 'Very Good',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'Still dry on the west and south. Whale watching continues. Towards end of March, temperatures climb and some afternoon showers begin. A great shoulder month before the crowds and pricing peak.',
+          },
+          {
+            month: 'April',
+            rating: '⭐⭐⭐⭐',
+            label: 'Good + Festival',
+            color: 'bg-lime-50 border-lime-200',
+            badge: 'text-lime-700 bg-lime-100',
+            summary: 'Sinhala & Tamil New Year (April 13–14) — the biggest local festival. Vibrant celebrations, local food, and a festive island atmosphere. Weather is warm and transitional. Great for cultural immersion with fewer Western tourists.',
+          },
+          {
+            month: 'May',
+            rating: '⭐⭐⭐',
+            label: 'Shoulder',
+            color: 'bg-yellow-50 border-yellow-200',
+            badge: 'text-yellow-700 bg-yellow-100',
+            summary: 'South-west monsoon arrives — bringing rains to Colombo and the west coast. East coast and Cultural Triangle remain dry. Vesak Poya (Buddha\'s birthday) is celebrated with beautiful lanterns island-wide. Fewer tourists, lower rates.',
+          },
+          {
+            month: 'June',
+            rating: '⭐⭐⭐',
+            label: 'East Opens',
+            color: 'bg-yellow-50 border-yellow-200',
+            badge: 'text-yellow-700 bg-yellow-100',
+            summary: 'West coast is wet but the east coast (Trincomalee, Nilaveli) opens up beautifully. Arugam Bay surfing season begins. Cultural Triangle (Sigiriya, Polonnaruwa, Anuradhapura) is dry and manageable. Hill country is lush and green.',
+          },
+          {
+            month: 'July',
+            rating: '⭐⭐⭐⭐⭐',
+            label: 'Peak — East & Culture',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'Australian school holidays! East coast and Cultural Triangle are at their best. Arugam Bay surf season peaks. Prelude to the Perahera. Minneriya elephant gathering (hundreds of elephants). Plan this month carefully — it fills quickly.',
+          },
+          {
+            month: 'August',
+            rating: '⭐⭐⭐⭐⭐',
+            label: '🐘 Perahera Month',
+            color: 'bg-amber-50 border-amber-300',
+            badge: 'text-amber-700 bg-amber-100',
+            summary: 'The Kandy Esala Perahera runs in August — Emil\'s personal favourite month to guide. East coast still beautiful. Cultural Triangle is dry. Minneriya elephant gathering continues. The most culturally rich month on the Sri Lanka calendar. Book Emil months in advance for August.',
+          },
+          {
+            month: 'September',
+            rating: '⭐⭐⭐⭐',
+            label: 'Very Good',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'East coast wraps up. Cultural Triangle still excellent. Hill country is scenic and cooler. Quieter than July–August, sometimes better prices. West coast begins to dry out by late September.',
+          },
+          {
+            month: 'October',
+            rating: '⭐⭐½',
+            label: 'Transitional',
+            color: 'bg-orange-50 border-orange-200',
+            badge: 'text-orange-700 bg-orange-100',
+            summary: 'Inter-monsoon period — short, unpredictable rain everywhere. Not the ideal month but not impossible. Emil can route around the wet areas. Best avoided if you have date flexibility.',
+          },
+          {
+            month: 'November',
+            rating: '⭐⭐⭐',
+            label: 'Improving',
+            color: 'bg-yellow-50 border-yellow-200',
+            badge: 'text-yellow-700 bg-yellow-100',
+            summary: 'North-east monsoon brings rain to the north and east. West coast starts to dry out by mid-November. Whale watching season begins in Mirissa (Nov–Apr). A reasonable month if you\'re flexible and plan with Emil.',
+          },
+          {
+            month: 'December',
+            rating: '⭐⭐⭐⭐⭐',
+            label: 'Peak Season Begins',
+            color: 'bg-green-50 border-green-200',
+            badge: 'text-green-700 bg-green-100',
+            summary: 'West and south coasts dry out fully. Whale watching begins in Mirissa. Beaches, Galle, Kandy, Sigiriya — all excellent. Festive atmosphere with Christmas and New Year celebrations. Book early — December is one of the busiest months.',
+          },
+        ].map((m, i) => (
+          <div class={`rounded-2xl border p-5 reveal flex items-start gap-5 ${m.color}`} style={`animation-delay:${i * 40}ms`}>
+            <div class="w-28 flex-shrink-0">
+              <p class="font-display text-forest-700 font-semibold text-base">{m.month}</p>
+              <p class="text-xs text-warmgray mt-0.5">{m.rating}</p>
+            </div>
+            <div class="flex-1 min-w-0">
+              <span class={`inline-block text-xs font-bold px-2.5 py-0.5 rounded-full mb-2 ${m.badge}`}>{m.label}</span>
+              <p class="text-warmgray text-sm leading-relaxed">{m.summary}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- For Australians specifically -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p class="section-eyebrow">🇦🇺 For Australian Travellers</p>
+          <h2 class="section-title mb-5">When Should Australians Visit Sri Lanka?</h2>
+          <p class="text-warmgray leading-relaxed mb-4">
+            <strong class="text-forest-700">Great news for Australians — your school holidays align perfectly with Sri Lanka's two best travel seasons.</strong>
+            Emil has guided hundreds of Australian guests from Melbourne, Sydney, Brisbane, and Perth across 14 years.
+          </p>
+          <div class="space-y-4 mb-6">
+            {[
+              {
+                period: 'January School Holidays',
+                flag: '☀️',
+                detail: 'December–March is peak dry season on the west and south coasts. Beaches, Galle Fort, Yala safari, whale watching — all at their best. Emil\'s busiest window. Book 2–3 months ahead.',
+              },
+              {
+                period: 'July School Holidays',
+                flag: '🐘',
+                detail: 'July–August aligns with the east coast season and the Kandy Esala Perahera in August. The most culturally rich time to visit — Emil\'s personal recommendation for first-time Australian visitors.',
+              },
+            ].map(p => (
+              <div class="bg-white border border-stone rounded-2xl p-5">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xl">{p.flag}</span>
+                  <p class="text-forest-700 font-semibold text-sm">{p.period}</p>
+                </div>
+                <p class="text-warmgray text-sm leading-relaxed">{p.detail}</p>
+              </div>
+            ))}
+          </div>
+          <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 text-forest-600 text-sm font-medium hover:text-sunset-400 transition-colors">
+            Ask Emil what month suits your dates →
+          </a>
+        </div>
+        <div class="reveal">
+          <div class="rounded-3xl overflow-hidden shadow-card-hover">
+            <img
+              src={img('destinations/kandy/kandy temple of the tooth.webp')}
+              alt="Kandy Temple of the Tooth — best time to visit Sri Lanka"
+              loading="lazy"
+              width="600" height="450"
+              class="w-full h-72 object-cover"
+            />
+          </div>
+          <div class="mt-4 bg-white rounded-2xl border border-stone p-5 shadow-card">
+            <p class="text-forest-700 font-semibold text-sm mb-3">Emil's recommendation for Australians</p>
+            <ul class="space-y-2 text-warmgray text-sm">
+              {[
+                'First visit? Choose July–August for the Perahera — you\'ll never forget it',
+                'Beaches & relaxation? Choose December–February',
+                'Best of everything? Split 5 days west coast + 5 days Cultural Triangle',
+                'Emil adjusts every itinerary to your exact travel dates',
+              ].map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-forest-600 mt-0.5 shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top destinations by season -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Where to Go</p>
+        <h2 class="section-title mb-3">Best Sri Lanka Destinations by Season</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            name: 'Sigiriya',
+            season: 'Dec–Mar & Jun–Sep',
+            img: img('sigiriya.jpg'),
+            desc: 'The iconic Lion Rock fortress. Best climbed at sunrise with Emil before the heat. Accessible in both dry seasons.',
+          },
+          {
+            name: 'Kandy & Perahera',
+            season: 'Year-round · Peak: Aug',
+            img: img('destinations/kandy/kandy temple of the tooth.webp'),
+            desc: 'The Temple of the Tooth Relic is beautiful year-round. August is peak for the Esala Perahera — plan 2+ nights.',
+          },
+          {
+            name: 'Ella & Hill Country',
+            season: 'Jan–Apr & Jul–Sep',
+            img: img('ella scenic train ride.jpg'),
+            desc: 'The Nine Arches Bridge and world\'s most scenic train ride. Best in clear weather — Jan–Mar is ideal.',
+          },
+          {
+            name: 'Yala Safari',
+            season: 'Dec–Mar (peak)',
+            img: img('yala-safari.jpg'),
+            desc: 'World\'s highest leopard density. Water levels drop in dry season — animals concentrate around waterholes, making sightings easier.',
+          },
+          {
+            name: 'Mirissa Whale Watching',
+            season: 'Nov–Apr',
+            img: img('mirissa whale watching.jpg'),
+            desc: 'Blue whales and sperm whales off the south coast. Peak season is January–March. Emil books sunrise departures.',
+          },
+          {
+            name: 'Trincomalee',
+            season: 'May–Sep',
+            img: img('destinations/sigiriya/sigiriya lions  rock.webp'),
+            desc: 'Sri Lanka\'s finest natural harbour and best east coast beach. Snorkelling, whale sharks, and calm blue water — open May to September.',
+          },
+        ].map((d, i) => (
+          <div class="bg-white rounded-2xl overflow-hidden border border-stone shadow-card hover:shadow-card-hover transition-shadow reveal"
+               style={`animation-delay:${i * 60}ms`}>
+            <div class="relative">
+              <img src={d.img} alt={`${d.name} Sri Lanka best time to visit`} loading="lazy"
+                   width="400" height="250"
+                   class="w-full h-44 object-cover" />
+              <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-forest-700 text-[10px] font-semibold px-2.5 py-1 rounded-full border border-stone">
+                📅 {d.season}
+              </span>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display text-forest-700 text-lg mb-1">{d.name}</h3>
+              <p class="text-warmgray text-xs leading-relaxed">{d.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Monsoon explainer -->
+  <section class="py-20 sm:py-28 bg-ivory">
+    <div class="section-wrap max-w-4xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Understanding the Weather</p>
+        <h2 class="section-title mb-3">Sri Lanka Monsoon Seasons Explained</h2>
+        <p class="text-warmgray max-w-2xl mx-auto text-sm leading-relaxed">
+          Sri Lanka's two monsoons are regional — one coast is always dry. Emil routes your tour
+          to wherever the sun is shining.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 mb-10">
+        {[
+          {
+            name: 'South-West Monsoon (Yala)',
+            period: 'May – September',
+            affects: 'West coast, Colombo, Galle, south-western beaches',
+            dry: 'East coast, Cultural Triangle, Kandy (partially), hill country',
+            color: 'border-blue-200 bg-blue-50',
+            icon: '🌧️',
+          },
+          {
+            name: 'North-East Monsoon (Maha)',
+            period: 'October – January',
+            affects: 'North, east coast, hill country',
+            dry: 'West coast, south coast, Colombo, Galle, Mirissa beaches',
+            color: 'border-teal-200 bg-teal-50',
+            icon: '🌦️',
+          },
+        ].map(m => (
+          <div class={`rounded-2xl border-2 p-6 reveal ${m.color}`}>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-3xl">{m.icon}</span>
+              <div>
+                <p class="font-display text-forest-700 font-semibold">{m.name}</p>
+                <p class="text-warmgray text-xs">{m.period}</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <p class="text-xs font-semibold text-red-600 mb-1">🌧 Affected areas:</p>
+                <p class="text-warmgray text-sm">{m.affects}</p>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-green-700 mb-1">☀️ Dry & sunny:</p>
+                <p class="text-warmgray text-sm">{m.dry}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="bg-forest-gradient rounded-2xl p-6 text-center reveal">
+        <p class="text-white/80 text-sm leading-relaxed max-w-xl mx-auto">
+          <strong class="text-gold-300">Emil's advice:</strong> Don't let the monsoon put you off.
+          Sri Lanka is small enough that you can always route to the dry side.
+          Send Emil your travel dates on WhatsApp and he'll tell you exactly which regions to
+          visit and which to skip.
+        </p>
+        <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
+           class="inline-block mt-4 bg-gold-400 text-forest-800 font-bold text-sm px-6 py-3 rounded-full hover:bg-gold-300 transition-colors">
+          WhatsApp Emil Your Dates →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="section-wrap max-w-3xl mx-auto">
+      <div class="text-center mb-12 reveal">
+        <p class="section-eyebrow">Common Questions</p>
+        <h2 class="section-title mb-3">Best Time to Visit Sri Lanka — FAQ</h2>
+      </div>
+      <dl class="space-y-4">
+        {[
+          {
+            q: 'What is the best time to travel to Sri Lanka?',
+            a: 'Sri Lanka has two main dry seasons. December to March is best for the west and south coasts (beaches, Galle, Yala, whale watching). July to September is best for the east coast and Cultural Triangle. Because the island is small, you can find good weather somewhere year-round. Emil tailors every itinerary to the current season.',
+          },
+          {
+            q: 'What is the best time to visit Sri Lanka from Australia?',
+            a: 'Australian travellers are perfectly placed for both seasons. January school holidays coincide with the December–March west coast dry season — ideal for beaches and cultural sites. July school holidays align with the July–September east coast season, including the Kandy Esala Perahera festival in August.',
+          },
+          {
+            q: 'When is the Kandy Esala Perahera in 2026?',
+            a: 'The Kandy Esala Perahera 2026 takes place in August. It is a 10-night festival featuring 100+ decorated elephants, Kandyan drummers, traditional dancers, and fire performers processing through the streets of Kandy. It is the most spectacular cultural event in Sri Lanka and one of the greatest festivals in all of Asia. Emil organises front-row viewing and plans complete itineraries around the festival.',
+          },
+          {
+            q: 'Is Sri Lanka good to visit in December?',
+            a: 'Yes — December is one of the best months to visit. It marks the start of the west and south coast dry season. Expect sunny days (28–32°C), calm seas perfect for whale watching in Mirissa, and ideal conditions for beaches, Galle Fort, Sigiriya, and Kandy. The island has a festive Christmas and New Year atmosphere.',
+          },
+          {
+            q: 'When is monsoon season in Sri Lanka?',
+            a: 'Sri Lanka has two monsoons. The south-west monsoon (May–September) brings rain to the west coast and Colombo, while the east coast stays dry. The north-east monsoon (October–January) brings rain to the north and east while the west coast is dry. There is no single island-wide rainy season — Emil always routes tours to the dry side.',
+          },
+          {
+            q: 'Can you visit Sri Lanka in April?',
+            a: 'Yes — April is a great month, especially for cultural immersion. The Sinhala and Tamil New Year (April 13–14) is the biggest local festival of the year. Weather is warm and transitional. April is shoulder season — fewer Western tourists and often better rates. Emil particularly enjoys guiding guests through the New Year celebrations.',
+          },
+          {
+            q: 'What is the weather like in August in Sri Lanka?',
+            a: 'August is excellent for Sri Lanka\'s Cultural Triangle, east coast, and Kandy. The west coast may have some afternoon showers, but the hill country and east are mostly dry and warm. August is also when the legendary Kandy Esala Perahera takes place — the highlight of the Sri Lanka travel calendar. Emil\'s busiest and most exciting month to guide.',
+          },
+        ].map((item, i) => (
+          <div class="bg-ivory border border-stone rounded-2xl overflow-hidden reveal" style={`animation-delay:${i * 50}ms`}>
+            <dt>
+              <button class="faq-btn w-full text-left px-6 py-5 font-display text-forest-700 font-semibold text-base flex items-center justify-between gap-4"
+                      aria-expanded="false">
+                {item.q}
+                <span class="text-xl text-gold-500 flex-shrink-0">+</span>
+              </button>
+            </dt>
+            <dd class="overflow-hidden transition-all duration-300" style="max-height:0px">
+              <p class="px-6 pb-5 text-warmgray text-sm leading-relaxed">{item.a}</p>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CTABanner />
+
+  <script>
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dd = btn.closest('dt')!.nextElementSibling as HTMLElement;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        dd.style.maxHeight = open ? '0px' : dd.scrollHeight + 'px';
+        const icon = btn.querySelector('span');
+        if (icon) icon.textContent = open ? '+' : '−';
+      });
+    });
+  </script>
+</BaseLayout>
