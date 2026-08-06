@@ -6,6 +6,7 @@ import ItineraryAccordion from '../../components/tours/ItineraryAccordion';
 import BookingForm from '../../components/tours/BookingForm';
 import TourRouteMap from '../../components/tours/TourRouteMap';
 import TourCard from '../../components/tours/TourCard.astro';
+import ReviewWidget from '../../components/ui/ReviewWidget.astro';
 import { SITE } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -242,4 +243,12 @@ const paceColors: Record<string, string> = {
       </div>
     </section>
   )}
+
+  <!-- Review Section -->
+  <section class="py-16 px-5 sm:px-8 bg-ivory text-center">
+    <h2 class="font-display text-3xl sm:text-4xl text-forest-700 mb-8 reveal">Travelled with Emil?</h2>
+    <div class="reveal max-w-lg mx-auto">
+      <ReviewWidget />
+    </div>
+  </section>
 </BaseLayout>
