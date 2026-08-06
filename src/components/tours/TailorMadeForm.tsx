@@ -3,22 +3,22 @@ import { useState } from 'react';
 interface Interest {
   id:     string;
   label:  string;
-  icon:   string;
+  image:  string;
   badge?: string;
 }
 
 const INTERESTS: Interest[] = [
-  { id: 'wildlife',   label: 'Wildlife & Safaris',      icon: '🐆' },
-  { id: 'culture',   label: 'Temples & Culture',        icon: '🛕' },
-  { id: 'beach',     label: 'Beach & Relaxation',       icon: '🏖️' },
-  { id: 'tea',       label: 'Tea Plantations',          icon: '🍃' },
-  { id: 'adventure', label: 'Hiking & Adventure',       icon: '🥾' },
-  { id: 'train',     label: 'Scenic Train Ride',        icon: '🚂', badge: '4 free tickets' },
-  { id: 'whales',   label: 'Whale Watching',            icon: '🐋' },
-  { id: 'food',     label: 'Local Food & Markets',      icon: '🍛' },
-  { id: 'ayurveda', label: 'Ayurvedic Treatment',       icon: '🌿' },
-  { id: 'gem-store', label: 'Gem Store Visit',          icon: '💎' },
-  { id: 'gem-site',  label: 'Gem Site Visit',           icon: '⛏️' },
+  { id: 'wildlife',   label: 'Wildlife & Safaris',      image: '/images/interests/wildlife.jpg' },
+  { id: 'culture',    label: 'Temples & Culture',       image: '/images/interests/culture.jpg' },
+  { id: 'beach',      label: 'Beach & Relaxation',      image: '/images/interests/beach.jpg' },
+  { id: 'tea',        label: 'Tea Plantations',         image: '/images/interests/tea.jpg' },
+  { id: 'adventure',  label: 'Hiking & Adventure',      image: '/images/interests/adventure.jpg' },
+  { id: 'train',      label: 'Scenic Train Ride',       image: '/images/interests/train.jpg', badge: '4 free tickets' },
+  { id: 'whales',     label: 'Whale Watching',          image: '/images/interests/whales.jpg' },
+  { id: 'food',       label: 'Local Food & Markets',    image: '/images/interests/food.jpg' },
+  { id: 'ayurveda',   label: 'Ayurvedic Treatment',     image: '/images/interests/ayurveda.jpg' },
+  { id: 'gem-store',  label: 'Gem Store Visit',         image: '/images/interests/gem-store.jpg' },
+  { id: 'gem-site',   label: 'Gem Site Visit',          image: '/images/interests/gem-site.jpg' },
 ];
 
 const OCCASIONS = [
@@ -304,7 +304,7 @@ export default function TailorMadeForm({ whatsapp }: Props) {
       <div>
         <SectionHeading n={3} text="What Excites You Most?" />
         <p className="text-warmgray text-xs mb-3">Select all that apply — Emil will weave these into your itinerary.</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {INTERESTS.map(interest => {
             const active = interests.includes(interest.id);
             return (
@@ -312,24 +312,34 @@ export default function TailorMadeForm({ whatsapp }: Props) {
                 key={interest.id}
                 type="button"
                 onClick={() => toggleInterest(interest.id)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium border-2 transition-all duration-200
+                className={`relative overflow-hidden group rounded-xl aspect-[4/3] text-left transition-all duration-300 border-2
                   ${active
-                    ? 'bg-forest-600 border-forest-600 text-white shadow-sm'
-                    : 'bg-white border-stone text-warmbrown hover:border-forest-600/50 hover:bg-forest-600/5'
+                    ? 'border-forest-600 shadow-md scale-[0.98]'
+                    : 'border-transparent hover:border-forest-600/50'
                   }`}
               >
-                <span className="text-base leading-none" aria-hidden="true">{interest.icon}</span>
-                {interest.label}
-                {interest.badge && (
-                  <span
-                    className={`text-[10px] font-semibold px-2 py-0.5 rounded-full leading-none transition-colors
-                      ${active
-                        ? 'bg-white/20 text-white'
-                        : 'bg-gold-400/20 text-gold-600'
-                      }`}
-                  >
-                    {interest.badge}
+                <img 
+                  src={interest.image} 
+                  alt={interest.label} 
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${active ? 'opacity-90' : 'opacity-100'}`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 p-3 flex flex-col justify-end">
+                  <span className="text-white font-medium text-sm leading-tight drop-shadow-md">
+                    {interest.label}
                   </span>
+                  {interest.badge && (
+                    <span className="inline-block mt-1 self-start text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gold-400/95 text-stone-900 leading-none">
+                      {interest.badge}
+                    </span>
+                  )}
+                </div>
+                {active && (
+                  <div className="absolute top-2 right-2 bg-forest-600 text-white rounded-full p-1 shadow-sm animate-fade-in">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
                 )}
               </button>
             );
