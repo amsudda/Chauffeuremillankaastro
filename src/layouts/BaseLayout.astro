@@ -174,12 +174,12 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
     </div>
   </div>
 
-  <style>
+  <style is:global>
     /* ── Overlay base ── */
     #page-transition {
       position: fixed;
       inset: 0;
-      z-index: 9999;
+      z-index: 99999;
       background: #1B3A2D; /* Forest green */
       display: flex;
       align-items: center;
@@ -211,23 +211,27 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
     }
     .spin-slow {
       transform-origin: 50px 50px;
-      animation: spin 8s linear infinite;
+      animation: pt-spin-slow 8s linear infinite;
     }
     .spin-fast {
       transform-origin: 50px 50px;
-      animation: spin 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: pt-spin-fast 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       filter: drop-shadow(0 0 6px rgba(200,168,75,0.4));
     }
     .pt-pin {
       transform-origin: 50px 50px;
-      animation: pulse-pin 2s ease-in-out infinite;
+      animation: pt-pulse-pin 2s ease-in-out infinite;
     }
     
-    @keyframes spin {
+    @keyframes pt-spin-slow {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    @keyframes pulse-pin {
+    @keyframes pt-spin-fast {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pt-pulse-pin {
       0%, 100% { transform: scale(0.95); opacity: 0.8; }
       50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 4px rgba(200,168,75,0.6)); }
     }
@@ -258,15 +262,17 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
   <WhatsAppButton />
   <TripAdvisorButton />
 
-
-
   <!-- Page transition + scroll reveal -->
-  <script>
+  <script is:inline>
     // ── Page transition overlay ──────────────────────────────────────
-    const overlay = document.getElementById('page-transition');
     let minWaitTime = 0;
 
+    function getOverlay() {
+      return document.getElementById('page-transition');
+    }
+
     function showOverlay() {
+      const overlay = getOverlay();
       if (!overlay) return;
       overlay.classList.remove('pt-exit');
       void overlay.offsetWidth;
@@ -275,6 +281,7 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
     }
 
     function hideOverlay() {
+      const overlay = getOverlay();
       if (!overlay) return;
       const delay = Math.max(0, minWaitTime - Date.now());
       setTimeout(() => {
@@ -299,6 +306,14 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
           });
         },
         { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+    }
+
+    // Run on first load and after every page transition
+    initReveal();
+    document.addEventListener('astro:page-load', initReveal);
+  </script>12, rootMargin: '0px 0px -40px 0px' }
       );
       document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
     }
