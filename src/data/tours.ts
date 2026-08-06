@@ -902,7 +902,7 @@ export const TOURS: Tour[] = [
     category:      'Custom Itinerary',
     duration:      '14 Days / 13 Nights',
     durationDays:  14,
-    heroImage:     img('tour_complete_sl_1786017446517.jpg'),
+    heroImage:     img('hero-sri-lanka.jpg'),
     galleryImages: [
       img('destinations/sigiriya/sigiriya lions  rock.webp'),
       img('yala-safari.jpg'),
@@ -1340,7 +1340,7 @@ export const TOURS: Tour[] = [
     category:      'Cultural & Scenic',
     duration:      '14 Days / 13 Nights',
     durationDays:  14,
-    heroImage:     img('tour_signature_exp_1786017466724.jpg'),
+    heroImage:     img('pidurangala rock.webp'),
     galleryImages: [
       img('destinations/Anuradhapura/Anuradhapura.webp'),
       img('destinations/wilpattu.webp'),
