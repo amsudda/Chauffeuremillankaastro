@@ -502,7 +502,7 @@ export const TOURS: Tour[] = [
     category:      'Hill Country',
     duration:      '4 Days / 3 Nights',
     durationDays:  4,
-    heroImage:     img('tour_hill_country_1786017425686.jpg'),
+    heroImage:     img('destinations/Ella/ella homepage herosection image idea.webp'),
     galleryImages: [
       img('tea-country.jpg'),
       img('destinations/Ella/ella 1 nine arch.webp'),
@@ -656,7 +656,7 @@ export const TOURS: Tour[] = [
     category:      'Beach Holiday',
     duration:      '8 Days / 7 Nights',
     durationDays:  8,
-    heroImage:     img('tour_beach_paradise_1786017435230.jpg'),
+    heroImage:     img('destinations/mirissa/mirissa homepage herosection image idea.webp'),
     galleryImages: [
       img('galle-fort.jpg'),
       img('mirissa whale watching.jpg'),
@@ -902,7 +902,7 @@ export const TOURS: Tour[] = [
     category:      'Custom Itinerary',
     duration:      '14 Days / 13 Nights',
     durationDays:  14,
-    heroImage:     img('tour_complete_sl_1786017446517.jpg'),
+    heroImage:     img('hero-sri-lanka.jpg'),
     galleryImages: [
       img('destinations/sigiriya/sigiriya lions  rock.webp'),
       img('yala-safari.jpg'),
@@ -1340,7 +1340,7 @@ export const TOURS: Tour[] = [
     category:      'Cultural & Scenic',
     duration:      '14 Days / 13 Nights',
     durationDays:  14,
-    heroImage:     img('tour_signature_exp_1786017466724.jpg'),
+    heroImage:     img('pidurangala rock.webp'),
     galleryImages: [
       img('destinations/Anuradhapura/Anuradhapura.webp'),
       img('destinations/wilpattu.webp'),
@@ -1793,7 +1793,7 @@ export const TOURS: Tour[] = [
     category:      'Beach Holiday',
     duration:      '20 Days / 19 Nights',
     durationDays:  20,
-    heroImage:     img('tour_southern_sun_1786017477377.jpg'),
+    heroImage:     img('destinations/Galle/galle hero image idea.webp'),
     galleryImages: [
       img('destinations/Anuradhapura/Anuradhapura.webp'),
       img('destinations/sigiriya/sigiriya lions  rock.webp'),
@@ -2383,7 +2383,7 @@ export const TOURS: Tour[] = [
     category:      'Hill Country',
     duration:      '16 Days / 15 Nights',
     durationDays:  16,
-    heroImage:     img('tour_highlands_east_1786017487082.jpg'),
+    heroImage:     img('destinations/Ella/ella homepage herosection image idea.webp'),
     galleryImages: [
       img('destinations/kandy/kandy temple of the tooth.webp'),
       img('tea-country.jpg'),
@@ -2796,7 +2796,7 @@ export const TOURS: Tour[] = [
     category:      'Cultural Tour',
     duration:      '14 Days / 13 Nights',
     durationDays:  14,
-    heroImage:     img('tour_grand_sl_1786017502681.jpg'),
+    heroImage:     img('destinations/sigiriya/sigiriya lions  rock.webp'),
     galleryImages: [
       img('ella scenic train ride.jpg'),
       img('yala-safari.jpg'),
