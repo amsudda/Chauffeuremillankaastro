@@ -35,8 +35,8 @@ function buildSuggestion(data: FormSnapshot): Suggestion {
   if (noInput) {
     return {
       mood: 'default',
-      headline: "Hello, I'm Emil 👋",
-      body: "Start selecting what excites you — your ideal Sri Lanka trip will appear here, live. I'll suggest a route, highlight the best experiences, and share my personal tips as you fill the form.",
+      headline: "Your trip starts here ✨",
+      body: "Start selecting what excites you — your ideal Sri Lanka route will appear here, live. I'll suggest destinations, highlight the best experiences, and share insider tips as you fill the form.",
       tip: "Most guests start with their top 2–3 interests. Try selecting a few!",
     };
   }
@@ -226,18 +226,18 @@ export default function TourAdvisorPanel() {
       {/* Header bar */}
       <div className={`bg-gradient-to-r ${gradientClass} px-5 py-4 transition-all duration-700`}>
         <div className="flex items-center gap-2.5 mb-1">
-          {/* Emil avatar */}
+          {/* Icon */}
           <div className="relative flex-shrink-0">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
             </div>
             {/* Live indicator */}
             <span className={`absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border-2 border-white transition-colors duration-300 ${isUpdating ? 'bg-amber-400' : 'bg-green-400 animate-pulse'}`} />
           </div>
           <div>
-            <p className="text-white font-semibold text-xs leading-none">Emil's Live Suggestion</p>
+            <p className="text-white font-semibold text-xs leading-none">🗺️ Trip Planner</p>
             <p className="text-white/60 text-[10px] leading-none mt-0.5">
               {isUpdating ? 'Thinking…' : hasInput ? 'Updated based on your selections' : 'Fill the form to personalise'}
             </p>
