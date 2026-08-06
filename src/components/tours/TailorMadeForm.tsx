@@ -3,126 +3,22 @@ import { useState } from 'react';
 interface Interest {
   id:     string;
   label:  string;
-  icon:   React.ReactElement;
+  icon:   string;
   badge?: string;
 }
 
 const INTERESTS: Interest[] = [
-  {
-    id: 'wildlife',
-    label: 'Wildlife & Safaris',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="6" cy="13" r="3"/>
-        <circle cx="18" cy="13" r="3"/>
-        <path d="M3 13V9a3 3 0 016 0v4M15 13V9a3 3 0 016 0v4M9 13h6"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'culture',
-    label: 'Temples & Culture',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 21h20M4 21V10m4 11V10m8 11V10m4 11V10M2 10l10-8 10 8"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'beach',
-    label: 'Beach & Relaxation',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'tea',
-    label: 'Tea Plantations',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 8h1a4 4 0 010 8h-1"/>
-        <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
-        <path d="M6 1v3M10 1v3M14 1v3"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'adventure',
-    label: 'Hiking & Adventure',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 20h18L13 6 9 13l-3-3-3 10z"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'train',
-    label: 'Scenic Train Ride',
-    badge: '4 free tickets',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="6" width="18" height="13" rx="2"/>
-        <path d="M8 2h8M12 2v4"/>
-        <path d="M5 21l2-2M19 21l-2-2M3 13h18"/>
-        <circle cx="8.5" cy="17" r="1" fill="currentColor" stroke="none"/>
-        <circle cx="15.5" cy="17" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'whales',
-    label: 'Whale Watching',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M2 10c1.5-3 3-3 4.5 0s3 3 4.5 0 3-3 4.5 0 3 3 4.5 0"/>
-        <path d="M2 17c1.5-3 3-3 4.5 0s3 3 4.5 0 3-3 4.5 0 3 3 4.5 0"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'food',
-    label: 'Local Food & Markets',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 002-2V2M7 2v20"/>
-        <path d="M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'ayurveda',
-    label: 'Ayurvedic Treatment',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22C6.5 22 2 17.5 2 12c0-1.8.5-3.5 1.3-5C4.7 9 7 10 8 12c.7-3 3-5.5 6-6.5C14 8 13 11 14 13c1-2 3-3.5 5-3.5.5 1.5.5 3 0 4.5C17.5 17 15 19.5 12 22z"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'gem-store',
-    label: 'Gem Store Visit',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 3h12l4 6-10 13L2 9z"/>
-        <path d="M11 3L8 9l4 13 4-13-3-6"/>
-        <path d="M2 9h20"/>
-      </svg>
-    ),
-  },
-  {
-    id: 'gem-site',
-    label: 'Gem Site Visit',
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"/>
-        <path d="M21 21l-4.35-4.35"/>
-        <path d="M8 11h6M11 8v6"/>
-      </svg>
-    ),
-  },
+  { id: 'wildlife',   label: 'Wildlife & Safaris',      icon: '🐆' },
+  { id: 'culture',   label: 'Temples & Culture',        icon: '🛕' },
+  { id: 'beach',     label: 'Beach & Relaxation',       icon: '🏖️' },
+  { id: 'tea',       label: 'Tea Plantations',          icon: '🍃' },
+  { id: 'adventure', label: 'Hiking & Adventure',       icon: '🥾' },
+  { id: 'train',     label: 'Scenic Train Ride',        icon: '🚂', badge: '4 free tickets' },
+  { id: 'whales',   label: 'Whale Watching',            icon: '🐋' },
+  { id: 'food',     label: 'Local Food & Markets',      icon: '🍛' },
+  { id: 'ayurveda', label: 'Ayurvedic Treatment',       icon: '🌿' },
+  { id: 'gem-store', label: 'Gem Store Visit',          icon: '💎' },
+  { id: 'gem-site',  label: 'Gem Site Visit',           icon: '⛏️' },
 ];
 
 const OCCASIONS = [
@@ -422,7 +318,7 @@ export default function TailorMadeForm({ whatsapp }: Props) {
                     : 'bg-white border-stone text-warmbrown hover:border-forest-600/50 hover:bg-forest-600/5'
                   }`}
               >
-                {interest.icon}
+                <span className="text-base leading-none" aria-hidden="true">{interest.icon}</span>
                 {interest.label}
                 {interest.badge && (
                   <span
