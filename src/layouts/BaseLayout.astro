@@ -4,6 +4,7 @@ import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import WhatsAppButton from '../components/ui/WhatsAppButton.astro';
 import TripAdvisorButton from '../components/ui/TripAdvisorButton.astro';
+import { ViewTransitions } from 'astro:transitions';
 import { SITE } from '../data/site';
 import { img } from '../data/imageUrls';
 
@@ -136,6 +137,9 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" />
   </noscript>
 
+  <!-- Astro View Transitions (smooth cross-page navigation) -->
+  <ViewTransitions />
+
   <!-- Per-page structured data injected here -->
   <slot name="head" />
 
@@ -151,9 +155,116 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
 
 <body class="min-h-screen flex flex-col">
 
+  <!-- ═══ Page Transition Overlay ════════════════════════════════════ -->
+  <div id="page-transition" aria-hidden="true">
+    <div class="pt-scene">
+      <!-- Dotted trail -->
+      <div class="pt-trail">
+        <div class="pt-trail-line"></div>
+      </div>
+      <!-- Plane -->
+      <div class="pt-plane">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 32L56 8L44 32L56 56L8 32Z" fill="#C8A84B" stroke="#C8A84B" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M44 32L20 38L20 48L30 40" fill="#F5E6C0" stroke="#C8A84B" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M44 32L20 26L20 16L30 24" fill="#F5E6C0" stroke="#C8A84B" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <!-- Brand name -->
+      <div class="pt-brand">Chauffeur Emil Lanka Tours</div>
+    </div>
+  </div>
 
+  <style>
+    /* ── Overlay base ── */
+    #page-transition {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #1B3A2D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    #page-transition.pt-enter  { opacity: 1; pointer-events: all; }
+    #page-transition.pt-exit   { opacity: 0; pointer-events: none; }
 
+    /* ── Scene ── */
+    .pt-scene {
+      position: relative;
+      width: min(520px, 90vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
 
+    /* ── Trail ── */
+    .pt-trail {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      overflow: visible;
+    }
+    .pt-trail-line {
+      position: absolute;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0;
+      background: repeating-linear-gradient(
+        to right,
+        #C8A84B 0px, #C8A84B 8px,
+        transparent 8px, transparent 18px
+      );
+      border-radius: 2px;
+      transition: width 0s;
+    }
+    #page-transition.pt-enter .pt-trail-line {
+      animation: grow-trail 0.9s ease-out 0.15s forwards;
+    }
+    @keyframes grow-trail {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+
+    /* ── Plane ── */
+    .pt-plane {
+      position: absolute;
+      top: 50%;
+      left: -64px;
+      width: 52px;
+      height: 52px;
+      transform: translateY(-50%);
+      filter: drop-shadow(0 2px 8px rgba(200,168,75,0.35));
+    }
+    #page-transition.pt-enter .pt-plane {
+      animation: fly-plane 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+    }
+    @keyframes fly-plane {
+      from { left: -64px; opacity: 0.5; }
+      10%  { opacity: 1; }
+      to   { left: calc(100% + 20px); opacity: 1; }
+    }
+
+    /* ── Brand ── */
+    .pt-brand {
+      margin-top: 28px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      color: rgba(245,230,192,0.75);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+    }
+    #page-transition.pt-enter .pt-brand {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 
   <Header />
 
@@ -167,20 +278,50 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
 
 
 
-  <!-- Scroll reveal script -->
+  <!-- Page transition + scroll reveal -->
   <script>
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ── Page transition overlay ──────────────────────────────────────
+    const overlay = document.getElementById('page-transition');
+
+    function showOverlay() {
+      if (!overlay) return;
+      overlay.classList.remove('pt-exit');
+      // Force reflow so animation restarts
+      void overlay.offsetWidth;
+      overlay.classList.add('pt-enter');
+    }
+
+    function hideOverlay() {
+      if (!overlay) return;
+      overlay.classList.add('pt-exit');
+      setTimeout(() => overlay.classList.remove('pt-enter', 'pt-exit'), 300);
+    }
+
+    // Astro ViewTransitions lifecycle hooks
+    document.addEventListener('astro:before-preparation', showOverlay);
+    document.addEventListener('astro:page-load', () => {
+      setTimeout(hideOverlay, 120);
+    });
+
+    // ── Scroll reveal ────────────────────────────────────────────────
+    function initReveal() {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
+    }
+
+    // Run on first load and after every page transition
+    initReveal();
+    document.addEventListener('astro:page-load', initReveal);
   </script>
 </body>
 </html>
