@@ -157,17 +157,20 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
 
   <!-- ═══ Page Transition Overlay ════════════════════════════════════ -->
   <div id="page-transition" transition:persist="page-transition" aria-hidden="true">
-    <div class="pt-scene">
-      <!-- Dotted trail -->
-      <div class="pt-trail">
-        <div class="pt-trail-line"></div>
-      </div>
-      <!-- Plane -->
-      <div class="pt-plane">
-        <img src="/images/real-plane.png" alt="" class="w-full h-full object-contain drop-shadow-md transform -rotate-45" />
+    <div class="pt-content">
+      <!-- Elegant Travel Spinner -->
+      <div class="pt-spinner-wrapper">
+        <svg class="pt-spinner" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer dashed ring (spins slowly clockwise) -->
+          <circle cx="50" cy="50" r="42" stroke="rgba(200,168,75,0.25)" stroke-width="1.5" stroke-dasharray="4 6" class="spin-slow" />
+          <!-- Inner ring with glowing trail (spins fast clockwise) -->
+          <circle cx="50" cy="50" r="32" stroke="#C8A84B" stroke-width="2.5" stroke-dasharray="140 201" stroke-linecap="round" class="spin-fast" />
+          <!-- Center Map Pin -->
+          <path d="M50 36C45 36 41 40 41 45C41 52.5 50 64 50 64C50 64 59 52.5 59 45C59 40 55 36 50 36ZM50 49C47.8 49 46 47.2 46 45C46 42.8 47.8 41 50 41C52.2 41 54 42.8 54 45C54 47.2 52.2 49 50 49Z" fill="#C8A84B" class="pt-pin" />
+        </svg>
       </div>
       <!-- Brand name -->
-      <div class="pt-brand">Chauffeur Emil Lanka Tours</div>
+      <div class="pt-brand">Preparing your journey...</div>
     </div>
   </div>
 
@@ -177,84 +180,67 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background: #1B3A2D;
+      background: #1B3A2D; /* Forest green */
       display: flex;
       align-items: center;
       justify-content: center;
       pointer-events: none;
       opacity: 0;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.4s ease;
     }
     #page-transition.pt-enter  { opacity: 1; pointer-events: all; }
     #page-transition.pt-exit   { opacity: 0; pointer-events: none; }
 
-    /* ── Scene ── */
-    .pt-scene {
-      position: relative;
-      width: min(520px, 90vw);
+    /* ── Content ── */
+    .pt-content {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
+      gap: 24px;
     }
 
-    /* ── Trail ── */
-    .pt-trail {
+    /* ── Spinner ── */
+    .pt-spinner-wrapper {
+      width: 72px;
+      height: 72px;
       position: relative;
+    }
+    .pt-spinner {
       width: 100%;
-      height: 2px;
-      overflow: visible;
+      height: 100%;
     }
-    .pt-trail-line {
-      position: absolute;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0;
-      background: repeating-linear-gradient(
-        to right,
-        #C8A84B 0px, #C8A84B 8px,
-        transparent 8px, transparent 18px
-      );
-      border-radius: 2px;
-      transition: width 0s;
+    .spin-slow {
+      transform-origin: 50px 50px;
+      animation: spin 8s linear infinite;
     }
-    #page-transition.pt-enter .pt-trail-line {
-      animation: grow-trail 0.9s ease-out 0.15s forwards;
+    .spin-fast {
+      transform-origin: 50px 50px;
+      animation: spin 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      filter: drop-shadow(0 0 6px rgba(200,168,75,0.4));
     }
-    @keyframes grow-trail {
-      from { width: 0; }
-      to   { width: 100%; }
+    .pt-pin {
+      transform-origin: 50px 50px;
+      animation: pulse-pin 2s ease-in-out infinite;
     }
-
-    /* ── Plane ── */
-    .pt-plane {
-      position: absolute;
-      top: 50%;
-      left: -64px;
-      width: 52px;
-      height: 52px;
-      transform: translateY(-50%);
-      filter: drop-shadow(0 2px 8px rgba(200,168,75,0.35));
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
-    #page-transition.pt-enter .pt-plane {
-      animation: fly-plane 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
-    }
-    @keyframes fly-plane {
-      from { left: -64px; opacity: 0.5; }
-      10%  { opacity: 1; }
-      to   { left: calc(100% + 20px); opacity: 1; }
+    @keyframes pulse-pin {
+      0%, 100% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 0 4px rgba(200,168,75,0.6)); }
     }
 
-    /* ── Brand ── */
+    /* ── Brand Text ── */
     .pt-brand {
-      margin-top: 28px;
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      color: rgba(245,230,192,0.75);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: rgba(245,230,192,0.9);
       opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
     }
     #page-transition.pt-enter .pt-brand {
       opacity: 1;
@@ -278,26 +264,28 @@ const ogLocale = lang === 'en' ? 'en_US' : lang.replace('-', '_');
   <script>
     // ── Page transition overlay ──────────────────────────────────────
     const overlay = document.getElementById('page-transition');
+    let minWaitTime = 0;
 
     function showOverlay() {
       if (!overlay) return;
       overlay.classList.remove('pt-exit');
-      // Force reflow so animation restarts
       void overlay.offsetWidth;
       overlay.classList.add('pt-enter');
+      minWaitTime = Date.now() + 800; // Enforce minimum 800ms display time
     }
 
     function hideOverlay() {
       if (!overlay) return;
-      overlay.classList.add('pt-exit');
-      setTimeout(() => overlay.classList.remove('pt-enter', 'pt-exit'), 300);
+      const delay = Math.max(0, minWaitTime - Date.now());
+      setTimeout(() => {
+        overlay.classList.add('pt-exit');
+        setTimeout(() => overlay.classList.remove('pt-enter', 'pt-exit'), 400);
+      }, delay);
     }
 
     // Astro ViewTransitions lifecycle hooks
     document.addEventListener('astro:before-preparation', showOverlay);
-    document.addEventListener('astro:page-load', () => {
-      setTimeout(hideOverlay, 120);
-    });
+    document.addEventListener('astro:page-load', hideOverlay);
 
     // ── Scroll reveal ────────────────────────────────────────────────
     function initReveal() {
