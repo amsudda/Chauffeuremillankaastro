@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TourCard from '../../components/tours/TourCard.astro';
 import CTABanner from '../../components/home/CTABanner.astro';
 import { TOURS, TOUR_CATEGORIES } from '../../data/tours';
+import { img } from '../../data/imageUrls';
 
 const categories = ['All', 'Wildlife Safari', 'Cultural Tour', 'Hill Country', 'Beach Holiday', 'Custom Itinerary'];
 ---
@@ -14,10 +15,10 @@ const categories = ['All', 'Wildlife Safari', 'Cultural Tour', 'Hill Country', '
   <!-- Page hero -->
   <section class="relative bg-forest-gradient pt-28 pb-16 sm:pt-36 sm:pb-20 overflow-hidden">
     <!-- Subtle texture overlay -->
-    <div class="absolute inset-0 opacity-10"
-         style="background-image: url(https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1200&q=30&fit=crop); background-size: cover; background-position: center">
+    <div class="absolute inset-0 opacity-30"
+         style={`background-image: url("${img('Emil images himself/emil group.webp')}"); background-size: cover; background-position: center 30%;`}>
     </div>
-    <div class="absolute inset-0 bg-forest-gradient opacity-90"></div>
+    <div class="absolute inset-0 bg-forest-gradient opacity-80"></div>
 
     <div class="relative z-10 section-wrap text-center">
       <p class="section-eyebrow">All Journeys</p>
