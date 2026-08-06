@@ -93,12 +93,33 @@ const INTERESTS: Interest[] = [
     ),
   },
   {
-    id: 'photography',
-    label: 'Photography',
+    id: 'ayurveda',
+    label: 'Ayurvedic Treatment',
     icon: (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-        <circle cx="12" cy="13" r="4"/>
+        <path d="M12 22C6.5 22 2 17.5 2 12c0-1.8.5-3.5 1.3-5C4.7 9 7 10 8 12c.7-3 3-5.5 6-6.5C14 8 13 11 14 13c1-2 3-3.5 5-3.5.5 1.5.5 3 0 4.5C17.5 17 15 19.5 12 22z"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'gem-store',
+    label: 'Gem Store Visit',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6 3h12l4 6-10 13L2 9z"/>
+        <path d="M11 3L8 9l4 13 4-13-3-6"/>
+        <path d="M2 9h20"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'gem-site',
+    label: 'Gem Site Visit',
+    icon: (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="M21 21l-4.35-4.35"/>
+        <path d="M8 11h6M11 8v6"/>
       </svg>
     ),
   },
