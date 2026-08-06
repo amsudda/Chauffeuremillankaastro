@@ -312,35 +312,36 @@ export default function TailorMadeForm({ whatsapp }: Props) {
                 key={interest.id}
                 type="button"
                 onClick={() => toggleInterest(interest.id)}
-                className={`relative overflow-hidden group rounded-xl aspect-[4/3] text-left transition-all duration-300 border-2
+                className={`flex flex-col group rounded-xl text-left transition-all duration-300 border-2 bg-white overflow-hidden
                   ${active
                     ? 'border-forest-600 shadow-md scale-[0.98]'
-                    : 'border-transparent hover:border-forest-600/50'
+                    : 'border-stone shadow-sm hover:border-forest-600/50 hover:shadow-md'
                   }`}
               >
-                <img 
-                  src={interest.image} 
-                  alt={interest.label} 
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${active ? 'opacity-90' : 'opacity-100'}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute inset-0 p-3 flex flex-col justify-end">
-                  <span className="text-white font-medium text-sm leading-tight drop-shadow-md">
+                <div className="relative aspect-[3/2] overflow-hidden w-full">
+                  <img 
+                    src={interest.image} 
+                    alt={interest.label} 
+                    className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${active ? 'opacity-90' : 'opacity-100'}`}
+                  />
+                  {active && (
+                    <div className="absolute top-2 right-2 bg-forest-600 text-white rounded-full p-1 shadow-sm animate-fade-in z-10">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                    </div>
+                  )}
+                </div>
+                <div className="p-3 flex flex-col flex-grow justify-center border-t border-stone/30">
+                  <span className={`font-medium text-sm leading-tight transition-colors ${active ? 'text-forest-700 font-semibold' : 'text-warmbrown'}`}>
                     {interest.label}
                   </span>
                   {interest.badge && (
-                    <span className="inline-block mt-1 self-start text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gold-400/95 text-stone-900 leading-none">
+                    <span className="inline-block mt-1.5 self-start text-[10px] font-semibold px-2 py-0.5 rounded-full bg-gold-100 text-gold-700 leading-none">
                       {interest.badge}
                     </span>
                   )}
                 </div>
-                {active && (
-                  <div className="absolute top-2 right-2 bg-forest-600 text-white rounded-full p-1 shadow-sm animate-fade-in">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  </div>
-                )}
               </button>
             );
           })}
