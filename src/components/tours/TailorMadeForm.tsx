@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Interest {
   id:     string;
@@ -63,6 +63,16 @@ export default function TailorMadeForm({ whatsapp }: Props) {
 
   const toggleInterest = (id: string) =>
     setInterests(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
+
+  // Broadcast form state to TourAdvisorPanel whenever key fields change
+  useEffect(() => {
+    const totalTravelers = infants + children + teens + youngAdults + adults;
+    const hasKids = (infants + children) > 0;
+    window.dispatchEvent(new CustomEvent('tailormade-form-update', {
+      detail: { interests, occasion, travelStyle, arrivalDate, departureDate, totalTravelers, hasKids },
+    }));
+  }, [interests, occasion, travelStyle, arrivalDate, departureDate, infants, children, teens, youngAdults, adults]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

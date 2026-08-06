@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TailorMadeForm from '../components/tours/TailorMadeForm';
+import TourAdvisorPanel from '../components/tours/TourAdvisorPanel';
 import { SITE } from '../data/site';
 import { img } from '../data/imageUrls';
 ---
@@ -206,6 +207,9 @@ import { img } from '../data/imageUrls';
                 </div>
               </div>
             </div>
+
+            <!-- Live AI Advisor Panel -->
+            <TourAdvisorPanel client:load />
 
           </div>
         </aside>
