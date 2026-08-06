@@ -19,6 +19,8 @@ const INTERESTS: Interest[] = [
   { id: 'ayurveda',   label: 'Ayurvedic Treatment',     image: '/images/interests/ayurveda.jpg' },
   { id: 'gem-store',  label: 'Gem Store Visit',         image: '/images/interests/gem-store.jpg' },
   { id: 'gem-site',   label: 'Gem Site Visit',          image: '/images/interests/gem-site.jpg' },
+  { id: 'cooking',    label: 'Traditional Cooking Class', image: '/images/interests/cooking-class.jpg' },
+  { id: 'trekking',   label: 'Sinharaja Forest Trekking', image: '/images/interests/trekking.jpg' },
 ];
 
 const OCCASIONS = [
