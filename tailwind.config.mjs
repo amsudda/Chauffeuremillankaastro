@@ -48,6 +48,7 @@ export default {
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         body:    ['Inter', 'system-ui', 'sans-serif'],
+        apple:   ['"SF Pro Display"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
         accent:  ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       fontSize: {
