@@ -80,7 +80,7 @@ export const TOURS: Tour[] = [
     category:      'Wildlife Safari',
     duration:      '7 Days / 6 Nights',
     durationDays:  7,
-    heroImage:     img('yala-safari.jpg'),
+    heroImage:     '/images/tours/wildlife-safari.jpg',
     galleryImages: [
       img('yala-safari.jpg'),
       img('sinharaja rain forest jungle animal.webp'),
@@ -329,7 +329,7 @@ export const TOURS: Tour[] = [
     category:      'Cultural Tour',
     duration:      '5 Days / 4 Nights',
     durationDays:  5,
-    heroImage:     img('sigiriya.jpg'),
+    heroImage:     '/images/tours/cultural-triangle.jpg',
     galleryImages: [
       img('sigiriya.jpg'),
       img('destinations/polonnaruwa/polonnaruwa.webp'),
